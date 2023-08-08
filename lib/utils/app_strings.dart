@@ -10,7 +10,7 @@ class AppString {
   //--------------------Muhammad Tahir -----------------------------------
 
   //--------------------Abubaker Saeed -----------------------------------
-
+  static const String searchBarIcon = 'assets/icons/searchbar_icon.png';
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------
