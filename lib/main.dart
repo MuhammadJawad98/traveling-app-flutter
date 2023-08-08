@@ -8,6 +8,6 @@ import 'package:traveling_app_flutter/views/sign_up_screen/sign_up_screen_widget
 void main(List<String> args) {
   runApp(MaterialApp(
     //theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-    home: SafeArea(child: SignInPageScreenWidget()),
+    home: SafeArea(child: SignUpScreenWidget()),
   ));
 }

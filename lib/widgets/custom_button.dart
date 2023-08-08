@@ -25,7 +25,8 @@ class CustomTextButton extends StatelessWidget {
       required this.radius,
       this.addIcon = false,
       required this.fontSize,
-      this.fontColor = Colors.white, this.fontWeight});
+      this.fontColor = Colors.white,
+      this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +49,12 @@ class CustomTextButton extends StatelessWidget {
                   width: 10,
                 ),
                 Text(
-                  textAlign: TextAlign.center,
-                  buttonText,
-                  style: TextStyle(color: fontColor, fontSize: fontSize ,fontWeight: ),
-                )
+                    textAlign: TextAlign.center,
+                    buttonText,
+                    style: TextStyle(
+                        color: fontColor,
+                        fontSize: fontSize,
+                        fontWeight: fontWeight))
               ]),
         ),
       ),
