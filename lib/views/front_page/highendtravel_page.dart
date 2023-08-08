@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/Views/highendtravel_page.dart';
 import 'package:traveling_app_flutter/utils/app_constants.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 
-import '../widgets/custom_image.dart';
+import '../../widgets/custom_image.dart';
 import 'highendleisureproject_page.dart';
 
 class HighEndTravel extends StatelessWidget {
