@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/Views/front_page.dart';
+
+import '../views/front_page/front_page.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -32,7 +33,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_balance_wallet),

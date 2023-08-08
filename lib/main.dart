@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/widgets/bottom_navigationbar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:traveling_app_flutter/views/home_page/home_page.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      // home page widget
-      home: const MyBottomNavigationBar(),
-    );
-  }
+void main(List<String> args) {
+  runApp(MaterialApp(
+    theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
+    home: SafeArea(child: homePageScreenWidget()),
+  ));
 }
