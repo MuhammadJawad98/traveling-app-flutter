@@ -16,38 +16,42 @@ class MakePlan extends StatelessWidget {
             body: Padding(
                 padding:
                     EdgeInsets.all(GetScreenSize.getScreenWidth(context) * 0.1),
-                child: Column(children: [
-                  CustomImage(
-                      img: AppString.image2,
-                      height: GetScreenSize.getScreenWidth(context) * 0.67,
-                      width: GetScreenSize.getScreenWidth(context) * 0.67),
-                  SizedBox(
-                      height: GetScreenSize.getScreenWidth(context) * 0.05),
-                  Text(
-                    AppString.heading2,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: GetScreenSize.getScreenWidth(context) * 0.07),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                      height: GetScreenSize.getScreenWidth(context) * 0.06),
-                  Text(
-                    AppString.description2,
-                    style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Colors.grey.shade400,
-                        fontSize: GetScreenSize.getScreenWidth(context) * 0.04),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                      height: GetScreenSize.getScreenWidth(context) * 0.05),
-                  CustomButton(
-                      width: GetScreenSize.getScreenWidth(context) * 0.125,
-                      onTap: () {
-                        tapbutton(context);
-                      }),
-                ]))));
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    CustomImage(
+                        img: AppString.image2,
+                        height: GetScreenSize.getScreenWidth(context) * 0.67,
+                        width: GetScreenSize.getScreenWidth(context) * 0.67),
+                    SizedBox(
+                        height: GetScreenSize.getScreenWidth(context) * 0.05),
+                    Text(
+                      AppString.heading2,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:
+                              GetScreenSize.getScreenWidth(context) * 0.07),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                        height: GetScreenSize.getScreenWidth(context) * 0.06),
+                    Text(
+                      AppString.description2,
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: Colors.grey.shade400,
+                          fontSize:
+                              GetScreenSize.getScreenWidth(context) * 0.04),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                        height: GetScreenSize.getScreenWidth(context) * 0.05),
+                    CustomButton(
+                        width: GetScreenSize.getScreenWidth(context) * 0.125,
+                        onTap: () {
+                          tapbutton(context);
+                        }),
+                  ]),
+                ))));
   }
 
   void tapbutton(BuildContext context) {
