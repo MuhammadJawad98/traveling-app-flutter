@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:traveling_app_flutter/views/friend_communication_page/friend_communication_page.dart';
 
 import '../views/front_page/front_page.dart';
 
@@ -17,7 +18,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return Scaffold(
       body: _getPage(_currentIndex),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
@@ -62,7 +63,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       case 2:
         return const FrontPage();
       case 3:
-        return const FrontPage();
+        return const FriendCommunicatioPage();
       default:
         return Container();
     }
