@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/Views/splash_screen.dart';
-import 'package:traveling_app_flutter/widgets/bottom_navigationbar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:traveling_app_flutter/views/home_page/home_page.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
-  }
+void main(List<String> args) {
+  runApp(MaterialApp(
+    theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
+    home: SafeArea(child: homePageScreenWidget()),
+  ));
 }
