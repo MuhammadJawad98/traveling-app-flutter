@@ -13,6 +13,7 @@ class CustomTextButton extends StatelessWidget {
   final VoidCallback onTab;
   final double radius;
   final double? fontSize;
+  final FontWeight? fontWeight;
   const CustomTextButton(
       {super.key,
       required this.height,
@@ -24,7 +25,8 @@ class CustomTextButton extends StatelessWidget {
       required this.radius,
       this.addIcon = false,
       required this.fontSize,
-      this.fontColor = Colors.white});
+      this.fontColor = Colors.white,
+      this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,10 @@ class CustomTextButton extends StatelessWidget {
                 Text(
                   textAlign: TextAlign.center,
                   buttonText,
-                  style: TextStyle(color: fontColor, fontSize: fontSize),
+                  style: TextStyle(
+                      color: fontColor,
+                      fontSize: fontSize,
+                      fontWeight: fontWeight),
                 )
               ]),
         ),
