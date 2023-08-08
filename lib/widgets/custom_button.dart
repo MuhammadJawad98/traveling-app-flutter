@@ -9,6 +9,7 @@ class CustomTextButton extends StatelessWidget {
   final bool addIcon;
   final String buttonText;
   final Color buttonColor;
+  final Color fontColor;
   final VoidCallback onTab;
   final double radius;
   final double? fontSize;
@@ -22,7 +23,8 @@ class CustomTextButton extends StatelessWidget {
       required this.buttonColor,
       required this.radius,
       this.addIcon = false,
-      required this.fontSize});
+      required this.fontSize,
+      this.fontColor = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +49,7 @@ class CustomTextButton extends StatelessWidget {
                 Text(
                   textAlign: TextAlign.center,
                   buttonText,
-                  style: TextStyle(
-                      color: AppColors.btnTextColor, fontSize: fontSize),
+                  style: TextStyle(color: fontColor, fontSize: fontSize),
                 )
               ]),
         ),

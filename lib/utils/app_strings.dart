@@ -8,6 +8,21 @@ class AppString {
   //--------------------Talha Saeed -----------------------------------
 
   //--------------------Muhammad Tahir -----------------------------------
+  static String btnContinue = "Contiue";
+  static String btnChange = "Change";
+  static String btnSaveSetting = "Save Setting";
+  static String btnApple = "Continue with Apple";
+  static String btnFacebook = "Continue with Facebook";
+  static String dividerText = "Or Continue With ";
+
+  static String emailText = "E-mail address";
+  static String passwordText = "Password";
+  static String confirmPasswordText = "Confirm Password";
+  static String authenticateText = "Authenticate";
+  static String title = "Alan Love";
+  static String signUpfreeText = "Sign up free";
+  static String termsOfServicesPart1 = "I have read the ";
+  static String termsOfServicesPart2 = "Terms of Service";
 
   //--------------------Abubaker Saeed -----------------------------------
 

@@ -14,6 +14,7 @@ class AppColors {
   static const facebookColorButton = Color.fromRGBO(59, 88, 150, 1);
   static const blackColorButton = Color.fromRGBO(31, 31, 31, 1);
   static const btnTextColor = Colors.white;
+  static const dividerColor = Color.fromRGBO(232, 232, 232, 1);
   static const screenTextColor = Color.fromRGBO(173, 173, 173, 1);
   //--------------------Abubaker Saeed -----------------------------------
 
