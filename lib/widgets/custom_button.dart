@@ -12,9 +12,11 @@ class CustomTextButton extends StatelessWidget {
   final VoidCallback onTab;
   final double radius;
   final double? fontSize;
+  final Color textcolor;
   const CustomTextButton(
       {super.key,
       required this.height,
+      required this.textcolor,
       required this.width,
       this.icon,
       required this.onTab,
@@ -32,25 +34,20 @@ class CustomTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         onTap: onTab,
         child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius), color: buttonColor),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius), color: buttonColor),
           height: height,
           width: width,
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (addIcon) icon!,
-                const CustomSizedBox(
-                  width: 10,
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  buttonText,
-                  style: TextStyle(
-                      color: AppColors.btnTextColor, fontSize: fontSize),
-                )
-              ]),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [
+            if (addIcon) icon!,
+            const CustomSizedBox(
+              width: 10,
+            ),
+            Text(
+              textAlign: TextAlign.center,
+              buttonText,
+              style: TextStyle(color: textcolor, fontSize: fontSize),
+            )
+          ]),
         ),
       ),
     );
