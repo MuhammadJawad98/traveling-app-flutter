@@ -1,3 +1,7 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
 class AppColors {
   /*  kindly write data in your own Sections
   
@@ -6,7 +10,11 @@ class AppColors {
   //--------------------Talha Saeed -----------------------------------
 
   //--------------------Muhammad Tahir -----------------------------------
-
+  static const blueButton = Color.fromRGBO(3, 115, 243, 1);
+  static const facebookColorButton = Color.fromRGBO(59, 88, 150, 1);
+  static const blackColorButton = Color.fromRGBO(31, 31, 31, 1);
+  static const btnTextColor = Colors.white;
+  static const screenTextColor = Color.fromRGBO(173, 173, 173, 1);
   //--------------------Abubaker Saeed -----------------------------------
 
   //-------------------- Bhi Usman  -----------------------------------
