@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/Views/front_page.dart';
+
+import '../views/front_page/front_page.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});

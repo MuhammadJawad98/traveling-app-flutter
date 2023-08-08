@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GetScreenSize {
+  // Do not Change this Class
   static Size getScreenSize(BuildContext context) {
     return MediaQuery.of(context).size;
   }
@@ -11,6 +12,5 @@ class GetScreenSize {
 
   static double getScreenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
-    //all pull
   }
 }
