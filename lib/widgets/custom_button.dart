@@ -23,16 +23,13 @@ class CustomButton extends StatelessWidget {
       child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: onTap,
-          child: Stack(children: <Widget>[
-            Container(
-              width: width,
-              padding: const EdgeInsets.all(20),
-              child: const Icon(
-                Icons.arrow_forward_rounded,
-                color: Colors.white,
-              ),
+          child: const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Icon(
+              Icons.arrow_forward_rounded,
+              color: Colors.white,
             ),
-          ])),
+          )),
     );
   }
 }
