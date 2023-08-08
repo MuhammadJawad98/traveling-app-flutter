@@ -32,7 +32,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_balance_wallet),
