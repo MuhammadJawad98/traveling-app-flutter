@@ -11,5 +11,6 @@ class GetScreenSize {
 
   static double getScreenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
+    //print
   }
 }
