@@ -30,7 +30,7 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
           subtitle: CustomText(text: AppString.fCPsubtitletitle, color: AppColors.talhagrey, size: 16, maxline: 1, fontWeight: FontWeight.w400),
           trailing: CustomTextButton(
               height: GetScreenSize.getScreenHeight(context) * 0.06,
-              textcolor: AppColors.talhawhite,
+              fontColor: AppColors.talhawhite,
               width: GetScreenSize.getScreenWidth(context) * 0.26,
               onTab: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const YourSociallinkPage())),
               buttonText: AppString.fCPcardtext,
