@@ -21,8 +21,8 @@ class _VerticalImageState extends State<VerticalImage> {
       child: Stack(
         children: [
           SizedBox(
-            height: GetScreenSize.getScreenHeight(context) * 0.2,
-            width: GetScreenSize.getScreenWidth(context) * 0.6,
+            height: GetScreenSize.getScreenWidth(context) * 1.6,
+            width: GetScreenSize.getScreenWidth(context) * 0.65,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: ClipRRect(
