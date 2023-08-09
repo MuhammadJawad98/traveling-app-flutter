@@ -57,11 +57,11 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const FrontPage();
+        return FrontPage();
       case 1:
-        return const FrontPage();
+        return FrontPage();
       case 2:
-        return const FrontPage();
+        return FrontPage();
       case 3:
         return const FriendCommunicatioPage();
       default:
