@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:traveling_app_flutter/utils/media_query.dart';
 
 class MySearchBar extends StatefulWidget {
   final double height;
@@ -26,12 +27,21 @@ class _MySearchBarState extends State<MySearchBar> {
           width: 1,
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.0),
+      child: Padding(
+        padding: EdgeInsets.all(GetScreenSize.getScreenWidth(context) * 0.009),
         child: TextField(
+          style: TextStyle(
+              fontSize: GetScreenSize.getScreenWidth(context) *
+                  0.04), // Set font size for entered text
           decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search),
+            prefixIcon: Icon(
+              Icons.search,
+              size: GetScreenSize.getScreenWidth(context) * 0.07,
+            ),
             hintText: 'Search',
+            hintStyle: TextStyle(
+                fontSize: GetScreenSize.getScreenWidth(context) *
+                    0.04), // Set font size for hint text
             border: InputBorder.none,
           ),
         ),
