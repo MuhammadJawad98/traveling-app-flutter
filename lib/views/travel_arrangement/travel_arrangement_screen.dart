@@ -34,7 +34,7 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
             AppString.addIti,
             style: TextStyle(color: Colors.black),
           ),
-          bottom: const TabBar(
+          bottom: TabBar(
             indicatorColor: Colors.blue,
             indicatorWeight: 3,
             // indicatorPadding: EdgeInsets.only(top: 10),

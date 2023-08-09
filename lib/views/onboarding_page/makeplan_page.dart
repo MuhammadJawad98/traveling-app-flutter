@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
-import 'package:traveling_app_flutter/utils/app_constants.dart';
+import 'package:traveling_app_flutter/utils/app_assets.dart';
+import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-//import 'package:traveling_app_flutter/views/home_page/home_page.dart';
+import 'package:traveling_app_flutter/views/front_page/front_page.dart';
+import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
+import 'package:traveling_app_flutter/views/sign_up_screen/sign_up_screen_widget.dart';
 import 'package:traveling_app_flutter/widgets/custom_rounded_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_image.dart';
 
@@ -30,10 +33,10 @@ class _MakePlanState extends State<MakePlan> {
                       child: Column(children: [
                         CustomImage(
                             img: counter.count == 1
-                                ? AppString.image2
+                                ? AppAssets.imagepage2
                                 : counter.count == 2
-                                    ? AppString.image3
-                                    : AppString.image4,
+                                    ? AppAssets.imagepage2
+                                    : AppAssets.imagepage2,
                             height: width * 0.67,
                             width: width * 0.67),
                         SizedBox(height: width * 0.05),
@@ -68,12 +71,13 @@ class _MakePlanState extends State<MakePlan> {
                               if (counter.count < 3) {
                                 counter.increment();
                               } else {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //       builder: (context) =>
-                                //           const homePageScreenWidget()),
-                                // );
+                                print(counter.count);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          SignUpScreenWidget()),
+                                );
                               }
                               setState(() {});
                             }),

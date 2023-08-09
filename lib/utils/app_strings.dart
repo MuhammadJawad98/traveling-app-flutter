@@ -85,4 +85,15 @@ class AppString {
   static const String date2 = 'July 15';
   static const String date3 = 'July 16';
   //-------------------- Zainab Nauman  -----------------------------------
+  ///////////////////page2/////////////////////////
+  static String heading2 = "Make your own private travel plan";
+  static String description2 =
+      "Formulate your strategy to receive wonderful gift packs";
+///////////////////page3/////////////////////////
+  static String heading3 = "Customize your High-end travel";
+  static String description3 = "Countless high-end entertainment facilities";
+///////////////////page4/////////////////////////
+  static String heading4 = "High-end leisure projects to choose from";
+  static String description4 =
+      "The world's first-class modern leisure and entertainment method";
 }

@@ -28,4 +28,8 @@ class AppAssets {
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------
+  static String imageSplashpage1 = 'assets/images/1.png';
+  static String imagepage2 = 'assets/images/2.png';
+  static String imagepage3 = 'assets/images/3.png';
+  static String imagepage4 = 'assets/images/4.png';
 }
