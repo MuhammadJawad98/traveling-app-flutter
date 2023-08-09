@@ -3,6 +3,7 @@ import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/views/personal_center/widgets/top_bar_widget.dart';
+import 'package:traveling_app_flutter/widgets/bottom_navigationbar.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 
@@ -118,7 +119,12 @@ class ProfilePageScreenWidget extends StatelessWidget {
               child: CustomTextButton(
                 buttonColor: AppColors.blueButton,
                 height: buttonHeith,
-                onTab: () {},
+                onTab: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyBottomNavigationBar()));
+                },
                 radius: 36,
                 buttonText: AppString.btnSaveSetting,
                 width: buttonWidth,
