@@ -29,24 +29,30 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(radius),
+      color: buttonColor,
       child: InkWell(
         borderRadius: BorderRadius.circular(radius),
         onTap: onTab,
         child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius), color: buttonColor),
+          decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(radius)),
           height: height,
           width: width,
-          child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [
-            if (addIcon) icon!,
-            const CustomSizedBox(
-              width: 10,
-            ),
-            Text(
-              textAlign: TextAlign.center,
-              buttonText,
-              style: TextStyle(color: fontColor, fontSize: fontSize),
-            )
-          ]),
+          child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (addIcon) icon!,
+                if (addIcon)
+                  const CustomSizedBox(
+                    width: 10,
+                  ),
+                Text(
+                  textAlign: TextAlign.center,
+                  buttonText,
+                  style: TextStyle(color: fontColor, fontSize: fontSize),
+                )
+              ]),
         ),
       ),
     );

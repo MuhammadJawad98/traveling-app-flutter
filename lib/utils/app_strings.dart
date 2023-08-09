@@ -33,7 +33,7 @@ class AppString {
   static String termsOfServicesPart2 = "Terms of Service";
 
   //--------------------Abubaker Saeed -----------------------------------
-
+  static const String searchBarIcon = 'assets/icons/searchbar_icon.png';
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------
