@@ -70,7 +70,7 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
       const Divider(indent: 24, endIndent: 22),
       Padding(
           padding: const EdgeInsets.only(top: 20, left: 30),
-          child: InkWell(
+          child: GestureDetector(
             onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
