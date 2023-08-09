@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/models/sociallink.dart';
 
 import '../../../utils/app_colors.dart';
+import '../../../utils/media_query.dart';
 import '../../../widgets/custom_text.dart';
 
 class SocialLinkTile extends StatefulWidget {
@@ -24,8 +25,18 @@ class _SocialLinkTileState extends State<SocialLinkTile> {
         child: Center(
             child: ListTile(
           leading: CircleAvatar(radius: 25, backgroundColor: AppColors.talhawhite, child: Image(image: AssetImage(widget.data.image))),
-          title: CustomText(text: widget.data.title, color: AppColors.talhablack, size: 16, maxline: 1, fontWeight: FontWeight.bold),
-          subtitle: CustomText(text: widget.data.subtitle, color: AppColors.talhagrey, size: 16, maxline: 1, fontWeight: FontWeight.w400),
+          title: CustomText(
+              text: widget.data.title,
+              color: AppColors.talhablack,
+              size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.045 : GetScreenSize.getScreenWidth(context) * 0.025,
+              maxline: 1,
+              fontWeight: FontWeight.bold),
+          subtitle: CustomText(
+              text: widget.data.subtitle,
+              color: AppColors.talhagrey,
+              size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.04 : GetScreenSize.getScreenWidth(context) * 0.022,
+              maxline: 1,
+              fontWeight: FontWeight.w400),
         )));
   }
 }

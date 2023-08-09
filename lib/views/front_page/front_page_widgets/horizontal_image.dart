@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 
+import '../../../utils/app_colors.dart';
 import '../../../widgets/custom_text.dart';
 
 class HorizontalImage extends StatefulWidget {
@@ -23,8 +24,8 @@ class _HorizontalImageState extends State<HorizontalImage> {
         ),
         child: Stack(
           children: [
-            Container(
-              height: GetScreenSize.getScreenHeight(context) * 0.24,
+            SizedBox(
+              height: GetScreenSize.getScreenWidth(context) * 1,
               width: GetScreenSize.getScreenWidth(context) * 0.40,
               child: ClipRRect(
                 // Wrap the Image.network with ClipRRect to make the edges circular
@@ -37,10 +38,14 @@ class _HorizontalImageState extends State<HorizontalImage> {
             ),
             Padding(
               // Add padding to the right side
-              padding: EdgeInsets.fromLTRB(10.0, 120, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  GetScreenSize.getScreenWidth(context) * 0.02,
+                  GetScreenSize.getScreenWidth(context) * 0.35,
+                  0,
+                  0),
               child: CustomText(
                 text: widget.user.namelocation,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: AppColors.textOnImagesColor,
                 size: 18,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
@@ -48,10 +53,14 @@ class _HorizontalImageState extends State<HorizontalImage> {
             ),
             Padding(
               // Add padding to the right side
-              padding: EdgeInsets.fromLTRB(10.0, 145, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  GetScreenSize.getScreenWidth(context) * 0.02,
+                  GetScreenSize.getScreenWidth(context) * 0.42,
+                  0,
+                  0),
               child: CustomText(
                 text: widget.user.price,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: AppColors.textOnImagesColor,
                 size: 12,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
