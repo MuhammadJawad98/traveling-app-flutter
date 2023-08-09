@@ -21,7 +21,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double buttonWidth = double.infinity;
-    final double buttonHeith = GetScreenSize.getScreenHeight(context) * 0.07;
+    final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.14;
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
