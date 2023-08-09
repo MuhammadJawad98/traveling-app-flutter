@@ -17,7 +17,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return Scaffold(
       body: _getPage(_currentIndex),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
@@ -56,13 +56,13 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const FrontPage();
+        return FrontPage();
       case 1:
-        return const FrontPage();
+        return FrontPage();
       case 2:
-        return const FrontPage();
+        return FrontPage();
       case 3:
-        return const FrontPage();
+        return FrontPage();
       default:
         return Container();
     }
