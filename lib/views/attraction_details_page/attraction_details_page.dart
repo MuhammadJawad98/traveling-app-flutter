@@ -39,7 +39,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
               Padding(
                 padding: EdgeInsets.fromLTRB(
                     GetScreenSize.getScreenWidth(context) * 0.04,
-                    GetScreenSize.getScreenWidth(context) * 0.20,
+                    GetScreenSize.getScreenWidth(context) * 0.17,
                     0,
                     0),
                 child: InkWell(
