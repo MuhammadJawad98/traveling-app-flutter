@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomRonudedButton extends StatelessWidget {
   final double width;
   final VoidCallback onTap;
   final Color color;
   final Color backgroundcolor;
   final bool? flag;
 
-  const CustomButton(
+  const CustomRonudedButton(
       {super.key,
       required this.onTap,
       this.flag = true,
