@@ -52,7 +52,9 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                   alignment: Alignment.topLeft,
                   child: CustomIconButton(
                     iconData: Icons.arrow_back,
-                    onTab: () {},
+                    onTab: () {
+                      Navigator.pop(context);
+                    },
                     size: 28,
                   ),
                 ),

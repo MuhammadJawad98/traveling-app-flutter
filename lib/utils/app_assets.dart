@@ -17,7 +17,7 @@ class AppAssets {
 
   //--------------------Muhammad Tahir -----------------------------------
   static String applelogo = "assets/images/apple.png";
-  static String facebooklogo = "assets/images/facebook.png";
+  // static String facebooklogo = "assets/images/facebook.png";
   static String lock = "assets/images/lock.png";
   static String message = "assets/images/message.png";
   static String perosn = "assets/images/perosn.png";
