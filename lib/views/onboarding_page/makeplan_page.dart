@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
 import 'package:traveling_app_flutter/utils/app_assets.dart';
@@ -58,10 +59,15 @@ class _MakePlanState extends State<MakePlan> {
                               : counter.count == 2
                                   ? AppString.description3
                                   : AppString.description4,
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.normal,
                               color: Colors.grey.shade400,
                               fontSize: width * 0.04),
+                          // style: TextStyle(
+                          //     fontWeight: FontWeight.normal,
+                          //     color: Colors.grey.shade400,
+                          //     fontSize: width * 0.04),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: width * 0.1),
@@ -76,7 +82,7 @@ class _MakePlanState extends State<MakePlan> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          SignUpScreenWidget()),
+                                          const SignUpScreenWidget()),
                                 );
                               }
                               setState(() {});
