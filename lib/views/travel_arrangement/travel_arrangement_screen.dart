@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/views/travel_arrangement/widgets/task_tile.dart';
 import 'package:traveling_app_flutter/views/travel_arrangement/widgets/time_oval_tile.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 
+import '../../providers/task_provider.dart';
 import '../../utils/app_strings.dart';
-import '../../utils/media_query.dart';
-import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
+import 'widgets/add_task_dialog.dart';
 
 class TravelArrangementScreen extends StatefulWidget {
   const TravelArrangementScreen({super.key});
@@ -19,6 +21,9 @@ class TravelArrangementScreen extends StatefulWidget {
 class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
   @override
   Widget build(BuildContext context) {
+    final dayProvider1 = Provider.of<TaskProvider>(context);
+    final dayProvider2 = Provider.of<TaskProvider>(context);
+    final dayProvider3 = Provider.of<TaskProvider>(context);
     return DefaultTabController(
       length: 3, // Number of tabs
       child: Scaffold(
@@ -95,62 +100,68 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
         ),
         body: TabBarView(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(children: [
-                    SizedBox(
-                      height: 200,
-                      child: Expanded(
-                        child: ListView.builder(
-                          itemCount: 5,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                TimeTile(
-                                    context: context,
-                                    time: AppString.timeShort),
-                                TaskTile(
-                                    context: context,
-                                    task: 'Wakeup',
-                                    emoji: AppString.UkFlag)
-                              ],
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextButton(
-                        height: 50,
-                        width: double.maxFinite,
-                        onTab: () {},
-                        buttonText: 'Add Activity',
-                        buttonColor: Colors.blue.shade100,
-                        radius: 30,
-                        fontSize: 16)
-                  ]),
-                  CustomTextButton(
-                      height: 50,
-                      width: double.maxFinite,
-                      onTab: () {},
-                      buttonText: 'Next step',
-                      buttonColor: Colors.blue,
-                      radius: 30,
-                      fontSize: 16)
-                ],
-              ),
-            ),
-            Center(child: Text('Content for Tab 2')),
-            Center(child: Text('Content for Tab 3')),
+            dayTabView(context, dayProvider1),
+            dayTabView(context, dayProvider2),
+            dayTabView(context, dayProvider3),
           ],
         ),
+      ),
+    );
+  }
+
+  Padding dayTabView(BuildContext context, TaskProvider taskProvider) {
+    return Padding(
+      padding: const EdgeInsets.all(14.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(children: [
+            SizedBox(
+              height: GetScreenSize.getScreenHeight(context) * 0.55,
+              child: ListView.builder(
+                itemCount: taskProvider.tasks.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final task = taskProvider.tasks[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TimeTile(context: context, time: task.time),
+                        TaskTile(
+                            context: context,
+                            task: task.task,
+                            emoji: task.emoji),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            CustomTextButton(
+                height: 50,
+                width: double.maxFinite,
+                onTab: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AddTaskDialog(),
+                  );
+                },
+                buttonText: 'Add Activity',
+                buttonColor: Colors.blue.shade200,
+                radius: 30,
+                fontSize: 16)
+          ]),
+          CustomTextButton(
+              height: 50,
+              width: double.maxFinite,
+              onTab: () {},
+              buttonText: 'Next step',
+              buttonColor: Colors.blue,
+              radius: 30,
+              fontSize: 16)
+        ],
       ),
     );
   }
