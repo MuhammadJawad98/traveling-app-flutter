@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -30,12 +29,13 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(radius),
+      color: buttonColor,
       child: InkWell(
         borderRadius: BorderRadius.circular(radius),
         onTap: onTab,
         child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius), color: buttonColor),
+          decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(radius)),
           height: height,
           width: width,
           child: Row(
@@ -43,9 +43,10 @@ class CustomTextButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (addIcon) icon!,
-                const CustomSizedBox(
-                  width: 10,
-                ),
+                if (addIcon)
+                  const CustomSizedBox(
+                    width: 10,
+                  ),
                 Text(
                   textAlign: TextAlign.center,
                   buttonText,
