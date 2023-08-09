@@ -13,7 +13,7 @@ class LocationsProvider with ChangeNotifier {
               'https://media.istockphoto.com/id/636208094/photo/tropical-jungle.jpg?s=1024x1024&w=is&k=20&c=Zyc6mQ-VrbJIVjPOhrdzKlr6CpUdpcqT__bPJHJemXI=',
           description:
               'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries',
-          numberReviews: '4500',
+          numberReviews: '457460',
           rating: '4.5'),
       LocationsModel(
           namelocation: 'Paris',

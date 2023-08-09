@@ -26,6 +26,9 @@ class AppString {
 
   //--------------------Abubaker Saeed -----------------------------------
   static const String searchBarIcon = 'assets/icons/searchbar_icon.png';
+  static const String findTripText = 'Find your next trip';
+  static const String nordicscenery = 'Nordicscenery';
+  static const String popularLocations = 'Popular locations';
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------

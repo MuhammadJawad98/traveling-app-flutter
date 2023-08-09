@@ -21,7 +21,6 @@ class FrontPage extends StatefulWidget {
 class _FrontPageState extends State<FrontPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     final locationsProvider =
         Provider.of<LocationsProvider>(context, listen: false);
@@ -30,6 +29,8 @@ class _FrontPageState extends State<FrontPage> {
 
   @override
   Widget build(BuildContext context) {
+    LocationsProvider provider = context.watch<LocationsProvider>();
+
     return GestureDetector(
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
@@ -46,7 +47,7 @@ class _FrontPageState extends State<FrontPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CustomText(
-                  text: 'Find your next trip',
+                  text: AppString.findTripText,
                   color: AppColors.frontPageTextColor,
                   size: 16,
                   maxline: 1,
@@ -56,7 +57,7 @@ class _FrontPageState extends State<FrontPage> {
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 26,
-                  text: 'Nordic scenery'),
+                  text: AppString.nordicscenery),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.02,
               ),
@@ -87,7 +88,7 @@ class _FrontPageState extends State<FrontPage> {
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 18,
-                  text: 'Popular locations'),
+                  text: AppString.popularLocations),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
@@ -118,7 +119,7 @@ class _FrontPageState extends State<FrontPage> {
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 18,
-                  text: 'Popular locations'),
+                  text: AppString.popularLocations),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
@@ -137,11 +138,12 @@ class _FrontPageState extends State<FrontPage> {
                       return InkWell(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AttractionDetailsPage(
-                                      data:
-                                          LocationsProvider.locations[index])));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AttractionDetailsPage(
+                                  data: provider.getLocations[index]),
+                            ),
+                          );
                         },
                         child: HorizontalImage(
                           user: LocationsProvider.locations[index],
