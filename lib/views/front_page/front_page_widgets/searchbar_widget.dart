@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/utils/media_query.dart';
 
 class MySearchBar extends StatefulWidget {
   final double height;
   final double width1;
-  MySearchBar({
+  const MySearchBar({
     super.key,
     required this.height,
     required this.width1,

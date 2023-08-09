@@ -20,7 +20,7 @@ class _VerticalImageState extends State<VerticalImage> {
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: GetScreenSize.getScreenHeight(context) * 0.2,
             width: GetScreenSize.getScreenWidth(context) * 0.6,
             child: Padding(
@@ -37,7 +37,7 @@ class _VerticalImageState extends State<VerticalImage> {
           ),
           Padding(
             // Add padding to the right side
-            padding: EdgeInsets.fromLTRB(35.0, 80, 0, 0),
+            padding: const EdgeInsets.fromLTRB(35.0, 80, 0, 0),
             child: CustomText(
               text: widget.user.namelocation,
               color: AppColors.textOnImagesColor,
@@ -48,7 +48,7 @@ class _VerticalImageState extends State<VerticalImage> {
           ),
           Padding(
             // Add padding to the right side
-            padding: EdgeInsets.fromLTRB(35.0, 110, 0, 0),
+            padding: const EdgeInsets.fromLTRB(35.0, 110, 0, 0),
             child: CustomText(
               text: widget.user.price,
               color: AppColors.textOnImagesColor,

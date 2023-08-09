@@ -4,10 +4,9 @@ import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/views/friend_communication_page/widgets/fC_tile_desgin.dart';
-import 'package:traveling_app_flutter/views/friend_communication_page/your_social_link.dart';
+import 'package:traveling_app_flutter/views/yourSocialLink/your_social_link.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
-
 import '../../utils/media_query.dart';
 
 class FriendCommunicatioPage extends StatefulWidget {
@@ -18,6 +17,12 @@ class FriendCommunicatioPage extends StatefulWidget {
 }
 
 class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
+  List<Person> person = [
+    Person(name: 'Charlotte', profession: 'Chief Travel Experiencer', image: AppAssets.image2),
+    Person(name: 'Evangeline', profession: 'Chief Travel Experiencer', image: AppAssets.image3),
+    Person(name: 'Geraldine', profession: 'Private tour guide', image: AppAssets.image4),
+    Person(name: 'Prudence', profession: 'Travel youtube master', image: AppAssets.image5),
+  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

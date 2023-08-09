@@ -12,7 +12,7 @@ import '../../widgets/custom_text.dart';
 import 'front_page_widgets/searchbar_widget.dart';
 
 class FrontPage extends StatefulWidget {
-  FrontPage({super.key});
+  const FrontPage({super.key});
 
   @override
   State<FrontPage> createState() => _FrontPageState();
@@ -22,10 +22,17 @@ class _FrontPageState extends State<FrontPage> {
   @override
   void initState() {
     super.initState();
-    final locationsProvider =
-        Provider.of<LocationsProvider>(context, listen: false);
-    locationsProvider.createArray();
+    // Use a short delay to ensure the initial build is complete
+    Future.delayed(Duration(milliseconds: 100), () {
+      final locationsProvider = Provider.of<LocationsProvider>(context, listen: false);
+      locationsProvider.createArray();
+    });
   }
+  // void initState() {
+  //   super.initState();
+  //   final locationsProvider = Provider.of<LocationsProvider>(context, listen: false);
+  //   locationsProvider.createArray();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -40,32 +47,18 @@ class _FrontPageState extends State<FrontPage> {
       },
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(
-              left: GetScreenSize.getScreenWidth(context) * 0.05,
-              top: GetScreenSize.getScreenHeight(context) * 0.09),
+          padding: EdgeInsets.only(left: GetScreenSize.getScreenWidth(context) * 0.05, top: GetScreenSize.getScreenHeight(context) * 0.09),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomText(
-                  text: AppString.findTripText,
-                  color: AppColors.frontPageTextColor,
-                  size: 16,
-                  maxline: 1,
-                  fontWeight: FontWeight.w500),
-              const CustomText(
-                  color: AppColors.frontPageTextColor,
-                  fontWeight: FontWeight.w600,
-                  maxline: 1,
-                  size: 26,
-                  text: AppString.nordicscenery),
+              const CustomText(text: AppString.findTripText, color: AppColors.frontPageTextColor, size: 16, maxline: 1, fontWeight: FontWeight.w500),
+              const CustomText(color: AppColors.frontPageTextColor, fontWeight: FontWeight.w600, maxline: 1, size: 26, text: AppString.nordicscenery),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.02,
               ),
               Row(
                 children: [
-                  MySearchBar(
-                      height: GetScreenSize.getScreenHeight(context) * 0.065,
-                      width1: GetScreenSize.getScreenWidth(context) * 0.70),
+                  MySearchBar(height: GetScreenSize.getScreenHeight(context) * 0.065, width1: GetScreenSize.getScreenWidth(context) * 0.70),
                   SizedBox(
                     width: GetScreenSize.getScreenWidth(context) * 0.05,
                   ),
@@ -73,9 +66,7 @@ class _FrontPageState extends State<FrontPage> {
                     height: GetScreenSize.getScreenHeight(context) * 0.07,
                     width: GetScreenSize.getScreenWidth(context) * 0.15,
                     //color: Colors.amber,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: AppColors.searchBarIconColor),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: AppColors.searchBarIconColor),
                     child: Image.asset(AppString.searchBarIcon),
                   )
                 ],
@@ -83,20 +74,14 @@ class _FrontPageState extends State<FrontPage> {
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
-              const CustomText(
-                  color: AppColors.frontPageTextColor,
-                  fontWeight: FontWeight.w600,
-                  maxline: 1,
-                  size: 18,
-                  text: AppString.popularLocations),
+              const CustomText(color: AppColors.frontPageTextColor, fontWeight: FontWeight.w600, maxline: 1, size: 18, text: AppString.popularLocations),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.20,
                 child: NotificationListener<OverscrollIndicatorNotification>(
-                  onNotification:
-                      (OverscrollIndicatorNotification notification) {
+                  onNotification: (OverscrollIndicatorNotification notification) {
                     notification.disallowIndicator();
                     return false;
                   },
@@ -114,20 +99,14 @@ class _FrontPageState extends State<FrontPage> {
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
-              const CustomText(
-                  color: AppColors.frontPageTextColor,
-                  fontWeight: FontWeight.w600,
-                  maxline: 1,
-                  size: 18,
-                  text: AppString.popularLocations),
+              const CustomText(color: AppColors.frontPageTextColor, fontWeight: FontWeight.w600, maxline: 1, size: 18, text: AppString.popularLocations),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
               SizedBox(
                 height: GetScreenSize.getScreenHeight(context) * 0.24,
                 child: NotificationListener<OverscrollIndicatorNotification>(
-                  onNotification:
-                      (OverscrollIndicatorNotification notification) {
+                  onNotification: (OverscrollIndicatorNotification notification) {
                     notification.disallowIndicator();
                     return false;
                   },
@@ -140,8 +119,7 @@ class _FrontPageState extends State<FrontPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AttractionDetailsPage(
-                                  data: provider.getLocations[index]),
+                              builder: (context) => AttractionDetailsPage(data: provider.getLocations[index]),
                             ),
                           );
                         },
