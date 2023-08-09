@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
-import 'package:traveling_app_flutter/utils/helper_function.dart';
+
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_strings.dart';
