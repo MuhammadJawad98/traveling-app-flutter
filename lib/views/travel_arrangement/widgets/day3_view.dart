@@ -1,7 +1,8 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/providers/day_task_providers/day3_task_provider.dart';
 
-import '../../../providers/day_task_providers/day1_task_provider.dart';
 import '../../../utils/media_query.dart';
 import '../../../widgets/custom_button.dart';
 import 'add_task_dialog.dart';
@@ -21,7 +22,7 @@ class Day3View extends StatelessWidget {
         children: [
           Column(children: [
             SizedBox(
-              height: GetScreenSize.getScreenHeight(context) * 0.55,
+              height: GetScreenSize.getScreenWidth(context) * 0.9,
               child: ListView.builder(
                 itemCount: taskProvider.tasks.length,
                 itemBuilder: (BuildContext context, int index) {

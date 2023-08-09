@@ -21,7 +21,7 @@ class Day2View extends StatelessWidget {
         children: [
           Column(children: [
             SizedBox(
-              height: GetScreenSize.getScreenHeight(context) * 0.55,
+              height: GetScreenSize.getScreenWidth(context) * 0.9,
               child: ListView.builder(
                 itemCount: taskProvider.tasks.length,
                 itemBuilder: (BuildContext context, int index) {

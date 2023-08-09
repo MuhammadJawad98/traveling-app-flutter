@@ -18,7 +18,7 @@ class HotelTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: GetScreenSize.getScreenHeight(context) * 0.16,
+      height: GetScreenSize.getScreenHeight(context) * 0.25,
       width: double.maxFinite,
       decoration: ShapeDecoration(
         image: DecorationImage(

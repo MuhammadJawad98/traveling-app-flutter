@@ -80,7 +80,7 @@ class _TransportationArrangementScreenState
                   ],
                 ),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.03,
+                  height: GetScreenSize.getScreenHeight(context) * 0.05,
                 ),
                 const CustomText(
                     text: AppString.flights,
@@ -89,12 +89,12 @@ class _TransportationArrangementScreenState
                     maxline: 1,
                     fontWeight: FontWeight.w600),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.03,
+                  height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 SizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.15,
+                  height: GetScreenSize.getScreenHeight(context) * 0.3,
                   width: double.maxFinite,
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       PriceTile(
@@ -109,10 +109,10 @@ class _TransportationArrangementScreenState
                   ),
                 ),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.02,
+                  height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 CustomTextButton(
-                    height: GetScreenSize.getScreenHeight(context) * 0.09,
+                    height: GetScreenSize.getScreenHeight(context) * 0.15,
                     width: double.maxFinite,
                     onTab: () {},
                     buttonText: AppString.determinePlan,

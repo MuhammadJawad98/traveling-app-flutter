@@ -21,8 +21,8 @@ class FlightTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: GetScreenSize.getScreenHeight(context) * 0.32,
-      width: GetScreenSize.getScreenHeight(context) * 0.21,
+      height: GetScreenSize.getScreenHeight(context) * 0.56,
+      width: GetScreenSize.getScreenHeight(context) * 0.37,
       decoration: ShapeDecoration(
         color: Colors.grey.shade300,
         shape: RoundedRectangleBorder(
@@ -35,10 +35,10 @@ class FlightTile extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundColor: Colors.grey.shade400,
-            radius: 25,
+            radius: 22,
             child: Text(
               flag,
-              style: const TextStyle(fontSize: 22),
+              style: const TextStyle(fontSize: 21),
               textAlign: TextAlign.center,
             ),
           ),
@@ -61,11 +61,15 @@ class FlightTile extends StatelessWidget {
               const Icon(
                 Icons.airplane_ticket,
                 color: Colors.blue,
+                size: 18,
+              ),
+              SizedBox(
+                width: GetScreenSize.getScreenWidth(context) * 0.01,
               ),
               CustomText(
                   text: flightype,
                   color: Colors.blue,
-                  size: 13,
+                  size: 12,
                   maxline: 1,
                   fontWeight: FontWeight.normal)
             ],
