@@ -22,6 +22,12 @@ class GetScreenSize {
   //     MediaQuery.of(context).size.width >= 1100;
 
   static Size getScreenSize(BuildContext context) {
+    // if (MediaQuery.of(context).size.width > 1000) {
+    //   return MediaQuery.of(context).size / 3;
+    // } else if (MediaQuery.of(context).size.width > 500 &&
+    //     MediaQuery.of(context).size.width < 1000) {
+    //   return MediaQuery.of(context).size / 2;
+    // }
     return MediaQuery.of(context).size;
   }
 
@@ -29,7 +35,8 @@ class GetScreenSize {
     if (MediaQuery.of(context).size.width > 1200) {
       return MediaQuery.of(context).size.width / 3;
     }
-    if (MediaQuery.of(context).size.width > 850 && MediaQuery.of(context).size.width <= 1200) {
+    if (MediaQuery.of(context).size.width > 850 &&
+        MediaQuery.of(context).size.width <= 1200) {
       return MediaQuery.of(context).size.width / 2;
     }
     return MediaQuery.of(context).size.width;
@@ -39,7 +46,8 @@ class GetScreenSize {
     if (MediaQuery.of(context).size.height > 1200) {
       return MediaQuery.of(context).size.height / 3;
     }
-    if (MediaQuery.of(context).size.height > 500 && MediaQuery.of(context).size.height < 1000) {
+    if (MediaQuery.of(context).size.height > 500 &&
+        MediaQuery.of(context).size.height < 1000) {
       return MediaQuery.of(context).size.height / 2;
     }
     return MediaQuery.of(context).size.height;

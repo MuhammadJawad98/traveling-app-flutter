@@ -67,8 +67,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
               resizeToAvoidBottomInset: false,
               body: Padding(
                 padding: const EdgeInsets.only(left: 23, right: 26, top: 40),
-                child: SingleChildScrollView(
-                  child: Column(
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -141,37 +140,39 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                       Row(children: [
                         Image.asset(AppAssets.richTexticon),
                         const CustomSizedBox(width: 10),
-                        CustomRichText(
-                            text: AppString.termsOfServicesPart1,
-                            defaultStyle: const TextStyle(color: Colors.black),
-                            textSpans: [
-                              TextSpan(
-                                  text: AppString.termsOfServicesPart2,
-                                  style: const TextStyle(
-                                    color: AppColors.blueButton,
-                                  ))
-                            ])
+                        Expanded(
+                          child: CustomRichText(
+                              text: AppString.termsOfServicesPart1,
+                              defaultStyle:
+                                  const TextStyle(color: Colors.black),
+                              textSpans: [
+                                TextSpan(
+                                    text: AppString.termsOfServicesPart2,
+                                    style: const TextStyle(
+                                      color: AppColors.blueButton,
+                                    ))
+                              ]),
+                        )
                       ]),
-                      CustomSizedBox(
-                        height: GetScreenSize.getScreenWidth(context) * 0.4,
-                      ),
-                      CustomTextButton(
-                        buttonColor: AppColors.blueButton,
-                        height: buttonHeith,
-                        onTab: () {
-                          onTabConfirm();
-                        },
-                        radius: 36,
-                        buttonText: AppString.btnContinue,
-                        width: buttonWidth,
-                        fontSize: GetScreenSize.getScreenWidth(context) * 0.05,
-                      ),
+                      Expanded(child: CustomSizedBox()),
+                      Align(
+                          alignment: Alignment.bottomCenter,
+                          child: CustomTextButton(
+                            buttonColor: AppColors.blueButton,
+                            height: buttonHeith,
+                            onTab: () {
+                              onTabConfirm();
+                            },
+                            radius: 36,
+                            buttonText: AppString.btnContinue,
+                            width: buttonWidth,
+                            fontSize:
+                                GetScreenSize.getScreenWidth(context) * 0.05,
+                          )),
                       CustomSizedBox(
                         height: 20,
                       )
-                    ],
-                  ),
-                ),
+                    ]),
               ))),
     );
   }
