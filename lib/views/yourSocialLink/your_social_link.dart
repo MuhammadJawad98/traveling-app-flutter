@@ -4,7 +4,7 @@ import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-import 'package:traveling_app_flutter/views/friend_communication_page/widgets/social_link_tile.dart';
+import 'package:traveling_app_flutter/views/yourSocialLink/widget/social_link_tile.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 
