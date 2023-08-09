@@ -36,8 +36,8 @@ class _MakePlanState extends State<MakePlan> {
                             img: counter.count == 1
                                 ? AppAssets.imagepage2
                                 : counter.count == 2
-                                    ? AppAssets.imagepage2
-                                    : AppAssets.imagepage2,
+                                    ? AppAssets.imagepage3
+                                    : AppAssets.imagepage4,
                             height: width * 0.67,
                             width: width * 0.67),
                         SizedBox(height: width * 0.05),
@@ -47,9 +47,14 @@ class _MakePlanState extends State<MakePlan> {
                               : counter.count == 2
                                   ? AppString.heading3
                                   : AppString.heading4,
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.black,
                               fontSize: width * 0.07),
+                          // style: TextStyle(
+                          //     fontWeight: FontWeight.bold,
+                          //     fontSize: width * 0.07),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: width * 0.06),
