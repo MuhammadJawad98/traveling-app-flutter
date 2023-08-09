@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:traveling_app_flutter/views/friend_communication_page/friend_communication_page.dart';
 
 import '../views/front_page/front_page.dart';
 
@@ -57,13 +56,13 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const FrontPage();
+        return FrontPage();
       case 1:
-        return const FrontPage();
+        return FrontPage();
       case 2:
-        return const FrontPage();
+        return FrontPage();
       case 3:
-        return const FriendCommunicatioPage();
+        return FrontPage();
       default:
         return Container();
     }
