@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
-//import 'package:traveling_app_flutter/Views/highendtravel_page.dart';
 import 'package:traveling_app_flutter/utils/app_constants.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-import 'package:traveling_app_flutter/views/front_page/highendtravel_page.dart';
 import 'package:traveling_app_flutter/views/home_page/home_page.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_image.dart';
@@ -20,15 +19,18 @@ class _MakePlanState extends State<MakePlan> {
   @override
   void initState() {
     super.initState();
-    // final counter = Provider.of<Counter>(context, listen: false);
+    final counter = Provider.of<Counter>(context, listen: false);
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      if (counter.count > 3) {
+        tapbutton(context);
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<Counter>(context, listen: false);
-    if (counter.count > 3) {
-      tapbutton(context);
-    }
+
     return SafeArea(
         child: Scaffold(
             body: Padding(
@@ -87,14 +89,12 @@ class _MakePlanState extends State<MakePlan> {
                             width:
                                 GetScreenSize.getScreenWidth(context) * 0.125,
                             onTap: () {
-                              print(counter.count);
                               counter.increment();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const MakePlan()),
                               );
-                              //tapbutton(context);
                             }),
                       ]),
                     ),
