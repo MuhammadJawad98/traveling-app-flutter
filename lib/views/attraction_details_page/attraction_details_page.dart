@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
+import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 
@@ -33,14 +34,31 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(
+                GetScreenSize.getScreenWidth(context) * 0.04,
+                GetScreenSize.getScreenWidth(context) * 0.20,
+                0,
+                0),
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back,
+                color: AppColors.attractionScreenText,
+                size: 30,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(
                 GetScreenSize.getScreenWidth(context) * 0.05,
                 GetScreenSize.getScreenHeight(context) * 0.60,
                 GetScreenSize.getScreenWidth(context) * 0.05,
                 0),
             child: CustomText(
                 text: widget.data.description,
-                color: Colors.white70,
-                size: 16,
+                color: AppColors.attractionScreenText,
+                size: 14,
                 maxline: 20,
                 fontWeight: FontWeight.w500),
           ),
@@ -52,13 +70,13 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                 0),
             child: CustomText(
                 text: widget.data.namelocation,
-                color: Colors.white70,
+                color: AppColors.attractionScreenText,
                 size: 42,
                 maxline: 20,
                 fontWeight: FontWeight.w500),
           ),
           Positioned(
-            top: GetScreenSize.getScreenHeight(context) * 0.80,
+            top: GetScreenSize.getScreenHeight(context) * 0.82,
             left: GetScreenSize.getScreenWidth(context) * 0.07,
             right: GetScreenSize.getScreenWidth(context) * 0.05,
             child: Row(
@@ -77,10 +95,10 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                     itemSize: 16,
                     itemBuilder: (context, _) => const Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: AppColors.ratingStarsColor,
                     ),
                     onRatingUpdate: (rating) {},
-                    unratedColor: Colors.grey[300],
+                    unratedColor: AppColors.unratedStarsColor,
                   ),
                 ),
                 const SizedBox(
@@ -113,7 +131,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
             ),
           ),
           Positioned(
-            top: GetScreenSize.getScreenHeight(context) * 0.85,
+            top: GetScreenSize.getScreenHeight(context) * 0.87,
             left: GetScreenSize.getScreenWidth(context) * 0.07,
             right: GetScreenSize.getScreenWidth(context) * 0.05,
             child: Row(
@@ -125,7 +143,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                   width: GetScreenSize.getScreenWidth(context) * 0.38,
                   onTab: () {},
                   buttonText: 'Enter the Plan ',
-                  buttonColor: const Color.fromRGBO(255, 255, 255, 0.1),
+                  buttonColor: Color.fromRGBO(255, 255, 255, 0.5),
                   radius: 41,
                   fontSize: 16,
                   fontColor: Colors.black,
@@ -138,7 +156,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                   width: GetScreenSize.getScreenWidth(context) * 0.38,
                   onTab: () {},
                   buttonText: 'View Other',
-                  buttonColor: const Color.fromRGBO(255, 255, 255, 0.1),
+                  buttonColor: Colors.white,
                   radius: 41,
                   fontSize: 16,
                   fontColor: Colors.black,

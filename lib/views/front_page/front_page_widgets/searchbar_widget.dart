@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({super.key});
+class MySearchBar extends StatefulWidget {
+  final double height;
+  final double width1;
+  MySearchBar({
+    super.key,
+    required this.height,
+    required this.width1,
+  });
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<MySearchBar> createState() => _MySearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _MySearchBarState extends State<MySearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Text('hello');
+    return Container(
+      width: widget.width1,
+      height: widget.height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        border: Border.all(
+          color: const Color.fromRGBO(233, 233, 233, 1),
+          width: 1,
+        ),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 0.0),
+        child: TextField(
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.search),
+            hintText: 'Search',
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 
+import '../../../utils/app_colors.dart';
 import '../../../widgets/custom_text.dart';
 
 class HorizontalImage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _HorizontalImageState extends State<HorizontalImage> {
               padding: EdgeInsets.fromLTRB(10.0, 120, 0, 0),
               child: CustomText(
                 text: widget.user.namelocation,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: AppColors.textOnImagesColor,
                 size: 18,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
@@ -51,7 +52,7 @@ class _HorizontalImageState extends State<HorizontalImage> {
               padding: EdgeInsets.fromLTRB(10.0, 145, 0, 0),
               child: CustomText(
                 text: widget.user.price,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: AppColors.textOnImagesColor,
                 size: 12,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
