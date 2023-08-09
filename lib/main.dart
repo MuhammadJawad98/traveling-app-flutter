@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
@@ -18,7 +19,7 @@ void main(List<String> args) {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
+        theme: ThemeData(fontFamily: 'Poppins'),
         home: const SafeArea(child: SplashScreen()),
       )));
 }

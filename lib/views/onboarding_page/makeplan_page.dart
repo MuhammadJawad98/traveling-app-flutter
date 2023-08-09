@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
 import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-import 'package:traveling_app_flutter/views/front_page/front_page.dart';
-import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/sign_up_screen/sign_up_screen_widget.dart';
 import 'package:traveling_app_flutter/widgets/custom_rounded_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_image.dart';
@@ -26,7 +23,19 @@ class _MakePlanState extends State<MakePlan> {
     return SafeArea(
         child: Scaffold(
             body: Padding(
-                padding: EdgeInsets.all(width * 0.1),
+                padding: EdgeInsets.only(
+                    top: width * 0.1,
+                    bottom: width * 0.1,
+                    left: counter.count == 3
+                        ? width * 0.05
+                        : counter.count == 2
+                            ? width * 0.16
+                            : width * 0.1,
+                    right: counter.count == 3
+                        ? width * 0.05
+                        : counter.count == 2
+                            ? width * 0.16
+                            : width * 0.1),
                 child: Row(children: [
                   if (width > 500) Container(),
                   Expanded(
@@ -47,14 +56,12 @@ class _MakePlanState extends State<MakePlan> {
                               : counter.count == 2
                                   ? AppString.heading3
                                   : AppString.heading4,
-                          style: GoogleFonts.poppins(
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.normal,
                               color: Colors.black,
                               fontSize: width * 0.07),
-                          // style: TextStyle(
-                          //     fontWeight: FontWeight.bold,
-                          //     fontSize: width * 0.07),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: width * 0.06),
@@ -64,15 +71,11 @@ class _MakePlanState extends State<MakePlan> {
                               : counter.count == 2
                                   ? AppString.description3
                                   : AppString.description4,
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.normal,
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
                               fontStyle: FontStyle.normal,
                               color: Colors.grey.shade400,
                               fontSize: width * 0.04),
-                          // style: TextStyle(
-                          //     fontWeight: FontWeight.normal,
-                          //     color: Colors.grey.shade400,
-                          //     fontSize: width * 0.04),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: width * 0.1),
@@ -97,11 +100,4 @@ class _MakePlanState extends State<MakePlan> {
                   ),
                 ]))));
   }
-
-  // void tapbutton(BuildContext context) {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => const homePageScreenWidget()),
-  //   );
-  // }
 }
