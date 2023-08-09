@@ -25,7 +25,7 @@ class _HorizontalImageState extends State<HorizontalImage> {
         child: Stack(
           children: [
             SizedBox(
-              height: GetScreenSize.getScreenHeight(context) * 0.24,
+              height: GetScreenSize.getScreenWidth(context) * 1,
               width: GetScreenSize.getScreenWidth(context) * 0.40,
               child: ClipRRect(
                 // Wrap the Image.network with ClipRRect to make the edges circular
@@ -38,7 +38,11 @@ class _HorizontalImageState extends State<HorizontalImage> {
             ),
             Padding(
               // Add padding to the right side
-              padding: const EdgeInsets.fromLTRB(10.0, 120, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  GetScreenSize.getScreenWidth(context) * 0.02,
+                  GetScreenSize.getScreenWidth(context) * 0.35,
+                  0,
+                  0),
               child: CustomText(
                 text: widget.user.namelocation,
                 color: AppColors.textOnImagesColor,
@@ -49,7 +53,11 @@ class _HorizontalImageState extends State<HorizontalImage> {
             ),
             Padding(
               // Add padding to the right side
-              padding: const EdgeInsets.fromLTRB(10.0, 145, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  GetScreenSize.getScreenWidth(context) * 0.02,
+                  GetScreenSize.getScreenWidth(context) * 0.42,
+                  0,
+                  0),
               child: CustomText(
                 text: widget.user.price,
                 color: AppColors.textOnImagesColor,

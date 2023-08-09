@@ -4,8 +4,6 @@ import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
 import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-import 'package:traveling_app_flutter/views/front_page/front_page.dart';
-import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/sign_up_screen/sign_up_screen_widget.dart';
 import 'package:traveling_app_flutter/widgets/custom_rounded_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_image.dart';

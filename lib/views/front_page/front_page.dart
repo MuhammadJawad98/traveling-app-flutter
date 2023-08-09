@@ -50,7 +50,7 @@ class _FrontPageState extends State<FrontPage> {
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
               left: GetScreenSize.getScreenWidth(context) * 0.05,
-              top: GetScreenSize.getScreenHeight(context) * 0.09),
+              top: GetScreenSize.getScreenWidth(context) * 0.2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -67,18 +67,18 @@ class _FrontPageState extends State<FrontPage> {
                   size: 26,
                   text: AppString.nordicscenery),
               SizedBox(
-                height: GetScreenSize.getScreenWidth(context) * 0.02,
+                height: GetScreenSize.getScreenWidth(context) * 0.07,
               ),
               Row(
                 children: [
                   MySearchBar(
-                      height: GetScreenSize.getScreenWidth(context) * 0.065,
+                      height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width1: GetScreenSize.getScreenWidth(context) * 0.70),
                   SizedBox(
                     width: GetScreenSize.getScreenWidth(context) * 0.05,
                   ),
                   Container(
-                    height: GetScreenSize.getScreenWidth(context) * 0.07,
+                    height: GetScreenSize.getScreenWidth(context) * 0.15,
                     width: GetScreenSize.getScreenWidth(context) * 0.15,
                     //color: Colors.amber,
                     decoration: BoxDecoration(
@@ -89,7 +89,7 @@ class _FrontPageState extends State<FrontPage> {
                 ],
               ),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.03,
+                height: GetScreenSize.getScreenWidth(context) * 0.1,
               ),
               const CustomText(
                   color: AppColors.frontPageTextColor,
@@ -98,10 +98,10 @@ class _FrontPageState extends State<FrontPage> {
                   size: 18,
                   text: AppString.popularLocations),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.03,
+                height: GetScreenSize.getScreenWidth(context) * 0.06,
               ),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.20,
+                height: GetScreenSize.getScreenWidth(context) * 0.45,
                 child: NotificationListener<OverscrollIndicatorNotification>(
                   onNotification:
                       (OverscrollIndicatorNotification notification) {
@@ -120,7 +120,7 @@ class _FrontPageState extends State<FrontPage> {
                 ),
               ),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.03,
+                height: GetScreenSize.getScreenWidth(context) * 0.08,
               ),
               const CustomText(
                   color: AppColors.frontPageTextColor,
@@ -129,10 +129,10 @@ class _FrontPageState extends State<FrontPage> {
                   size: 18,
                   text: AppString.popularLocations),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.03,
+                height: GetScreenSize.getScreenWidth(context) * 0.03,
               ),
               SizedBox(
-                height: GetScreenSize.getScreenHeight(context) * 0.24,
+                height: GetScreenSize.getScreenWidth(context) * 0.56,
                 child: NotificationListener<OverscrollIndicatorNotification>(
                   onNotification:
                       (OverscrollIndicatorNotification notification) {

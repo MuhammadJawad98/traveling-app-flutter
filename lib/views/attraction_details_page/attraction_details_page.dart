@@ -20,13 +20,14 @@ class AttractionDetailsPage extends StatefulWidget {
 class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    double ratingValue = double.parse(widget.data.rating); // Convert string to double
+    double ratingValue =
+        double.parse(widget.data.rating); // Convert string to double
 
     return Scaffold(
       body: Stack(
         children: [
           SizedBox(
-            height: GetScreenSize.getScreenHeight(context),
+            height: GetScreenSize.getScreenWidth(context) * 6,
             width: GetScreenSize.getScreenWidth(context),
             child: Image.network(
               widget.data.image,
@@ -34,7 +35,11 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(GetScreenSize.getScreenWidth(context) * 0.04, GetScreenSize.getScreenWidth(context) * 0.20, 0, 0),
+            padding: EdgeInsets.fromLTRB(
+                GetScreenSize.getScreenWidth(context) * 0.04,
+                GetScreenSize.getScreenWidth(context) * 0.20,
+                0,
+                0),
             child: InkWell(
               onTap: () {
                 Navigator.pop(context);
@@ -47,15 +52,33 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(GetScreenSize.getScreenWidth(context) * 0.05, GetScreenSize.getScreenHeight(context) * 0.60, GetScreenSize.getScreenWidth(context) * 0.05, 0),
-            child: CustomText(text: widget.data.description, color: AppColors.attractionScreenText, size: 14, maxline: 20, fontWeight: FontWeight.w500),
+            padding: EdgeInsets.fromLTRB(
+                GetScreenSize.getScreenWidth(context) * 0.05,
+                GetScreenSize.getScreenWidth(context) * 1.25,
+                GetScreenSize.getScreenWidth(context) * 0.05,
+                0),
+            child: CustomText(
+                text: widget.data.description,
+                color: AppColors.attractionScreenText,
+                size: 14,
+                maxline: 20,
+                fontWeight: FontWeight.w500),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(GetScreenSize.getScreenWidth(context) * 0.05, GetScreenSize.getScreenHeight(context) * 0.53, GetScreenSize.getScreenWidth(context) * 0.05, 0),
-            child: CustomText(text: widget.data.namelocation, color: AppColors.attractionScreenText, size: 42, maxline: 20, fontWeight: FontWeight.w500),
+            padding: EdgeInsets.fromLTRB(
+                GetScreenSize.getScreenWidth(context) * 0.05,
+                GetScreenSize.getScreenWidth(context) * 1.1,
+                GetScreenSize.getScreenWidth(context) * 0.05,
+                0),
+            child: CustomText(
+                text: widget.data.namelocation,
+                color: AppColors.attractionScreenText,
+                size: 42,
+                maxline: 20,
+                fontWeight: FontWeight.w500),
           ),
           Positioned(
-            top: GetScreenSize.getScreenHeight(context) * 0.82,
+            top: GetScreenSize.getScreenWidth(context) * 1.65,
             left: GetScreenSize.getScreenWidth(context) * 0.07,
             right: GetScreenSize.getScreenWidth(context) * 0.05,
             child: Row(
@@ -83,19 +106,34 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                 const SizedBox(
                   width: 10,
                 ),
-                CustomText(text: widget.data.rating, color: Colors.white, size: 14, maxline: 1, fontWeight: FontWeight.w400),
+                CustomText(
+                    text: widget.data.rating,
+                    color: Colors.white,
+                    size: 14,
+                    maxline: 1,
+                    fontWeight: FontWeight.w400),
                 const SizedBox(
                   width: 10,
                 ),
                 Expanded(
-                  child: CustomText(text: '(${widget.data.numberReviews})', color: Colors.white, size: 14, maxline: 1, fontWeight: FontWeight.w400),
+                  child: CustomText(
+                      text: '(${widget.data.numberReviews})',
+                      color: Colors.white,
+                      size: 14,
+                      maxline: 1,
+                      fontWeight: FontWeight.w400),
                 ),
-                const CustomText(text: 'See reviews', color: Colors.white, size: 14, maxline: 1, fontWeight: FontWeight.w400)
+                const CustomText(
+                    text: 'See reviews',
+                    color: Colors.white,
+                    size: 14,
+                    maxline: 1,
+                    fontWeight: FontWeight.w400)
               ],
             ),
           ),
           Positioned(
-            top: GetScreenSize.getScreenHeight(context) * 0.87,
+            top: GetScreenSize.getScreenWidth(context) * 1.75,
             left: GetScreenSize.getScreenWidth(context) * 0.07,
             right: GetScreenSize.getScreenWidth(context) * 0.05,
             child: Row(
