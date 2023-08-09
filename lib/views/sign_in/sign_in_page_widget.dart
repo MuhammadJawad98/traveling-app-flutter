@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
+import 'package:traveling_app_flutter/utils/helper_function.dart';
 
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -13,6 +14,7 @@ import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
+import '../personal_center/profile_page_widget.dart';
 
 class SignInPageScreenWidget extends StatefulWidget {
   SignInPageScreenWidget({super.key});
@@ -32,8 +34,8 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double buttonWidth = double.infinity;
-    final double buttonHeith = GetScreenSize.getScreenHeight(context) * 0.07;
+    double buttonWidth = GetScreenSize.getScreenWidth(context) * 0.8;
+    final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.14;
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
@@ -43,23 +45,29 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CustomIconButton(
-                  iconData: Icons.arrow_back,
-                  onTab: () {},
-                  size: 28,
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: CustomIconButton(
+                    iconData: Icons.arrow_back,
+                    onTab: () {},
+                    size: 28,
+                  ),
                 ),
                 const CustomSizedBox(
                   height: 27,
                 ),
-                CustomText(
-                    text: AppString.loginText,
-                    color: Colors.black,
-                    size: 30,
-                    maxline: 1,
-                    fontWeight: FontWeight.w600),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: CustomText(
+                      text: AppString.loginText,
+                      color: Colors.black,
+                      size: 30,
+                      maxline: 1,
+                      fontWeight: FontWeight.w600),
+                ),
                 const CustomSizedBox(
                   height: 27,
                 ),
@@ -150,5 +158,13 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
     ));
   }
 
-  void onTabContinue() {}
+  void onTabContinue() {
+    String email = emailController.text.trim();
+    if (email.isEmpty) {
+      AppCommonFunctions.showToast("Email Can't be Empty", context);
+    } else {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => ProfilePageScreenWidget()));
+    }
+  }
 }

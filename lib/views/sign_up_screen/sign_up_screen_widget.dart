@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
+import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/sign_up_screen/widgets/custom_rich_text.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -51,8 +52,14 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double buttonWidth = double.infinity;
-    final double buttonHeith = GetScreenSize.getScreenHeight(context) * 0.07;
+    AppCommonFunctions.printLogs(
+        "getScreenSize: ${GetScreenSize.getScreenSize(context)}");
+    AppCommonFunctions.printLogs(
+        "getScreenHeight: ${GetScreenSize.getScreenHeight(context)}");
+    AppCommonFunctions.printLogs(
+        "getScreenWidth: ${GetScreenSize.getScreenWidth(context)}");
+    double buttonWidth = GetScreenSize.getScreenWidth(context) * 0.8;
+    final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.14;
     return SafeArea(
         child: GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -176,6 +183,9 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
     }
     if (confirmPassword.isEmpty) {
       AppCommonFunctions.showToast(AppString.emptyConfirmPasswordText, context);
-    } else {}
+    } else {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SignInPageScreenWidget()));
+    }
   }
 }
