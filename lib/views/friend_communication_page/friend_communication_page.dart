@@ -28,7 +28,7 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
     return SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
-          padding: const EdgeInsets.only(top: 43, left: 15, bottom: 18),
+          padding: const EdgeInsets.only(top: 55, left: 15, bottom: 18),
           child: CustomText(
               text: AppString.fCPtitle,
               color: AppColors.talhablack,
@@ -50,9 +50,9 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
               maxline: 1,
               fontWeight: FontWeight.w400),
           trailing: CustomTextButton(
-              height: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenHeight(context) * 0.05 : GetScreenSize.getScreenHeight(context) * 0.09,
+              height: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenHeight(context) * 0.085 : GetScreenSize.getScreenHeight(context) * 0.09,
               fontColor: AppColors.talhawhite,
-              width: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.26 : GetScreenSize.getScreenWidth(context) * 0.18,
+              width: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.27 : GetScreenSize.getScreenWidth(context) * 0.18,
               onTab: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const YourSociallinkPage())),
               buttonText: AppString.fCPcardtext,
               buttonColor: AppColors.talhablue,

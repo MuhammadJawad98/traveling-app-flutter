@@ -17,10 +17,10 @@ class YourSociallinkPage extends StatefulWidget {
 
 class _YourSociallinkPageState extends State<YourSociallinkPage> {
   List<SocialLink> social = [
-    SocialLink(title: 'Facebook', subtitle: 'Limited time paid promotion', image: AppAssets.socialSaringtitle1),
-    SocialLink(title: 'Twitter', subtitle: 'Limited time paid promotion', image: AppAssets.socialSaringtitle2),
-    SocialLink(title: 'Instagram', subtitle: 'Promote your blog for free', image: AppAssets.socialSaringtitle3),
-    SocialLink(title: 'Pinterest', subtitle: 'Promote your blog for free', image: AppAssets.socialSaringtitl4),
+    SocialLink(title: 'Facebook', subtitle: 'Limited time paid promotion', image: AppAssets.socialSharingtitle1),
+    SocialLink(title: 'Twitter', subtitle: 'Limited time paid promotion', image: AppAssets.socialSharingtitle2),
+    SocialLink(title: 'Instagram', subtitle: 'Promote your blog for free', image: AppAssets.socialSharingtitle3),
+    SocialLink(title: 'Pinterest', subtitle: 'Promote your blog for free', image: AppAssets.socialSharingtitl4),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _YourSociallinkPageState extends State<YourSociallinkPage> {
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
               InkWell(onTap: () => Navigator.pop(context), child: const Icon(Icons.arrow_back)),
               Row(children: [
-                Image(image: AssetImage(AppAssets.socialSaringtitle)),
+                Image(image: AssetImage(AppAssets.socialSharingtitle)),
                 const CustomSizedBox(width: 14),
                 CustomText(
                     text: AppString.yoursociallinktitle,
@@ -43,7 +43,7 @@ class _YourSociallinkPageState extends State<YourSociallinkPage> {
               CustomText(
                   text: AppString.yoursociallinksubtitle,
                   color: AppColors.talhagrey,
-                  size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.049 : GetScreenSize.getScreenWidth(context) * 0.03,
+                  size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.045 : GetScreenSize.getScreenWidth(context) * 0.03,
                   maxline: 2,
                   fontWeight: FontWeight.w300),
               ListView.separated(
