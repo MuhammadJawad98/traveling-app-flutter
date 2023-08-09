@@ -18,6 +18,7 @@ class AppColors {
   static const btnTextColor = Colors.white;
   static const dividerColor = Color.fromRGBO(232, 232, 232, 1);
   static const screenTextColor = Color.fromRGBO(173, 173, 173, 1);
+  static const textFieldBoarderColor = Color.fromRGBO(233, 233, 233, 1);
   //--------------------Abubaker Saeed -----------------------------------
 
   //-------------------- Bhi Usman  -----------------------------------

@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'dart:math';
 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
+import 'package:traveling_app_flutter/utils/helper_function.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_strings.dart';
@@ -11,9 +14,21 @@ import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
 
-class SignInPageScreenWidget extends StatelessWidget {
+class SignInPageScreenWidget extends StatefulWidget {
   SignInPageScreenWidget({super.key});
+
+  @override
+  State<SignInPageScreenWidget> createState() => _SignInPageScreenWidgetState();
+}
+
+class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
   final TextEditingController emailController = TextEditingController();
+  @override
+  void initState() {
+    Provider.of<SignInProvider>(context, listen: false)
+        .cheeckVaidEmail(emailController);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +55,7 @@ class SignInPageScreenWidget extends StatelessWidget {
                   height: 27,
                 ),
                 CustomText(
-                    text: AppString.signUpfreeText,
+                    text: AppString.loginText,
                     color: Colors.black,
                     size: 30,
                     maxline: 1,
@@ -53,8 +68,11 @@ class SignInPageScreenWidget extends StatelessWidget {
                 ),
                 CustomTextField(
                   controller: emailController,
-                  hint: "Enter Email",
+                  hint: AppString.hintEmailText,
                   raduis: 36,
+                  erroText: AppString.invalidEmail,
+                  isValid: Provider.of<SignInProvider>(context, listen: true)
+                      .isValidEmail,
                   prefixIcon: Image.asset(AppAssets.message),
                 ),
                 const CustomSizedBox(
@@ -96,14 +114,14 @@ class SignInPageScreenWidget extends StatelessWidget {
                   width: buttonWidth,
                   fontSize: GetScreenSize.getScreenWidth(context) * 0.05,
                 ),
-                CustomSizedBox(
+                const CustomSizedBox(
                   height: 20,
                 ),
                 CustomTextButton(
                   buttonColor: AppColors.facebookColorButton,
                   height: buttonHeith,
                   addIcon: true,
-                  icon: Image.asset(AppAssets.facebooklogo),
+                  icon: const Icon(Icons.facebook, color: Colors.white),
                   onTab: () {},
                   radius: 36,
                   buttonText: AppString.btnFacebook,
@@ -117,7 +135,9 @@ class SignInPageScreenWidget extends StatelessWidget {
               child: CustomTextButton(
                 buttonColor: AppColors.blueButton,
                 height: buttonHeith,
-                onTab: () {},
+                onTab: () {
+                  onTabContinue();
+                },
                 radius: 36,
                 buttonText: AppString.btnContinue,
                 width: buttonWidth,
@@ -129,4 +149,6 @@ class SignInPageScreenWidget extends StatelessWidget {
       ),
     ));
   }
+
+  void onTabContinue() {}
 }

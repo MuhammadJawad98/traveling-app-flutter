@@ -12,8 +12,8 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_text_field.dart';
 
-class SignInPageWidge extends StatelessWidget {
-  SignInPageWidge({super.key});
+class ProfilePageScreenWidget extends StatelessWidget {
+  ProfilePageScreenWidget({super.key});
   final TextEditingController controller = TextEditingController();
   final TextEditingController passowrTfcontroller = TextEditingController();
   final TextEditingController authenticateTfcontroller =
@@ -76,19 +76,22 @@ class SignInPageWidge extends StatelessWidget {
                 ),
                 CustomTextField(
                   controller: passowrTfcontroller,
-                  hint: "Enter Password",
+                  hint: AppString.enterPasswordText,
                   raduis: 36,
                   obsecure: true,
                   prefixIcon: Image.asset(AppAssets.lock),
-                  suffixIcon: CustomTextButton(
-                    buttonColor: AppColors.blueButton,
-                    height: GetScreenSize.getScreenHeight(context) * 0.02,
-                    onTab: () {},
-                    radius: 36,
-                    buttonText: AppString.btnChange,
-                    width: GetScreenSize.getScreenWidth(context) * 0.3,
-                    fontSize: GetScreenSize.getScreenWidth(context) * 0.05,
-                  ),
+                  suffixIcon: Padding(
+                      padding:
+                          const EdgeInsets.only(right: 10, top: 5, bottom: 5),
+                      child: CustomTextButton(
+                        buttonColor: AppColors.blueButton,
+                        height: GetScreenSize.getScreenHeight(context) * 0.02,
+                        onTab: () {},
+                        radius: 36,
+                        buttonText: AppString.btnChange,
+                        width: GetScreenSize.getScreenWidth(context) * 0.25,
+                        fontSize: GetScreenSize.getScreenWidth(context) * 0.037,
+                      )),
                 ),
                 const CustomSizedBox(
                   height: 30,
@@ -104,14 +107,14 @@ class SignInPageWidge extends StatelessWidget {
                 ),
                 CustomTextField(
                   controller: authenticateTfcontroller,
-                  hint: "Authenticate",
+                  hint: AppString.authenticateHintText,
                   raduis: 36,
                   prefixIcon: Image.asset(AppAssets.perosn),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 41),
+              padding: const EdgeInsets.only(bottom: 41),
               child: CustomTextButton(
                 buttonColor: AppColors.blueButton,
                 height: buttonHeith,
