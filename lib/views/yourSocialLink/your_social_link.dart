@@ -30,6 +30,7 @@ class _YourSociallinkPageState extends State<YourSociallinkPage> {
             child: SingleChildScrollView(
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
               InkWell(onTap: () => Navigator.pop(context), child: const Icon(Icons.arrow_back)),
+              CustomSizedBox(height: GetScreenSize.getScreenHeight(context) * 0.1),
               Row(children: [
                 Image(image: AssetImage(AppAssets.socialSharingtitle)),
                 const CustomSizedBox(width: 14),
