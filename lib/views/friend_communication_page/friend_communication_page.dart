@@ -4,6 +4,7 @@ import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/views/friend_communication_page/widgets/fC_tile_desgin.dart';
+import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/yourSocialLink/your_social_link.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
@@ -69,17 +70,24 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
       const Divider(indent: 24, endIndent: 22),
       Padding(
           padding: const EdgeInsets.only(top: 20, left: 30),
-          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Icon(Icons.logout,
-                color: AppColors.talhablue,
-                size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.06 : GetScreenSize.getScreenWidth(context) * 0.04),
-            CustomText(
-                text: AppString.fCPlogout,
-                color: AppColors.talhablue,
-                size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.045 : GetScreenSize.getScreenWidth(context) * 0.03,
-                maxline: 1,
-                fontWeight: FontWeight.bold)
-          ]))
+          child: InkWell(
+            onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SignInPageScreenWidget(),
+                )),
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Icon(Icons.logout,
+                  color: AppColors.talhablue,
+                  size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.06 : GetScreenSize.getScreenWidth(context) * 0.04),
+              CustomText(
+                  text: AppString.fCPlogout,
+                  color: AppColors.talhablue,
+                  size: GetScreenSize.getScreenOrienation(context) == Orientation.portrait ? GetScreenSize.getScreenWidth(context) * 0.045 : GetScreenSize.getScreenWidth(context) * 0.03,
+                  maxline: 1,
+                  fontWeight: FontWeight.bold)
+            ]),
+          ))
     ]));
   }
 }
