@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:traveling_app_flutter/views/travel_arrangement/widgets/task_tile.dart';
+import 'package:traveling_app_flutter/views/travel_arrangement/widgets/time_oval_tile.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 
 import '../../utils/app_strings.dart';
@@ -109,8 +111,13 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                timeTile(context, AppString.timeShort),
-                                taskTile(context)
+                                TimeTile(
+                                    context: context,
+                                    time: AppString.timeShort),
+                                TaskTile(
+                                    context: context,
+                                    task: 'Wakeup',
+                                    emoji: AppString.UkFlag)
                               ],
                             );
                           },
@@ -147,99 +154,4 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
       ),
     );
   }
-
-  Container taskTile(BuildContext context) {
-    return Container(
-      width: GetScreenSize.getScreenWidth(context) * 0.6,
-      height: GetScreenSize.getScreenHeight(context) * 0.075,
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(
-              width: 0.60, color: Color.fromARGB(255, 196, 196, 196)),
-          borderRadius: BorderRadius.circular(35),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 13),
-            child: CustomText(
-                text: 'Wake up',
-                color: Colors.black,
-                size: 16,
-                maxline: 1,
-                fontWeight: FontWeight.w500),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey.shade400,
-              radius: 18,
-              child: const Text(
-                AppString.UkFlag,
-                style: TextStyle(fontSize: 22),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget timeTile(BuildContext context, String time) {
-    return Container(
-      width: GetScreenSize.getScreenWidth(context) * 0.22,
-      height: GetScreenSize.getScreenHeight(context) * 0.075,
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(
-              width: 0.60, color: Color.fromARGB(255, 196, 196, 196)),
-          borderRadius: BorderRadius.circular(35),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Icon(
-            Icons.access_time,
-            color: Colors.black45,
-          ),
-          CustomText(
-              text: time,
-              color: Colors.black,
-              size: 16,
-              maxline: 1,
-              fontWeight: FontWeight.w500),
-        ],
-      ),
-    );
-  }
-}
-
-Widget myappBar(BuildContext context, String title) {
-  return Row(
-    children: [
-      IconButton(
-          alignment: Alignment.centerLeft,
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.black,
-            size: 25,
-          )),
-      SizedBox(
-        width: GetScreenSize.getScreenWidth(context) * 0.2,
-      ),
-      CustomText(
-          text: title,
-          color: Colors.black,
-          size: 20,
-          maxline: 1,
-          fontWeight: FontWeight.w600)
-    ],
-  );
 }
