@@ -51,8 +51,8 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double buttonWidth = double.infinity;
-    final double buttonHeith = GetScreenSize.getScreenHeight(context) * 0.07;
+    final double buttonWidth = GetScreenSize.getScreenWidth(context) * 0.8;
+    final double buttonHeith = GetScreenSize.getScreenHeight(context) * 0.13;
     return SafeArea(
         child: GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
