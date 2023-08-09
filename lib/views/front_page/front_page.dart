@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/views/attraction_details_page/attraction_details_page.dart';
 import 'package:traveling_app_flutter/views/front_page/front_page_widgets/horizontal_image.dart';
 import 'package:traveling_app_flutter/views/front_page/front_page_widgets/vertical_image.dart';
-import '../../models/locations_model.dart';
+
+import '../../providers/locations_provider.dart';
 import '../../utils/app_strings.dart';
 import '../../widgets/custom_text.dart';
+import 'front_page_widgets/searchbar_widget.dart';
 
 class FrontPage extends StatefulWidget {
   FrontPage({super.key});
@@ -15,6 +19,15 @@ class FrontPage extends StatefulWidget {
 }
 
 class _FrontPageState extends State<FrontPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final locationsProvider =
+        Provider.of<LocationsProvider>(context, listen: false);
+    locationsProvider.createArray();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,12 +47,12 @@ class _FrontPageState extends State<FrontPage> {
             children: [
               const CustomText(
                   text: 'Find your next trip',
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColors.frontPageTextColor,
                   size: 16,
                   maxline: 1,
                   fontWeight: FontWeight.w500),
               const CustomText(
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColors.frontPageTextColor,
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 26,
@@ -49,28 +62,9 @@ class _FrontPageState extends State<FrontPage> {
               ),
               Row(
                 children: [
-                  //const SearchBar(),
-                  Container(
-                    width: 250,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      border: Border.all(
-                        color: const Color.fromRGBO(233, 233, 233, 1),
-                        width: 1,
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          hintText: 'Search',
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                  ),
+                  MySearchBar(
+                      height: GetScreenSize.getScreenHeight(context) * 0.065,
+                      width1: GetScreenSize.getScreenWidth(context) * 0.70),
                   SizedBox(
                     width: GetScreenSize.getScreenWidth(context) * 0.05,
                   ),
@@ -80,7 +74,7 @@ class _FrontPageState extends State<FrontPage> {
                     //color: Colors.amber,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.blue),
+                        color: AppColors.searchBarIconColor),
                     child: Image.asset(AppString.searchBarIcon),
                   )
                 ],
@@ -89,7 +83,7 @@ class _FrontPageState extends State<FrontPage> {
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
               const CustomText(
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColors.frontPageTextColor,
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 18,
@@ -107,10 +101,10 @@ class _FrontPageState extends State<FrontPage> {
                   },
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: locations.length,
+                    itemCount: LocationsProvider.locations.length,
                     itemBuilder: (context, index) {
                       return VerticalImage(
-                        user: locations[index],
+                        user: LocationsProvider.locations[index],
                       );
                     },
                   ),
@@ -120,7 +114,7 @@ class _FrontPageState extends State<FrontPage> {
                 height: GetScreenSize.getScreenHeight(context) * 0.03,
               ),
               const CustomText(
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: AppColors.frontPageTextColor,
                   fontWeight: FontWeight.w600,
                   maxline: 1,
                   size: 18,
@@ -138,7 +132,7 @@ class _FrontPageState extends State<FrontPage> {
                   },
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: locations.length,
+                    itemCount: LocationsProvider.locations.length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -146,10 +140,11 @@ class _FrontPageState extends State<FrontPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => AttractionDetailsPage(
-                                      data: locations[index])));
+                                      data:
+                                          LocationsProvider.locations[index])));
                         },
                         child: HorizontalImage(
-                          user: locations[index],
+                          user: LocationsProvider.locations[index],
                         ),
                       );
                     },

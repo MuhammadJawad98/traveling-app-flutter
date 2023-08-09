@@ -18,6 +18,13 @@ class AppColors {
   static const screenTextColor = Color.fromRGBO(173, 173, 173, 1);
   //--------------------Abubaker Saeed -----------------------------------
 
+  static const attractionScreenText = Color.fromARGB(202, 216, 199, 199);
+  static const ratingStarsColor = Colors.amber;
+  static const unratedStarsColor = Color.fromARGB(255, 182, 177, 177);
+  static const textOnImagesColor = Color.fromRGBO(255, 255, 255, 1);
+  static const frontPageTextColor = Color.fromRGBO(0, 0, 0, 1);
+  static const searchBarIconColor = Colors.blue;
+
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------

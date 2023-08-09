@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 
 import '../../../models/locations_model.dart';
@@ -39,7 +40,7 @@ class _VerticalImageState extends State<VerticalImage> {
             padding: EdgeInsets.fromLTRB(35.0, 80, 0, 0),
             child: CustomText(
               text: widget.user.namelocation,
-              color: Color.fromRGBO(255, 255, 255, 1),
+              color: AppColors.textOnImagesColor,
               size: 22,
               maxline: 2,
               fontWeight: FontWeight.w400,
@@ -50,7 +51,7 @@ class _VerticalImageState extends State<VerticalImage> {
             padding: EdgeInsets.fromLTRB(35.0, 110, 0, 0),
             child: CustomText(
               text: widget.user.price,
-              color: Color.fromRGBO(255, 255, 255, 1),
+              color: AppColors.textOnImagesColor,
               size: 12,
               maxline: 2,
               fontWeight: FontWeight.w400,
