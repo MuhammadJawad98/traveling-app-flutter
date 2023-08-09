@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
 import 'package:traveling_app_flutter/utils/app_constants.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
-import 'package:traveling_app_flutter/views/home_page/home_page.dart';
+//import 'package:traveling_app_flutter/views/home_page/home_page.dart';
 import 'package:traveling_app_flutter/widgets/custom_rounded_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_image.dart';
 
@@ -68,20 +68,14 @@ class _MakePlanState extends State<MakePlan> {
                               if (counter.count < 3) {
                                 counter.increment();
                               } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const homePageScreenWidget()),
-                                );
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //       builder: (context) =>
+                                //           const homePageScreenWidget()),
+                                // );
                               }
                               setState(() {});
-
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => const MakePlan()),
-                              // );
                             }),
                       ]),
                     ),
@@ -89,10 +83,10 @@ class _MakePlanState extends State<MakePlan> {
                 ]))));
   }
 
-  void tapbutton(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const homePageScreenWidget()),
-    );
-  }
+  // void tapbutton(BuildContext context) {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => const homePageScreenWidget()),
+  //   );
+  // }
 }
