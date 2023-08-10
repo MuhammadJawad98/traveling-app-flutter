@@ -30,24 +30,17 @@ class _NewPlanState extends State<NewPlan> {
     final width = GetScreenSize.getScreenWidth(context);
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(13.0),
       child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: width * 0.1,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.arrow_back_sharp,
-                  size: width * 0.08,
-                ),
-                SizedBox(
-                  width: width * 0.25,
-                ),
-                Text(
+        child: Stack(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: width * 0.1,
+              ),
+              Center(
+                child: Text(
                   "New Plan",
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -55,139 +48,148 @@ class _NewPlanState extends State<NewPlan> {
                       fontStyle: FontStyle.normal,
                       color: Colors.black,
                       fontSize: width * 0.07),
-                )
-              ],
-            ),
-            SizedBox(height: width * 0.05),
-            Center(
-              child: SizedBox(
-                child: Stack(children: [
-                  Image.asset(AppAssets.imagepage5,
-                      width: width * 1,
-                      height: width * 0.3,
-                      fit: BoxFit.fitHeight),
-                  Positioned(
-                      top: width * 0.12,
-                      left: width * 0.04,
-                      child: Text(
-                        "Nordic Cottage",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.normal,
-                            fontStyle: FontStyle.normal,
-                            color: Colors.white,
-                            fontSize: width * 0.05),
-                      )),
-                  Positioned(
-                      top: width * 0.18,
-                      left: width * 0.04,
-                      child: Text(
-                        "Nordic Cottage",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.normal,
-                            fontStyle: FontStyle.normal,
-                            color: Colors.white,
-                            fontSize: width * 0.07),
-                      ))
-                ]),
+                ),
               ),
-            ),
-            SizedBox(height: width * 0.05),
-            content(context),
-            SizedBox(height: width * 0.05),
-            Text(
-              "Select Dates",
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.normal,
-                  fontStyle: FontStyle.normal,
-                  color: Colors.black,
-                  fontSize: width * 0.05),
-            ),
-            SizedBox(height: width * 0.02),
-            Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: width * 0.14,
-                    width: width * 0.75,
-                    child: TextField(
-                        cursorColor: Colors.grey,
-                        decoration: InputDecoration(
-                            prefixIcon:
-                                const Icon(Icons.people_outline_outlined),
-                            hintText: "Query Journey",
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide:
-                                    const BorderSide(color: Colors.grey)),
-                            errorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide:
-                                    const BorderSide(color: Colors.grey)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ))),
-                  ),
-                ),
-                SizedBox(width: width * 0.05),
-                CustomRonudedButton(
-                  width: width * 0.4,
-                  onTap: () {},
-                  icon: Icons.send,
-                )
-              ],
-            ),
-            SizedBox(height: width * 0.04),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "Send to your email",
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.normal,
-                        fontStyle: FontStyle.normal,
-                        color: Colors.black,
-                        fontSize: width * 0.05),
-                  ),
-                ),
-                Switch(
-                  value: isSwitched,
-                  onChanged: (value) {
-                    setState(() {
-                      isSwitched = value;
-                      print(isSwitched);
-                    });
-                  },
-                  activeTrackColor: Colors.grey.shade400,
-                  activeColor: AppColors.blueButton,
-                  splashRadius: width * 0.5,
-                ),
-              ],
-            ),
-            SizedBox(height: width * 0.04),
-            Center(
-              child: CustomTextButton(
-                buttonColor: AppColors.blueButton,
-                fontSize: width * 0.05,
-                onTab: () {},
-                buttonText: 'Next Step',
-                width: width * 0.9,
-                radius: 30,
-                height: width * 0.17,
+              SizedBox(
+                width: width * 0.1,
               ),
-            )
-          ],
-        ),
+              SizedBox(height: width * 0.05),
+              Center(
+                child: SizedBox(
+                  child: Stack(children: [
+                    Image.asset(AppAssets.imagepage5,
+                        width: width * 1,
+                        height: width * 0.3,
+                        fit: BoxFit.fitHeight),
+                    Positioned(
+                        top: width * 0.12,
+                        left: width * 0.04,
+                        child: Text(
+                          "Nordic Cottage",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white,
+                              fontSize: width * 0.05),
+                        )),
+                    Positioned(
+                        top: width * 0.18,
+                        left: width * 0.04,
+                        child: Text(
+                          "Nordic Cottage",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white,
+                              fontSize: width * 0.07),
+                        ))
+                  ]),
+                ),
+              ),
+              SizedBox(height: width * 0.05),
+              content(context),
+              SizedBox(height: width * 0.05),
+              Text(
+                "Select Dates",
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.normal,
+                    fontStyle: FontStyle.normal,
+                    color: Colors.black,
+                    fontSize: width * 0.05),
+              ),
+              SizedBox(height: width * 0.02),
+              Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: width * 0.14,
+                      width: width * 0.75,
+                      child: TextField(
+                          cursorColor: Colors.grey,
+                          decoration: InputDecoration(
+                              prefixIcon:
+                                  const Icon(Icons.people_outline_outlined),
+                              hintText: "Query Journey",
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey)),
+                              errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ))),
+                    ),
+                  ),
+                  SizedBox(width: width * 0.05),
+                  CustomRonudedButton(
+                    onTap: () {},
+                    icon: Icons.send,
+                  )
+                ],
+              ),
+              SizedBox(height: width * 0.04),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Send to your email",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.normal,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.black,
+                          fontSize: width * 0.05),
+                    ),
+                  ),
+                  Switch(
+                    value: isSwitched,
+                    onChanged: (value) {
+                      setState(() {
+                        isSwitched = value;
+                        print(isSwitched);
+                      });
+                    },
+                    activeTrackColor: Colors.grey.shade400,
+                    activeColor: AppColors.blueButton,
+                    splashRadius: width * 0.5,
+                  ),
+                ],
+              ),
+              SizedBox(height: width * 0.04),
+              Center(
+                child: CustomTextButton(
+                  buttonColor: AppColors.blueButton,
+                  fontSize: width * 0.05,
+                  onTab: () {},
+                  buttonText: 'Next Step',
+                  width: width * 0.9,
+                  radius: 30,
+                  height: width * 0.17,
+                ),
+              )
+            ],
+          ),
+          Positioned(
+            top: width * 0.1,
+            left: width * 0.01,
+            child: Icon(
+              Icons.arrow_back_sharp,
+              size: width * 0.08,
+            ),
+          )
+        ]),
       ),
     ));
   }
 
   Widget content(context) {
     //Text("Selected Day = " + today.toString().split(" ")[0]),
-
     return SizedBox(
       child: TableCalendar(
         locale: 'en_US',

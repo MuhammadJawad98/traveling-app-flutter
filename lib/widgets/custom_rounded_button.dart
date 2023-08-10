@@ -26,7 +26,7 @@ class CustomRonudedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           onTap: onTap,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Icon(
               icon,
               color: Colors.white,
