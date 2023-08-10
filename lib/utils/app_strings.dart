@@ -1,3 +1,5 @@
+import '../models/locations_model.dart';
+
 class AppString {
   // Smaple String
   static const String hello = "Hello";
@@ -111,6 +113,33 @@ class AppString {
   static const String resort = 'Resort';
   static const String viewSpecificItinerary = 'View specific itinerary';
   static const String itineraryForm = 'Itinerary Form';
+  static List<LocationsModel> locationsList = [
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location3,
+        description: AppString.location3Subtitle,
+        wetherEmojy: AppString.CloudEmojy,
+        time: AppString.location3Time),
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+  ];
 
   //-------------------- Zainab Nauman  -----------------------------------
   ///////////////////page2/////////////////////////
