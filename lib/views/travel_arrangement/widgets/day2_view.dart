@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/providers/day_task_providers/day2_task_provider.dart';
 
-import '../../../providers/day_task_providers/day1_task_provider.dart';
 import '../../../utils/media_query.dart';
 import '../../../widgets/custom_button.dart';
 import 'add_task_dialog.dart';
@@ -9,8 +8,8 @@ import 'task_tile.dart';
 import 'time_oval_tile.dart';
 
 class Day2View extends StatelessWidget {
-  Day2TaskProvider taskProvider;
-  Day2View({super.key, required this.taskProvider});
+  final Day2TaskProvider taskProvider;
+  const Day2View({super.key, required this.taskProvider});
 
   @override
   Widget build(BuildContext context) {
