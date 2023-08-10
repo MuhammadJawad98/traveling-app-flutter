@@ -59,10 +59,13 @@ class _NewPlanState extends State<NewPlan> {
               Center(
                 child: SizedBox(
                   child: Stack(children: [
-                    Image.asset(AppAssets.imagepage5,
-                        width: width * 1,
-                        height: width * 0.3,
-                        fit: BoxFit.fitHeight),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(AppAssets.imagepage5,
+                          width: width,
+                          height: width * 0.3,
+                          fit: BoxFit.fitHeight),
+                    ),
                     Positioned(
                         top: width * 0.12,
                         left: width * 0.04,
@@ -104,20 +107,18 @@ class _NewPlanState extends State<NewPlan> {
               ),
               SizedBox(height: width * 0.02),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: SizedBox(
-                      height: width * 0.14,
-                      width: width * 0.75,
-                      child: CustomTextField(
-                          prefixIcon: const Icon(
-                            Icons.people_outline_outlined,
-                            color: Colors.black,
-                          ),
-                          hint: AppString.tfNewPlan,
-                          controller: queryJourneyController,
-                          raduis: 30),
-                    ),
+                    child: CustomTextField(
+                        prefixIcon: const Icon(
+                          Icons.people_outline_outlined,
+                          color: Colors.black,
+                        ),
+                        hint: AppString.tfNewPlan,
+                        controller: queryJourneyController,
+                        raduis: 30),
                   ),
                   SizedBox(width: width * 0.05),
                   CustomRonudedButton(
@@ -162,8 +163,8 @@ class _NewPlanState extends State<NewPlan> {
                   onTab: () {},
                   buttonText: AppString.nextstepNewPlan,
                   width: width * 0.9,
-                  radius: 30,
-                  height: width * 0.17,
+                  radius: 50,
+                  height: width * 0.15,
                 ),
               )
             ],
