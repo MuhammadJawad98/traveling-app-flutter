@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
@@ -30,8 +28,9 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = GetScreenSize.getScreenWidth(context);
-    bool isFirst;
-    bool isLast;
+    bool isFirst = false;
+    bool isLast = false;
+    bool isPast = false;
     return SafeArea(
         child: Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -66,16 +65,22 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context, index) {
+                    if (index == 0) {
+                      isFirst = true;
+                      isLast = false;
+                      isPast = true;
+                    } else {
+                      isFirst = false;
+                      isPast = false;
+                    }
+                    if (index == provier.locations.length - 1) {
+                      isLast = true;
+                    }
                     return CustomTimelineTile(
-                      isFirst: true,
-                      isLast: false,
-                      isPast: true,
-                      location: LocationsModel(
-                          namelocation: AppString.location1,
-                          description: AppString.location1Subtitle,
-                          wetherEmojy: AppString.CloudEmojy,
-                          time: AppString.location1Time),
-                    );
+                        isFirst: isFirst,
+                        isLast: isLast,
+                        isPast: isPast,
+                        location: provier.locations[index]);
                   });
             }),
           ),
