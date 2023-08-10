@@ -6,6 +6,7 @@ import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/views/transportation_arrangement_page/transportationScreen.dart';
 import 'package:traveling_app_flutter/views/travel_arrangement/travel_arrangement_screen.dart';
+import 'package:traveling_app_flutter/views/weather_query_page/wearther_query_page.dart';
 
 import 'providers/day_task_providers/day1_task_provider.dart';
 import 'providers/day_task_providers/day2_task_provider.dart';
@@ -33,6 +34,6 @@ void main(List<String> args) {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-        home: const SafeArea(child: TransportationArrangementScreen()),
+        home: const SafeArea(child: WeatherQueryPage()),
       )));
 }
