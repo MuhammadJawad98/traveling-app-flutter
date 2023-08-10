@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
 
 class CustomTextButton extends StatelessWidget {
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final Widget? icon;
   final bool addIcon;
   final String buttonText;
   final Color buttonColor;
   final Color fontColor;
+  final EdgeInsetsGeometry? padding;
   final VoidCallback onTab;
   final double radius;
   final double? fontSize;
   const CustomTextButton(
       {super.key,
-      required this.height,
-      required this.width,
+      this.height,
+      this.width,
       this.icon,
       required this.onTab,
       required this.buttonText,
@@ -23,7 +24,8 @@ class CustomTextButton extends StatelessWidget {
       required this.radius,
       this.addIcon = false,
       required this.fontSize,
-      this.fontColor = Colors.white});
+      this.fontColor = Colors.white,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class CustomTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         onTap: onTab,
         child: Container(
+          padding: padding,
           decoration:
               BoxDecoration(borderRadius: BorderRadius.circular(radius)),
           height: height,
