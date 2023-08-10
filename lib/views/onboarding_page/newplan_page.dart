@@ -7,6 +7,8 @@ import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_rounded_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text_field.dart';
 
+import '../../utils/app_strings.dart';
+
 class NewPlan extends StatefulWidget {
   NewPlan({super.key});
 
@@ -41,9 +43,9 @@ class _NewPlanState extends State<NewPlan> {
               ),
               Center(
                 child: Text(
-                  "New Plan",
+                  AppString.headingNewPlan,
                   style: TextStyle(
-                      fontFamily: 'Poppins',
+                      fontFamily: AppString.poppins,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
                       color: Colors.black,
@@ -65,9 +67,9 @@ class _NewPlanState extends State<NewPlan> {
                         top: width * 0.12,
                         left: width * 0.04,
                         child: Text(
-                          "Nordic Cottage",
+                          AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -77,9 +79,9 @@ class _NewPlanState extends State<NewPlan> {
                         top: width * 0.18,
                         left: width * 0.04,
                         child: Text(
-                          "Nordic Cottage",
+                          AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -92,13 +94,13 @@ class _NewPlanState extends State<NewPlan> {
               content(context),
               SizedBox(height: width * 0.05),
               Text(
-                "Select Dates",
+                AppString.selectdatesNewPlan,
                 style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.normal,
+                    fontFamily: AppString.poppins,
+                    fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                     color: Colors.black,
-                    fontSize: width * 0.05),
+                    fontSize: width * 0.045),
               ),
               SizedBox(height: width * 0.02),
               Row(
@@ -107,23 +109,14 @@ class _NewPlanState extends State<NewPlan> {
                     child: SizedBox(
                       height: width * 0.14,
                       width: width * 0.75,
-                      child: TextField(
-                          cursorColor: Colors.grey,
-                          decoration: InputDecoration(
-                              prefixIcon:
-                                  const Icon(Icons.people_outline_outlined),
-                              hintText: "Query Journey",
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: Colors.grey)),
-                              errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: Colors.grey)),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ))),
+                      child: CustomTextField(
+                          prefixIcon: const Icon(
+                            Icons.people_outline_outlined,
+                            color: Colors.black,
+                          ),
+                          hint: AppString.tfNewPlan,
+                          controller: queryJourneyController,
+                          raduis: 30),
                     ),
                   ),
                   SizedBox(width: width * 0.05),
@@ -138,9 +131,9 @@ class _NewPlanState extends State<NewPlan> {
                 children: [
                   Expanded(
                     child: Text(
-                      "Send to your email",
+                      AppString.sendNewPlan,
                       style: TextStyle(
-                          fontFamily: 'Poppins',
+                          fontFamily: AppString.poppins,
                           fontWeight: FontWeight.normal,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
@@ -167,7 +160,7 @@ class _NewPlanState extends State<NewPlan> {
                   buttonColor: AppColors.blueButton,
                   fontSize: width * 0.05,
                   onTab: () {},
-                  buttonText: 'Next Step',
+                  buttonText: AppString.nextstepNewPlan,
                   width: width * 0.9,
                   radius: 30,
                   height: width * 0.17,
@@ -190,21 +183,48 @@ class _NewPlanState extends State<NewPlan> {
 
   Widget content(context) {
     //Text("Selected Day = " + today.toString().split(" ")[0]),
-    return SizedBox(
-      child: TableCalendar(
-        locale: 'en_US',
-        rowHeight: GetScreenSize.getScreenWidth(context) * 0.09,
-        headerStyle: const HeaderStyle(
-          formatButtonVisible: false,
-          titleCentered: true,
+    final width = GetScreenSize.getScreenWidth(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          AppString.selectdatesNewPlan,
+          style: TextStyle(
+              fontFamily: AppString.poppins,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.normal,
+              color: Colors.black,
+              fontSize: width * 0.045),
         ),
-        availableGestures: AvailableGestures.all,
-        selectedDayPredicate: (day) => isSameDay(day, today),
-        focusedDay: today,
-        firstDay: DateTime.utc(2010, 10, 16),
-        lastDay: DateTime.utc(2030, 10, 30),
-        onDaySelected: ondayselected,
-      ),
+        TableCalendar(
+          locale: 'en_US',
+          rowHeight: GetScreenSize.getScreenWidth(context) * 0.09,
+          startingDayOfWeek: StartingDayOfWeek.monday,
+          availableCalendarFormats: const {CalendarFormat.month: 'Month'},
+          headerStyle: const HeaderStyle(
+            // leftChevronPadding: const EdgeInsets.fromLTRB(0, 11, 0, 7),
+            //rightChevronPadding: const EdgeInsets.fromLTRB(0, 11, 0, 7),
+            //leftChevronMargin: EdgeInsets.only(
+            //  left: GetScreenSize.getScreenWidth(context) * 0.4),
+            formatButtonVisible: false,
+            titleCentered: true,
+          ),
+          availableGestures: AvailableGestures.all,
+          selectedDayPredicate: (day) => isSameDay(day, today),
+          focusedDay: today,
+          firstDay: DateTime.utc(2010, 10, 16),
+          lastDay: DateTime.utc(2030, 10, 30),
+          onDaySelected: ondayselected,
+          daysOfWeekStyle: DaysOfWeekStyle(
+              weekdayStyle: TextStyle(color: Colors.grey.shade500),
+              weekendStyle: TextStyle(color: Colors.grey.shade500)),
+          calendarStyle: CalendarStyle(
+              selectedDecoration: BoxDecoration(
+                  color: Colors.blue.shade600, shape: BoxShape.circle),
+              todayDecoration: const BoxDecoration(
+                  color: AppColors.blueButton, shape: BoxShape.circle)),
+        ),
+      ],
     );
   }
 }

@@ -21,6 +21,6 @@ void main(List<String> args) {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Poppins'),
-        home: SafeArea(child: NewPlan()),
+        home: SafeArea(child: SplashScreen()),
       )));
 }

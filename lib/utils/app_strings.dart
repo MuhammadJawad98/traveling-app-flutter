@@ -96,4 +96,12 @@ class AppString {
   static String heading4 = "High-end leisure projects to choose from";
   static String description4 =
       "The world's first-class modern leisure and entertainment method";
+//////////////////New Plan Page//////////////////////////////
+  static String headingNewPlan = "New Plan";
+  static String placeNewPlan = "Nordic Cottage";
+  static String selectdatesNewPlan = "Select Dates";
+  static String tfNewPlan = "Query Journey";
+  static String sendNewPlan = "Send to your email";
+  static String nextstepNewPlan = 'Next Step';
+  static String poppins = "Poppins";
 }
