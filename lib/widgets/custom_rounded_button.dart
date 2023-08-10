@@ -6,11 +6,13 @@ class CustomRonudedButton extends StatelessWidget {
   final Color color;
   final Color backgroundcolor;
   final bool? flag;
+  final IconData icon;
 
   const CustomRonudedButton(
       {super.key,
       required this.onTap,
       this.flag = true,
+      this.icon = Icons.arrow_forward_rounded,
       this.color = Colors.white,
       this.width = double.infinity,
       this.backgroundcolor = const Color.fromRGBO(3, 115, 243, 1)});
@@ -23,10 +25,10 @@ class CustomRonudedButton extends StatelessWidget {
       child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: onTap,
-          child: const Padding(
+          child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Icon(
-              Icons.arrow_forward_rounded,
+              icon,
               color: Colors.white,
             ),
           )),

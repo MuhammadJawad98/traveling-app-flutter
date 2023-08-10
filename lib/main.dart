@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
+import 'package:traveling_app_flutter/views/onboarding_page/newplan_page.dart';
 
 import 'providers/provider_makeplan_page.dart';
 import 'views/onboarding_page/splash_screen.dart';
@@ -20,6 +21,6 @@ void main(List<String> args) {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Poppins'),
-        home: const SafeArea(child: SplashScreen()),
+        home: SafeArea(child: SplashScreen()),
       )));
 }
