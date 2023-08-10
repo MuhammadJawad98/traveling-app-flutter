@@ -8,8 +8,8 @@ import 'task_tile.dart';
 import 'time_oval_tile.dart';
 
 class Day1View extends StatelessWidget {
-  Day1TaskProvider taskProvider;
-  Day1View({super.key, required this.taskProvider});
+  final Day1TaskProvider taskProvider;
+  const Day1View({super.key, required this.taskProvider});
 
   @override
   Widget build(BuildContext context) {

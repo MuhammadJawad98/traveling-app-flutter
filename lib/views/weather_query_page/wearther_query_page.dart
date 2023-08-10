@@ -5,6 +5,9 @@ import 'package:traveling_app_flutter/views/weather_query_page/widgets/day_tab.d
 import 'package:traveling_app_flutter/views/weather_query_page/widgets/weather_app_bar.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
+import '../../models/locations_model.dart';
+import '../../utils/app_colors.dart';
+import '../itinerary_page/widgets/custom_timeline_tile.dart';
 import 'widgets/custom_group_button.dart';
 
 class WeatherQueryPage extends StatefulWidget {
@@ -43,6 +46,51 @@ class _WeatherQueryPageState extends State<WeatherQueryPage> {
                 DayTab(title1: AppString.day2, title2: AppString.date2),
                 DayTab(title1: AppString.day3, title2: AppString.date3),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(children: [
+                CustomTimelineTile(
+                  isFirst: true,
+                  isLast: false,
+                  isPast: true,
+                  location: LocationsModel(
+                      namelocation: AppString.location1,
+                      description: AppString.location1Subtitle,
+                      wetherEmojy: AppString.CloudEmojy,
+                      time: AppString.location1Time),
+                ),
+                CustomTimelineTile(
+                  isFirst: false,
+                  isLast: false,
+                  isPast: false,
+                  location: LocationsModel(
+                      namelocation: AppString.location3,
+                      description: AppString.location3Subtitle,
+                      wetherEmojy: AppString.lightingEmojy,
+                      time: AppString.location1Time),
+                ),
+                CustomTimelineTile(
+                  isFirst: false,
+                  isLast: true,
+                  isPast: false,
+                  location: LocationsModel(
+                      namelocation: AppString.location2,
+                      description: AppString.location2Subtitle,
+                      wetherEmojy: AppString.sunnyRainEmojy,
+                      time: AppString.location2Time),
+                ),
+                CustomTimelineTile(
+                  isFirst: false,
+                  isLast: true,
+                  isPast: false,
+                  location: LocationsModel(
+                      namelocation: AppString.location2,
+                      description: AppString.location2Subtitle,
+                      wetherEmojy: AppString.sunnyRainEmojy,
+                      time: AppString.location2Time),
+                ),
+              ]),
             ),
             Padding(
               padding: EdgeInsets.symmetric(

@@ -41,45 +41,6 @@ class ItineraryScreenWidget extends StatelessWidget {
         Expanded(child: CustomSizedBox()),
         LocationDetailsViewWidget(),
         Expanded(child: CustomSizedBox()),
-        Container(
-          color: AppColors.containerColor,
-          //height: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(children: [
-              CustomTimelineTile(
-                isFirst: true,
-                isLast: false,
-                isPast: true,
-                location: LocationsModel(
-                    namelocation: AppString.location1,
-                    description: AppString.location1Subtitle,
-                    wetherEmojy: AppString.CloudEmojy,
-                    time: AppString.location1Time),
-              ),
-              CustomTimelineTile(
-                isFirst: false,
-                isLast: false,
-                isPast: false,
-                location: LocationsModel(
-                    namelocation: AppString.location3,
-                    description: AppString.location3Subtitle,
-                    wetherEmojy: AppString.lightingEmojy,
-                    time: AppString.location1Time),
-              ),
-              CustomTimelineTile(
-                isFirst: false,
-                isLast: true,
-                isPast: false,
-                location: LocationsModel(
-                    namelocation: AppString.location2,
-                    description: AppString.location2Subtitle,
-                    wetherEmojy: AppString.sunnyRainEmojy,
-                    time: AppString.location2Time),
-              ),
-            ]),
-          ),
-        ),
       ]),
     ));
   }
