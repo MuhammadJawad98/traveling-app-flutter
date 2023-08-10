@@ -40,7 +40,7 @@ class AppString {
   static String confirmPasswordText = "Confirm Password";
   static String hintConfirmPasswordText = "Repeat password";
   static String invalidPasswordHint =
-      "Password must include uppercase, lowercase, \n  digit, special character, and be at least 8 characters long";
+      "Password must include uppercase, lowercase,  digit, special character, and be at least 8 characters long";
 
   static String authenticateText = "Authenticate";
   static String authenticateHintText = "Authenticate";
@@ -48,6 +48,25 @@ class AppString {
   static String signUpfreeText = "Sign up free";
   static String termsOfServicesPart1 = "I have read the ";
   static String termsOfServicesPart2 = "Terms of Service";
+
+  static String goodMoringText = "Good Morning";
+  static String helloText = "Hello";
+  static String scheduleText = "Schedule";
+  static String lightingEmojy = "\u{26A1}";
+  static String sunnyRainEmojy = "\u{1F326}";
+  static String CloudEmojy = "\u{2601}";
+
+  static String location1 = "Maldives";
+  static String location1Time = "12:30";
+  static String location1Subtitle = "Save the turtles";
+  static String location2 = "Golden beach";
+  static String location2Time = "14:30";
+  static String location2Subtitle = "Surfing on the sea";
+  static String location3 = "Coconut grove";
+  static String location3Time = "17:30";
+  static String location3Subtitle = "BBQ party by the sea";
+
+  static String sunnyEmojy = "\u{2600}";
 
   //--------------------Abubaker Saeed -----------------------------------
   static const String searchBarIcon = 'assets/icons/searchbar_icon.png';

@@ -52,6 +52,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double width1 = GetScreenSize.getScreenWidth(context);
     AppCommonFunctions.printLogs(
         "getScreenSize: ${GetScreenSize.getScreenSize(context)}");
     AppCommonFunctions.printLogs(
@@ -59,120 +60,126 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
     AppCommonFunctions.printLogs(
         "getScreenWidth: ${GetScreenSize.getScreenWidth(context)}");
     double buttonWidth = GetScreenSize.getScreenWidth(context) * 0.8;
-    final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.14;
+    final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.12;
     return SafeArea(
       child: GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Scaffold(
               resizeToAvoidBottomInset: false,
               body: Padding(
-                padding: const EdgeInsets.only(left: 23, right: 26, top: 40),
-                child: SingleChildScrollView(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        CustomIconButton(
-                            iconData: Icons.arrow_back,
-                            onTab: () {
-                              Navigator.pop(context);
-                            },
-                            size: 28),
-                        const CustomSizedBox(height: 27),
-                        CustomText(
-                            text: AppString.signUpfreeText,
-                            color: Colors.black,
-                            size: 30,
-                            maxline: 1,
-                            fontWeight: FontWeight.w600),
-                        const CustomSizedBox(height: 27),
-                        CustomText(
-                            text: AppString.emailText,
-                            color: AppColors.screenTextColor,
-                            size: 15,
-                            maxline: 1,
-                            fontWeight: FontWeight.w400),
-                        const CustomSizedBox(height: 10),
-                        CustomTextField(
-                          controller: emailTfController,
-                          hint: AppString.hintEmailText,
+                padding: EdgeInsets.only(
+                  left: width1 * 0.08,
+                  right: width1 * 0.08,
+                ),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Expanded(child: CustomSizedBox()),
+                      CustomIconButton(
+                          iconData: Icons.arrow_back,
+                          onTab: () {
+                            Navigator.pop(context);
+                          },
+                          size: width1 * 0.065),
+                      // CustomSizedBox(height: width1 * 0.05),
+                      const Expanded(child: CustomSizedBox()),
+                      CustomText(
+                          text: AppString.signUpfreeText,
+                          color: Colors.black,
+                          size: GetScreenSize.getScreenWidth(context) * 0.07,
+                          maxline: 1,
+                          fontWeight: FontWeight.w600),
+                      CustomSizedBox(height: width1 * 0.05),
+                      CustomText(
+                          text: AppString.emailText,
+                          color: AppColors.screenTextColor,
+                          size: width1 * 0.03,
+                          maxline: 1,
+                          fontWeight: FontWeight.w400),
+                      CustomSizedBox(height: width1 * 0.02),
+                      CustomTextField(
+                        controller: emailTfController,
+                        hint: AppString.hintEmailText,
+                        raduis: 36,
+                        prefixIcon: Image.asset(AppAssets.perosn),
+                        erroText: AppString.invalidEmail,
+                        isValid:
+                            Provider.of<SignUpProvider>(context, listen: true)
+                                .isValidEmail,
+                      ),
+                      CustomSizedBox(height: width1 * 0.05),
+                      CustomText(
+                          text: AppString.passwordText,
+                          color: AppColors.screenTextColor,
+                          size: width1 * 0.03,
+                          maxline: 1,
+                          fontWeight: FontWeight.w400),
+                      CustomSizedBox(height: width1 * 0.02),
+                      CustomTextField(
+                        controller: passwordTfController,
+                        hint: AppString.hintPasswordText,
+                        raduis: 36,
+                        obsecure: true,
+                        prefixIcon: Image.asset(AppAssets.lock),
+                        erroText: AppString.invalidPasswordHint,
+                        isValid:
+                            Provider.of<SignUpProvider>(context, listen: true)
+                                .isValidPassword,
+                      ),
+                      CustomSizedBox(height: width1 * 0.05),
+                      CustomText(
+                          text: AppString.confirmPasswordText,
+                          color: AppColors.screenTextColor,
+                          size: width1 * 0.03,
+                          maxline: 1,
+                          fontWeight: FontWeight.w400),
+                      CustomSizedBox(height: width1 * 0.02),
+                      CustomTextField(
+                          controller: confirmPasswordTfController,
+                          hint: AppString.hintConfirmPasswordText,
                           raduis: 36,
-                          prefixIcon: Image.asset(AppAssets.perosn),
-                          erroText: AppString.invalidEmail,
-                          isValid:
-                              Provider.of<SignUpProvider>(context, listen: true)
-                                  .isValidEmail,
-                        ),
-                        const CustomSizedBox(
-                          height: 30,
-                        ),
-                        CustomText(
-                            text: AppString.passwordText,
-                            color: AppColors.screenTextColor,
-                            size: 15,
-                            maxline: 1,
-                            fontWeight: FontWeight.w400),
-                        const CustomSizedBox(height: 10),
-                        CustomTextField(
-                          controller: passwordTfController,
-                          hint: AppString.hintPasswordText,
-                          raduis: 36,
-                          obsecure: true,
-                          prefixIcon: Image.asset(AppAssets.lock),
-                          erroText: AppString.invalidPasswordHint,
-                          isValid:
-                              Provider.of<SignUpProvider>(context, listen: true)
-                                  .isValidPassword,
-                        ),
-                        const CustomSizedBox(height: 30),
-                        CustomText(
-                            text: AppString.confirmPasswordText,
-                            color: AppColors.screenTextColor,
-                            size: 15,
-                            maxline: 1,
-                            fontWeight: FontWeight.w400),
-                        const CustomSizedBox(height: 10),
-                        CustomTextField(
-                            controller: confirmPasswordTfController,
-                            hint: AppString.hintConfirmPasswordText,
-                            raduis: 36,
-                            prefixIcon: Image.asset(AppAssets.perosn)),
-                        const CustomSizedBox(height: 30),
-                        Row(children: [
-                          Image.asset(AppAssets.richTexticon),
-                          const CustomSizedBox(width: 10),
-                          CustomRichText(
+                          prefixIcon: Image.asset(AppAssets.perosn)),
+                      CustomSizedBox(height: width1 * 0.03),
+                      Row(children: [
+                        Image.asset(AppAssets.richTexticon,
+                            width: width1 * 0.04),
+                        const CustomSizedBox(width: 10),
+                        Expanded(
+                          child: CustomRichText(
                               text: AppString.termsOfServicesPart1,
-                              defaultStyle:
-                                  const TextStyle(color: Colors.black),
+                              defaultStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: width1 * 0.03,
+                              ),
                               textSpans: [
                                 TextSpan(
                                     text: AppString.termsOfServicesPart2,
                                     style: const TextStyle(
                                       color: AppColors.blueButton,
                                     ))
-                              ])
-                        ]),
-                        CustomSizedBox(
-                          height: GetScreenSize.getScreenWidth(context) * 0.4,
-                        ),
-                        CustomTextButton(
-                          buttonColor: AppColors.blueButton,
-                          height: buttonHeith,
-                          onTab: () {
-                            onTabConfirm();
-                          },
-                          radius: 36,
-                          buttonText: AppString.btnContinue,
-                          width: buttonWidth,
-                          fontSize:
-                              GetScreenSize.getScreenWidth(context) * 0.05,
-                        ),
-                        CustomSizedBox(
-                          height: 20,
+                              ]),
                         )
                       ]),
-                ),
+                      Expanded(child: CustomSizedBox()),
+                      Align(
+                          alignment: Alignment.bottomCenter,
+                          child: CustomTextButton(
+                            buttonColor: AppColors.blueButton,
+                            height: buttonHeith,
+                            onTab: () {
+                              onTabConfirm();
+                            },
+                            radius: 36,
+                            buttonText: AppString.btnContinue,
+                            width: buttonWidth,
+                            fontSize:
+                                GetScreenSize.getScreenWidth(context) * 0.05,
+                          )),
+                      const Expanded(
+                        child: CustomSizedBox(),
+                      )
+                    ]),
               ))),
     );
   }

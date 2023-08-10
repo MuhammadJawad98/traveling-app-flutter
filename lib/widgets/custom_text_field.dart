@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
+import 'package:traveling_app_flutter/utils/app_strings.dart';
+import 'package:traveling_app_flutter/utils/media_query.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hint;
@@ -25,9 +27,16 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(fontSize: GetScreenSize.getScreenWidth(context) * 0.03),
       controller: controller,
       obscureText: obsecure,
       decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            vertical: GetScreenSize.getScreenWidth(context) * 0.02,
+          ),
+          errorMaxLines: 2,
+          errorStyle: TextStyle(
+              fontSize: GetScreenSize.getScreenWidth(context) * 0.025),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           hintText: hint,
