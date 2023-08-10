@@ -40,6 +40,8 @@ dependencies:
   provider: ^6.0.5
   device_preview: ^1.1.0
 
+  timeline_tile: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
