@@ -12,9 +12,12 @@ void main(List<String> args) {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider<Counter>(create: (context) => Counter()),
-        ChangeNotifierProvider<SignInProvider>(create: (context) => SignInProvider()),
-        ChangeNotifierProvider<SignUpProvider>(create: (context) => SignUpProvider()),
-        ChangeNotifierProvider<LocationsProvider>(create: (context) => LocationsProvider()),
+        ChangeNotifierProvider<SignInProvider>(
+            create: (context) => SignInProvider()),
+        ChangeNotifierProvider<SignUpProvider>(
+            create: (context) => SignUpProvider()),
+        ChangeNotifierProvider<LocationsProvider>(
+            create: (context) => LocationsProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

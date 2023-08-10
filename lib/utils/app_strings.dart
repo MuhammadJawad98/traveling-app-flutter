@@ -40,7 +40,7 @@ class AppString {
   static String confirmPasswordText = "Confirm Password";
   static String hintConfirmPasswordText = "Repeat password";
   static String invalidPasswordHint =
-      "Password must include uppercase, lowercase, \n  digit, special character, and be at least 8 characters long";
+      "Password must include uppercase, lowercase,  digit, special character, and be at least 8 characters long";
 
   static String authenticateText = "Authenticate";
   static String authenticateHintText = "Authenticate";
