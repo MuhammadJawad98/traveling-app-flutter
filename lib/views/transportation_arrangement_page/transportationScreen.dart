@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/constants.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
+import 'package:traveling_app_flutter/views/transportation_arrangement_page/widgets/my_app_bar.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
@@ -32,7 +33,7 @@ class _TransportationArrangementScreenState
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                myappBar(context, AppString.travelPlan),
+                const MyAppBar(title: AppString.travelPlan),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.01,
                 ),
@@ -80,7 +81,7 @@ class _TransportationArrangementScreenState
                   ],
                 ),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.03,
+                  height: GetScreenSize.getScreenHeight(context) * 0.05,
                 ),
                 const CustomText(
                     text: AppString.flights,
@@ -89,12 +90,12 @@ class _TransportationArrangementScreenState
                     maxline: 1,
                     fontWeight: FontWeight.w600),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.03,
+                  height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 SizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.15,
+                  height: GetScreenSize.getScreenHeight(context) * 0.3,
                   width: double.maxFinite,
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       PriceTile(
@@ -109,10 +110,10 @@ class _TransportationArrangementScreenState
                   ),
                 ),
                 CustomSizedBox(
-                  height: GetScreenSize.getScreenHeight(context) * 0.02,
+                  height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 CustomTextButton(
-                    height: GetScreenSize.getScreenHeight(context) * 0.09,
+                    height: GetScreenSize.getScreenHeight(context) * 0.15,
                     width: double.maxFinite,
                     onTab: () {},
                     buttonText: AppString.determinePlan,
@@ -124,30 +125,6 @@ class _TransportationArrangementScreenState
           ),
         ],
       ),
-    );
-  }
-
-  Widget myappBar(BuildContext context, String title) {
-    return Row(
-      children: [
-        IconButton(
-            alignment: Alignment.centerLeft,
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.black,
-              size: 25,
-            )),
-        SizedBox(
-          width: GetScreenSize.getScreenWidth(context) * 0.2,
-        ),
-        CustomText(
-            text: title,
-            color: Colors.black,
-            size: 20,
-            maxline: 1,
-            fontWeight: FontWeight.w600)
-      ],
     );
   }
 }

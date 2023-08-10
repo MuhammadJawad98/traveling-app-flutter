@@ -1,3 +1,5 @@
+import '../models/locations_model.dart';
+
 class AppString {
   // Smaple String
   static const String hello = "Hello";
@@ -95,17 +97,50 @@ class AppString {
 
   static const String total = "Total";
   //travel arrangement screen strings
-
   static const String addIti = 'Add itinerary';
-
   static const String timeShort = '5:30';
-
   static const String day1 = 'Day 1';
   static const String day2 = 'Day 2';
   static const String day3 = 'Day 3';
   static const String date1 = 'July 14';
   static const String date2 = 'July 15';
   static const String date3 = 'July 16';
+
+//Weather Screen
+
+  static const String island = 'Island';
+  static const String beach = 'Beach';
+  static const String resort = 'Resort';
+  static const String viewSpecificItinerary = 'View specific itinerary';
+  static const String itineraryForm = 'Itinerary Form';
+  static List<LocationsModel> locationsList = [
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location3,
+        description: AppString.location3Subtitle,
+        wetherEmojy: AppString.CloudEmojy,
+        time: AppString.location3Time),
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+  ];
+
   //-------------------- Zainab Nauman  -----------------------------------
   ///////////////////page2/////////////////////////
   static String heading2 = "Make your own private travel plan";
