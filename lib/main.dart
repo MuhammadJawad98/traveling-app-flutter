@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/Itinerary_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/views/onboarding_page/newplan_page.dart';
@@ -14,6 +15,8 @@ void main(List<String> args) {
             create: (context) => SignInProvider()),
         ChangeNotifierProvider<SignUpProvider>(
             create: (context) => SignUpProvider()),
+        ChangeNotifierProvider<ItineraryProvider>(
+            create: (context) => ItineraryProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
