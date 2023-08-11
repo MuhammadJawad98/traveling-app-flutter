@@ -75,7 +75,7 @@ class AppString {
   static const String findTripText = 'Find your next trip';
   static const String nordicscenery = 'Nordic scenery';
   static const String popularLocations = 'Popular locations';
-  //-------------------- Bhi Usman  -----------------------------------
+  //-------------------- Bhai Usman  -----------------------------------
   //transportation screen strings
   static const String nordinCottage = 'Nordic Cottage';
   static const String hotel = 'Hotel';
