@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppCommonFunctions {
   static void printLogs(dynamic message) {
-    print(message);
+    // print(message);
   }
 
   //--------------------Talha Saeed -----------------------------------

@@ -4,8 +4,6 @@ import 'package:traveling_app_flutter/views/travel_arrangement/widgets/time_oval
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 
 import '../../utils/app_strings.dart';
-import '../../utils/media_query.dart';
-import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
 
 class TravelArrangementScreen extends StatefulWidget {
