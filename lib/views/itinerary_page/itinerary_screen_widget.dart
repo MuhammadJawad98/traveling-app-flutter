@@ -43,7 +43,7 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
         ),
         Expanded(child: CustomSizedBox()),
         Padding(
-            padding: EdgeInsets.only(left: 21),
+            padding: EdgeInsets.only(left: screenWidth * 0.05),
             child: CustomText(
                 text: "Maldives Island",
                 color: Colors.black,
@@ -54,11 +54,11 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
         LocationDetailsViewWidget(),
         Expanded(child: CustomSizedBox()),
         Container(
-          height: GetScreenSize.getScreenWidth(context) * 1,
+          height: screenWidth * 1,
           color: AppColors.containerColor,
           //height: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(screenWidth * 0.04),
             child:
                 Consumer<ItineraryProvider>(builder: (context, provier, child) {
               return ListView.builder(

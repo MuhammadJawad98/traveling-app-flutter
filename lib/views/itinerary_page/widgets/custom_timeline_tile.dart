@@ -29,7 +29,7 @@ class CustomTimelineTile extends StatelessWidget {
     return SizedBox(
       height: width * 0.28,
       child: TimelineTile(
-        lineXY: width * 0.00043,
+        lineXY: width * 0.00052,
         alignment: TimelineAlign.manual,
         indicatorStyle: IndicatorStyle(
             color: isPast ? AppColors.blueButton : AppColors.screenTextColor,
