@@ -46,7 +46,7 @@ class _HorizontalImageState extends State<HorizontalImage> {
               child: CustomText(
                 text: widget.user.namelocation,
                 color: AppColors.textOnImagesColor,
-                size: 18,
+                size: GetScreenSize.getScreenWidth(context) * 0.05,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
               ),
@@ -61,7 +61,7 @@ class _HorizontalImageState extends State<HorizontalImage> {
               child: CustomText(
                 text: widget.user.price,
                 color: AppColors.textOnImagesColor,
-                size: 12,
+                size: GetScreenSize.getScreenWidth(context) * 0.029,
                 maxline: 2,
                 fontWeight: FontWeight.w400,
               ),

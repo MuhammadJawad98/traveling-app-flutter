@@ -26,6 +26,9 @@ class AppColors {
   static const textOnImagesColor = Color.fromRGBO(255, 255, 255, 1);
   static const frontPageTextColor = Color.fromRGBO(0, 0, 0, 1);
   static const searchBarIconColor = Colors.blue;
+  static const abubakarWhite = Color.fromRGBO(233, 233, 233, 1);
+
+  static const abubakarBlack = Color.fromRGBO(0, 0, 0, 1);
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------

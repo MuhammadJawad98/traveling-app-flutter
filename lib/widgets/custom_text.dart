@@ -23,6 +23,8 @@ class _CustomTextState extends State<CustomText> {
     return Text(
       widget.text,
       maxLines: widget.maxline,
+      softWrap: true, // Enable line wrapping
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         color: widget.color,
         fontSize: widget.size,
