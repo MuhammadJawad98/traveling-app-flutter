@@ -24,6 +24,7 @@ class _CustomTextState extends State<CustomText> {
       widget.text,
       maxLines: widget.maxline,
       style: TextStyle(
+        overflow: TextOverflow.ellipsis,
         color: widget.color,
         fontSize: widget.size,
         fontWeight: widget.fontWeight,
