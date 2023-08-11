@@ -5,9 +5,8 @@ class SignInProvider extends ChangeNotifier {
   bool isValidEmail = true;
   void cheeckVaidEmail(TextEditingController controller) {
     controller.addListener(() {
-      print(isValidEmail);
-      if (controller.text.trim().toString().isValidEmail() ||
-          controller.text.isEmpty) {
+      //(isValidEmail);
+      if (controller.text.trim().toString().isValidEmail() || controller.text.isEmpty) {
         isValidEmail = true;
       } else {
         isValidEmail = false;

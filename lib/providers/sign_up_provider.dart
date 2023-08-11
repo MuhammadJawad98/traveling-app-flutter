@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
 
@@ -11,8 +13,7 @@ class SignUpProvider extends ChangeNotifier {
   void cheeckVaidEmail(TextEditingController controller) {
     controller.addListener(() {
       print(isValidEmail);
-      if (controller.text.trim().toString().isValidEmail() ||
-          controller.text.isEmpty) {
+      if (controller.text.trim().toString().isValidEmail() || controller.text.isEmpty) {
         isValidEmail = true;
         notifyListeners();
       } else {
@@ -25,8 +26,7 @@ class SignUpProvider extends ChangeNotifier {
   void cheeckVaidPassword(TextEditingController controller) {
     controller.addListener(() {
       print(isValidPassword);
-      if (controller.text.trim().toString().isValidPassword() ||
-          controller.text.isEmpty) {
+      if (controller.text.trim().toString().isValidPassword() || controller.text.isEmpty) {
         isValidPassword = true;
         notifyListeners();
       } else {
@@ -36,6 +36,5 @@ class SignUpProvider extends ChangeNotifier {
     });
   }
 
-  void checkConfirmPasswordPassword(TextEditingController passwordController,
-      TextEditingController comfirmPasswordController) {}
+  void checkConfirmPasswordPassword(TextEditingController passwordController, TextEditingController comfirmPasswordController) {}
 }

@@ -9,6 +9,7 @@ import 'package:traveling_app_flutter/views/front_page/front_page_widgets/vertic
 import '../../providers/locations_provider.dart';
 import '../../utils/app_strings.dart';
 import '../../widgets/custom_text.dart';
+import 'front_page_widgets/searchbar_icon.dart';
 import 'front_page_widgets/searchbar_widget.dart';
 
 class FrontPage extends StatefulWidget {
@@ -72,20 +73,22 @@ class _FrontPageState extends State<FrontPage> {
               Row(
                 children: [
                   MySearchBar(
-                      height: GetScreenSize.getScreenWidth(context) * 0.15,
-                      width1: GetScreenSize.getScreenWidth(context) * 0.70),
+                    height: GetScreenSize.getScreenWidth(context) * 0.15,
+                    width1: GetScreenSize.getScreenWidth(context) * 0.70,
+                    fieldTextFont: GetScreenSize.getScreenWidth(context) * 0.04,
+                    searchIconSize:
+                        GetScreenSize.getScreenWidth(context) * 0.04,
+                    searchTextFont:
+                        GetScreenSize.getScreenWidth(context) * 0.04,
+                  ),
                   SizedBox(
                     width: GetScreenSize.getScreenWidth(context) * 0.05,
                   ),
-                  Container(
+                  SearchBarBlueIcon(
                     height: GetScreenSize.getScreenWidth(context) * 0.15,
                     width: GetScreenSize.getScreenWidth(context) * 0.15,
-                    //color: Colors.amber,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: AppColors.searchBarIconColor),
-                    child: Image.asset(AppString.searchBarIcon),
-                  )
+                    radius: GetScreenSize.getScreenHeight(context) * 0.5,
+                  ),
                 ],
               ),
               SizedBox(

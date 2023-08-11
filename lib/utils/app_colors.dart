@@ -11,6 +11,10 @@ class AppColors {
   static var talhagrey = const Color(0xFFA8A8A8);
   static var talhawhite = Colors.white;
   static var talhacontainerwhite = const Color(0xFFF4F4F4);
+
+  static var plancolor = const Color.fromARGB(255, 247, 200, 206);
+  static var buildingcolor = const Color.fromARGB(255, 167, 202, 236);
+  static var attractiiondetailbuttongrey = const Color.fromRGBO(255, 255, 255, 0.5);
   //--------------------Muhammad Tahir -----------------------------------
   static const blueButton = Color.fromRGBO(3, 115, 243, 1);
   static const facebookColorButton = Color.fromRGBO(59, 88, 150, 1);
@@ -27,6 +31,9 @@ class AppColors {
   static const textOnImagesColor = Color.fromRGBO(255, 255, 255, 1);
   static const frontPageTextColor = Color.fromRGBO(0, 0, 0, 1);
   static const searchBarIconColor = Colors.blue;
+  static const abubakarWhite = Color.fromRGBO(233, 233, 233, 1);
+
+  static const abubakarBlack = Color.fromRGBO(0, 0, 0, 1);
   //-------------------- Bhi Usman  -----------------------------------
 
   //-------------------- Zainab Nauman  -----------------------------------
