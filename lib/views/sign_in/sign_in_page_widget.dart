@@ -33,11 +33,17 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
   Widget build(BuildContext context) {
     double buttonWidth = GetScreenSize.getScreenWidth(context) * 0.8;
     final double buttonHeith = GetScreenSize.getScreenWidth(context) * 0.14;
+    double width1 = GetScreenSize.getScreenWidth(context);
+
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.only(left: 23, right: 26, top: 40),
+        padding: EdgeInsets.only(
+          left: width1 * 0.08,
+          right: width1 * 0.08,
+          top: width1 * 0.02,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -48,25 +54,21 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: CustomIconButton(
-                    iconData: Icons.arrow_back,
-                    onTab: () {
-                      Navigator.pop(context);
-                    },
-                    size: 28,
-                  ),
+                      iconData: Icons.arrow_back,
+                      onTab: () {
+                        Navigator.pop(context);
+                      },
+                      size: width1 * 0.065),
                 ),
-                const CustomSizedBox(
-                  height: 27,
+                CustomSizedBox(
+                  height: width1 * 0.04,
                 ),
                 Align(
                   alignment: Alignment.topLeft,
                   child: CustomText(text: AppString.loginText, color: Colors.black, size: 30, maxline: 1, fontWeight: FontWeight.w600),
                 ),
-                const CustomSizedBox(
-                  height: 27,
-                ),
-                const CustomSizedBox(
-                  height: 10,
+                CustomSizedBox(
+                  height: width1 * 0.04,
                 ),
                 CustomTextField(
                   controller: emailController,
@@ -76,8 +78,8 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                   isValid: Provider.of<SignInProvider>(context, listen: true).isValidEmail,
                   prefixIcon: Image.asset(AppAssets.message),
                 ),
-                const CustomSizedBox(
-                  height: 30,
+                CustomSizedBox(
+                  height: width1 * 0.05,
                 ),
                 Row(
                   children: [

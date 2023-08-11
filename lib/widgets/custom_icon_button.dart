@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+//custom botton
 
 class CustomIconButton extends StatelessWidget {
   final IconData iconData;
   final VoidCallback onTab;
   final double size;
-  final Color? color; // Added optional parameter for color
+  final Color? color;
   const CustomIconButton({
     Key? key,
     required this.iconData,

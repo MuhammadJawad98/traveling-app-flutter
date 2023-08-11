@@ -43,7 +43,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
           Expanded(
             child: CustomSizedBox(
               height: GetScreenSize.getScreenWidth(context) * 2.5,
-              width: GetScreenSize.getScreenWidth(context),
+              width: MediaQuery.of(context).size.width,
               child: Image.network(
                 widget.data.image,
                 fit: BoxFit.cover,
