@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
-import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/views/itinerary_page/widgets/timeline_end_child.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
@@ -29,7 +26,7 @@ class CustomTimelineTile extends StatelessWidget {
     return SizedBox(
       height: width * 0.28,
       child: TimelineTile(
-        lineXY: width * 0.00043,
+        lineXY: width * 0.00052,
         alignment: TimelineAlign.manual,
         indicatorStyle: IndicatorStyle(
             color: isPast ? AppColors.blueButton : AppColors.screenTextColor,

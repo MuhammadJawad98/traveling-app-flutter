@@ -41,8 +41,8 @@ class TimelineEndChild extends StatelessWidget {
               CustomText(
                   text: subtile,
                   color: AppColors.screenTextColor,
-                  size: size,
-                  maxline: 1,
+                  size: size - 2,
+                  maxline: 2,
                   fontWeight: FontWeight.normal)
             ],
           ),
