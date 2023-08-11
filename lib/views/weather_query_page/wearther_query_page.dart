@@ -28,7 +28,7 @@ class _WeatherQueryPageState extends State<WeatherQueryPage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: AppColors.containerColor,
         body: Column(
           children: [
             Container(
