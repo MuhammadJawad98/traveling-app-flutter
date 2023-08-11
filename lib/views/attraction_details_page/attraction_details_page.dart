@@ -5,7 +5,7 @@ import 'package:traveling_app_flutter/models/locations_model.dart';
 import 'package:traveling_app_flutter/providers/bottom_sheet_provider.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
-import 'package:traveling_app_flutter/views/attraction_details_page/widgets/rating_bar.dart';
+import 'package:traveling_app_flutter/views/attraction_details_page/rating_bar.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 import '../../utils/media_query.dart';
@@ -23,7 +23,8 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
   @override
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      final bottomsheetProvider = Provider.of<BottomSheetStateProvider>(context, listen: false);
+      final bottomsheetProvider =
+          Provider.of<BottomSheetStateProvider>(context, listen: false);
       bottomsheetProvider.initialValue(context);
     });
     super.initState();
@@ -76,7 +77,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
               children: [
                 CustomText(
                   text: widget.data.namelocation,
-                  color: AppColors.attractionScreenText,
+                  color: AppColors.talhawhite,
                   size: GetScreenSize.getScreenWidth(context) * 0.08,
                   maxline: 20,
                   fontWeight: FontWeight.w500,
@@ -86,7 +87,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                 ),
                 CustomText(
                   text: widget.data.description,
-                  color: AppColors.attractionScreenText,
+                  color: AppColors.talhawhite,
                   size: GetScreenSize.getScreenWidth(context) * 0.03,
                   maxline: 20,
                   fontWeight: FontWeight.w500,
@@ -98,7 +99,14 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    MYRatingBar(ratingValue: ratingValue),
+                    MYRatingBar(
+                      itemCount: 5,
+                      itemPadding:
+                          GetScreenSize.getScreenWidth(context) * 0.003,
+                      itemSize: GetScreenSize.getScreenWidth(context) * 0.047,
+                      minRating: 1,
+                      ratingValue: ratingValue,
+                    ),
                     const CustomSizedBox(width: 10),
                     CustomText(
                       text: widget.data.rating,
@@ -136,9 +144,13 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                       height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
                       onTab: () {
-                        context.read<BottomSheetStateProvider>().changeListener(context);
+                        context
+                            .read<BottomSheetStateProvider>()
+                            .changeListener(context);
                         // _showBottomSheet(context);
-                        Provider.of<BottomSheetStateProvider>(context, listen: false).showBottomSheet(context, widget.data);
+                        Provider.of<BottomSheetStateProvider>(context,
+                                listen: false)
+                            .showBottomSheet(context, widget.data);
                       },
                       buttonText: AppString.attractionDSbuttonplan,
                       buttonColor: AppColors.attractiiondetailbuttongrey,
