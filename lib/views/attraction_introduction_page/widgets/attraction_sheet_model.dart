@@ -5,7 +5,7 @@ class CustomBottomModalSheet {
     showModalBottomSheet(
         context: context,
         builder: (context) => child,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ));
   }

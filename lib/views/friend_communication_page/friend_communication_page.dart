@@ -74,7 +74,7 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
             onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SignInPageScreenWidget(),
+                  builder: (context) => const SignInPageScreenWidget(),
                 )),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Icon(Icons.logout,

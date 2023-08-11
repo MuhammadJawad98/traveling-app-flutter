@@ -17,8 +17,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
   ProfilePageScreenWidget({super.key});
   final TextEditingController controller = TextEditingController();
   final TextEditingController passowrTfcontroller = TextEditingController();
-  final TextEditingController authenticateTfcontroller =
-      TextEditingController();
+  final TextEditingController authenticateTfcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     const double buttonWidth = double.infinity;
@@ -42,17 +41,11 @@ class ProfilePageScreenWidget extends StatelessWidget {
             const CustomSizedBox(
               height: 27,
             ),
-            ProfileTopBarWidget(
-                title: AppString.title, imgPath: AppAssets.prfileAvatar),
+            ProfileTopBarWidget(title: AppString.title, imgPath: AppAssets.prfileAvatar),
             const CustomSizedBox(
               height: 27,
             ),
-            CustomText(
-                text: AppString.emailText,
-                color: AppColors.screenTextColor,
-                size: 15,
-                maxline: 1,
-                fontWeight: FontWeight.w400),
+            CustomText(text: AppString.emailText, color: AppColors.screenTextColor, size: 15, maxline: 1, fontWeight: FontWeight.w400),
             const CustomSizedBox(
               height: 10,
             ),
@@ -65,12 +58,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
             const CustomSizedBox(
               height: 30,
             ),
-            CustomText(
-                text: AppString.passwordText,
-                color: AppColors.screenTextColor,
-                size: 15,
-                maxline: 1,
-                fontWeight: FontWeight.w400),
+            CustomText(text: AppString.passwordText, color: AppColors.screenTextColor, size: 15, maxline: 1, fontWeight: FontWeight.w400),
             const CustomSizedBox(
               height: 10,
             ),
@@ -95,12 +83,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
             const CustomSizedBox(
               height: 30,
             ),
-            CustomText(
-                text: AppString.authenticateText,
-                color: AppColors.screenTextColor,
-                size: 15,
-                maxline: 1,
-                fontWeight: FontWeight.w400),
+            CustomText(text: AppString.authenticateText, color: AppColors.screenTextColor, size: 15, maxline: 1, fontWeight: FontWeight.w400),
             const CustomSizedBox(
               height: 10,
             ),
@@ -110,7 +93,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
               raduis: 36,
               prefixIcon: Image.asset(AppAssets.perosn),
             ),
-            Expanded(
+            const Expanded(
               child: CustomSizedBox(),
             ),
             Align(
@@ -122,7 +105,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MyBottomNavigationBar(),
+                          builder: (context) => const MyBottomNavigationBar(),
                         ));
                   },
                   radius: 36,
@@ -130,7 +113,7 @@ class ProfilePageScreenWidget extends StatelessWidget {
                   width: buttonWidth,
                   fontSize: GetScreenSize.getScreenWidth(context) * 0.05,
                 )),
-            CustomSizedBox(
+            const CustomSizedBox(
               height: 20,
             )
           ],
