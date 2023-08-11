@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:traveling_app_flutter/models/eventsmodal.dart';
 import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
@@ -18,14 +19,32 @@ class NewPlan extends StatefulWidget {
 
 class _NewPlanState extends State<NewPlan> {
   final TextEditingController queryJourneyController = TextEditingController();
+  final TextEditingController eventTFController = TextEditingController();
+  //Map<DateTime, List<EventsModels>> events = {};
   bool isSwitched = false;
   DateTime today = DateTime.now();
+  DateTime? selectedDay;
+  //late final ValueNotifier<List<EventsModels>> _selectedEvents;
 
-  void ondayselected(DateTime day, DateTime dayFocus) {
-    setState(() {
-      today = day;
-    });
+  @override
+  initState() {
+    super.initState();
+    selectedDay = today;
+    // _selectedEvents = ValueNotifier(_getEventsForDay(selectedDay!));
   }
+
+  //List<EventsModels> _getEventsForDay(DateTime day) {
+  //  return events[day] ?? [];
+  // }
+
+  // void ondayselected(DateTime day, DateTime dayFocus) {
+  //   if (!isSameDay(selectedDay, day)) {
+  //     setState(() {
+  //       selectedDay = day;
+  //       today = dayFocus;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +113,7 @@ class _NewPlanState extends State<NewPlan> {
                 ),
               ),
               SizedBox(height: width * 0.05),
-              content(context),
+              content(context, eventTFController),
               SizedBox(height: width * 0.05),
               Text(
                 AppString.selectdatesNewPlan,
@@ -182,7 +201,7 @@ class _NewPlanState extends State<NewPlan> {
     ));
   }
 
-  Widget content(context) {
+  Widget content(context, TextEditingController eventTFController) {
     //Text("Selected Day = " + today.toString().split(" ")[0]),
     final width = GetScreenSize.getScreenWidth(context);
     return Column(
@@ -203,19 +222,16 @@ class _NewPlanState extends State<NewPlan> {
           startingDayOfWeek: StartingDayOfWeek.monday,
           availableCalendarFormats: const {CalendarFormat.month: 'Month'},
           headerStyle: const HeaderStyle(
-            // leftChevronPadding: const EdgeInsets.fromLTRB(0, 11, 0, 7),
-            //rightChevronPadding: const EdgeInsets.fromLTRB(0, 11, 0, 7),
-            //leftChevronMargin: EdgeInsets.only(
-            //  left: GetScreenSize.getScreenWidth(context) * 0.4),
             formatButtonVisible: false,
             titleCentered: true,
           ),
           availableGestures: AvailableGestures.all,
-          selectedDayPredicate: (day) => isSameDay(day, today),
+          selectedDayPredicate: (day) => isSameDay(today, day),
           focusedDay: today,
           firstDay: DateTime.utc(2010, 10, 16),
           lastDay: DateTime.utc(2030, 10, 30),
-          onDaySelected: ondayselected,
+          //onDaySelected: ondayselected,
+          //eventLoader: _getEventsForDay,
           daysOfWeekStyle: DaysOfWeekStyle(
               weekdayStyle: TextStyle(color: Colors.grey.shade500),
               weekendStyle: TextStyle(color: Colors.grey.shade500)),
@@ -225,6 +241,60 @@ class _NewPlanState extends State<NewPlan> {
               todayDecoration: const BoxDecoration(
                   color: AppColors.blueButton, shape: BoxShape.circle)),
         ),
+        SizedBox(
+          height: width * 0.1,
+        ),
+        // ValueListenableBuilder<List<EventsModels>>(
+        //     valueListenable: _selectedEvents,
+        //     builder: (context, value, _) {
+        //       return ListView.builder(itemBuilder: (context, index) {
+        //         return Container(
+        //           margin: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        //           decoration: BoxDecoration(
+        //               border: Border.all(),
+        //               borderRadius: BorderRadius.circular(12)),
+        //           child: ListTile(
+        //             onTap: () => print(""),
+        //             title: Text('${value[index]}'),
+        //           ),
+        //         );
+        //       });
+        //     }),
+        // FloatingActionButton(
+        //   onPressed: () {
+        //     showDialog(
+        //         context: context,
+        //         builder: (context) {
+        //           return AlertDialog(
+        //             scrollable: true,
+        //             title: Text("Event Name"),
+        //             content: Padding(
+        //               padding: EdgeInsets.all(8),
+        //               child: TextField(
+        //                 controller: eventTFController,
+        //               ),
+        //             ),
+        //             actions: [
+        //               ElevatedButton(
+        //                   onPressed: () {
+        //                     events.addAll(
+        //                       {
+        //                         selectedDay!: [
+        //                           EventsModels(eventTFController.text)
+        //                         ]
+        //                       },
+        //                     );
+        //                     Navigator.of(context).pop();
+        //                     eventTFController.clear();
+        //                     print(events[1]);
+        //                   },
+        //                   child: const Text("Submit"))
+        //             ],
+        //           );
+        //         });
+        //   },
+        //   child: Icon(Icons.add),
+        // )
       ],
     );
   }

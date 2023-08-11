@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/views/onboarding_page/newplan_page.dart';
+import 'package:traveling_app_flutter/views/onboarding_page/splash_screen.dart';
 import 'providers/provider_makeplan_page.dart';
 
 void main(List<String> args) {
