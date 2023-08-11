@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -16,16 +18,11 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const MakePlan())));
+    Timer(const Duration(seconds: 3), () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MakePlan())));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.blue,
-        body: Center(child: Image.asset(AppAssets.imageSplashpage1)));
+    return Scaffold(backgroundColor: Colors.blue, body: Center(child: Image.asset(AppAssets.imageSplashpage1)));
   }
 }

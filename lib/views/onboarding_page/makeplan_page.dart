@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/provider_makeplan_page.dart';
@@ -45,8 +47,7 @@ class _MakePlanState extends State<MakePlan> {
                           : counter.count == 2
                               ? AppString.heading3
                               : AppString.heading4,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: width * 0.07),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.07),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: width * 0.06),
@@ -56,10 +57,7 @@ class _MakePlanState extends State<MakePlan> {
                           : counter.count == 2
                               ? AppString.description3
                               : AppString.description4,
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.grey.shade400,
-                          fontSize: width * 0.04),
+                      style: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey.shade400, fontSize: width * 0.04),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: width * 0.1),
@@ -72,8 +70,7 @@ class _MakePlanState extends State<MakePlan> {
                           print(counter.count);
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpScreenWidget()),
+                            MaterialPageRoute(builder: (context) => SignUpScreenWidget()),
                           );
                         }
                         setState(() {});
