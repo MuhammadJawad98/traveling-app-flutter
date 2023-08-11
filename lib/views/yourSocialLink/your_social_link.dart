@@ -26,11 +26,11 @@ class _YourSociallinkPageState extends State<YourSociallinkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: const EdgeInsets.only(top: 45, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
             child: SingleChildScrollView(
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
               InkWell(onTap: () => Navigator.pop(context), child: const Icon(Icons.arrow_back)),
-              CustomSizedBox(height: GetScreenSize.getScreenHeight(context) * 0.1),
+              CustomSizedBox(height: GetScreenSize.getScreenHeight(context) * 0.09),
               Row(children: [
                 Image(image: AssetImage(AppAssets.socialSharingtitle)),
                 const CustomSizedBox(width: 14),

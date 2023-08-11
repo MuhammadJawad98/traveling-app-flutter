@@ -12,15 +12,7 @@ class CustomTextField extends StatelessWidget {
   final String erroText;
 
   const CustomTextField(
-      {super.key,
-      required this.hint,
-      required this.controller,
-      this.prefixIcon,
-      this.suffixIcon,
-      required this.raduis,
-      this.obsecure = false,
-      this.isValid = true,
-      this.erroText = ""});
+      {super.key, required this.hint, required this.controller, this.prefixIcon, this.suffixIcon, required this.raduis, this.obsecure = false, this.isValid = true, this.erroText = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -33,21 +25,9 @@ class CustomTextField extends StatelessWidget {
           hintText: hint,
           //errorText: "InValid Email",
           errorText: isValid ? null : erroText,
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(raduis),
-              borderSide: BorderSide(
-                  color:
-                      isValid ? AppColors.textFieldBoarderColor : Colors.red)),
-          errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(raduis),
-              borderSide: BorderSide(
-                  color:
-                      isValid ? AppColors.textFieldBoarderColor : Colors.red)),
-          focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(raduis),
-              borderSide: BorderSide(
-                  color:
-                      isValid ? AppColors.textFieldBoarderColor : Colors.red)),
+          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(raduis), borderSide: BorderSide(color: isValid ? AppColors.textFieldBoarderColor : Colors.red)),
+          errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(raduis), borderSide: BorderSide(color: isValid ? AppColors.textFieldBoarderColor : Colors.red)),
+          focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(raduis), borderSide: BorderSide(color: isValid ? AppColors.textFieldBoarderColor : Colors.red)),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(raduis),
           )),
