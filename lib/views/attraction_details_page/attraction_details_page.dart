@@ -10,6 +10,7 @@ import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 import '../../utils/media_query.dart';
 import '../../widgets/custom_sized_box.dart';
+import '../onboarding_page/newplan_page.dart';
 
 class AttractionDetailsPage extends StatefulWidget {
   final LocationsModel data;
@@ -161,7 +162,10 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
                     CustomTextButton(
                       height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
-                      onTab: () {},
+                      onTab: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => NewPlan()));
+                      },
                       buttonText: AppString.attractionDSbuttonview,
                       buttonColor: AppColors.talhawhite,
                       radius: 41,

@@ -34,4 +34,5 @@ class AppAssets {
   static String imagepage2 = 'assets/images/2.png';
   static String imagepage3 = 'assets/images/3.png';
   static String imagepage4 = 'assets/images/4.png';
+  static String imagepage5 = 'assets/images/5.png';
 }
