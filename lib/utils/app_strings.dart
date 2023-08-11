@@ -11,10 +11,8 @@ class AppString {
   static String fCPlogout = "Logout";
   static String fCPcardtext = "Edit profile";
   static String yoursociallinktitle = "Your social links";
-  static String yoursociallinksubtitle =
-      "Here you can post your travel blog and \n promote your travel videos";
-  static String yoursociallinkbottomtext =
-      "Add to see if your social links are correct";
+  static String yoursociallinksubtitle = "Here you can post your travel blog and \n promote your travel videos";
+  static String yoursociallinkbottomtext = "Add to see if your social links are correct";
   static String attractionBSpricing = "Pricing";
   static String attractionBSreview = "See review";
   static String attractionBSbuttontext = "Plan trip";
@@ -40,8 +38,7 @@ class AppString {
   static String hintPasswordText = "Create a password";
   static String confirmPasswordText = "Confirm Password";
   static String hintConfirmPasswordText = "Repeat password";
-  static String invalidPasswordHint =
-      "Password must include uppercase, lowercase, \n  digit, special character, and be at least 8 characters long";
+  static String invalidPasswordHint = "Password must include uppercase, lowercase, \n  digit, special character, and be at least 8 characters long";
   static String authenticateText = "Authenticate";
   static String authenticateHintText = "Authenticate";
   static String title = "Alan Love";
@@ -83,15 +80,13 @@ class AppString {
   //-------------------- Zainab Nauman  -----------------------------------
   ///////////////////page2/////////////////////////
   static String heading2 = "Make your own private travel plan";
-  static String description2 =
-      "Formulate your strategy to receive wonderful gift packs";
+  static String description2 = "Formulate your strategy to receive wonderful gift packs";
 ///////////////////page3/////////////////////////
   static String heading3 = "Customize your High-end travel";
   static String description3 = "Countless high-end entertainment facilities";
 ///////////////////page4/////////////////////////
   static String heading4 = "High-end leisure projects to choose from";
-  static String description4 =
-      "The world's first-class modern leisure and entertainment method";
+  static String description4 = "The world's first-class modern leisure and entertainment method";
   static String headingNewPlan = "New Plan";
   static String placeNewPlan = "Nordic Cottage";
   static String selectdatesNewPlan = "Select Dates";
