@@ -27,6 +27,7 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
       bottomsheetProvider.initialValue(context);
     });
     super.initState();
+    //
   }
 
   @override
