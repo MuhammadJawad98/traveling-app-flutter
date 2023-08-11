@@ -23,6 +23,7 @@ class AppColors {
   static const dividerColor = Color.fromRGBO(232, 232, 232, 1);
   static const screenTextColor = Color.fromRGBO(173, 173, 173, 1);
   static const textFieldBoarderColor = Color.fromRGBO(233, 233, 233, 1);
+  static const containerColor = Color.fromRGBO(240, 240, 240, 1);
   //--------------------Abubaker Saeed -----------------------------------
   static const attractionScreenText = Color.fromARGB(202, 216, 199, 199);
   static const ratingStarsColor = Colors.amber;

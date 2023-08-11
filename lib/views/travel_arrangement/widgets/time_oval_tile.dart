@@ -12,7 +12,7 @@ class TimeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: GetScreenSize.getScreenWidth(context) * 0.22,
-      height: GetScreenSize.getScreenHeight(context) * 0.075,
+      height: GetScreenSize.getScreenHeight(context) * 0.13,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: const BorderSide(
