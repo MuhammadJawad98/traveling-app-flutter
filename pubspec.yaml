@@ -39,6 +39,9 @@ dependencies:
   flutter_rating_bar: 
   provider: ^6.0.5
   device_preview: ^1.1.0
+  google_maps_flutter: ^2.3.0
+  dio:
+  flutter_polyline_points:
 
 dev_dependencies:
   flutter_test:

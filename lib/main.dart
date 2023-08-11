@@ -5,6 +5,7 @@ import 'package:traveling_app_flutter/providers/locations_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:device_preview/device_preview.dart'; // Import device_preview package
+import 'package:traveling_app_flutter/views/map_page/map_page.dart';
 import 'providers/provider_makeplan_page.dart';
 import 'views/onboarding_page/splash_screen.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder, // Enable device preview builder
         debugShowCheckedModeBanner: false,
         theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-        home: const SafeArea(child: SplashScreen()),
+        home: SafeArea(child: MapScreen()),
       ),
     );
   }

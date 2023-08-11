@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
+import 'package:traveling_app_flutter/views/attraction_details_page/rating_bar.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
 
@@ -63,7 +64,7 @@ class AttractionDetailsPage extends StatelessWidget {
                   maxline: 20,
                   fontWeight: FontWeight.w500,
                 ),
-                CustomSizedBox(
+                SizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.01,
                 ),
                 CustomText(
@@ -73,45 +74,33 @@ class AttractionDetailsPage extends StatelessWidget {
                   maxline: 20,
                   fontWeight: FontWeight.w500,
                 ),
-                CustomSizedBox(
+                SizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomSizedBox(
-                      height: GetScreenSize.getScreenWidth(context) * 0.04,
-                      child: RatingBar.builder(
-                        initialRating: ratingValue,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
+                    MYRatingBar(
+                        ratingValue: ratingValue,
                         itemCount: 5,
                         itemPadding:
-                            const EdgeInsets.symmetric(horizontal: 2.0),
+                            GetScreenSize.getScreenWidth(context) * 0.02,
                         itemSize: GetScreenSize.getScreenWidth(context) * 0.04,
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: AppColors.ratingStarsColor,
-                        ),
-                        onRatingUpdate: (rating) {},
-                        unratedColor: AppColors.unratedStarsColor,
-                      ),
-                    ),
-                    const CustomSizedBox(width: 10),
+                        minRating: 1),
+                    const SizedBox(width: 10),
                     CustomText(
                       text: data.rating,
-                      color: Colors.white,
+                      color: AppColors.talhawhite,
                       size: GetScreenSize.getScreenWidth(context) * 0.0356,
                       maxline: 1,
                       fontWeight: FontWeight.w400,
                     ),
-                    const CustomSizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: CustomText(
                         text: '(${data.numberReviews})',
-                        color: Colors.white,
+                        color: AppColors.talhawhite,
                         size: GetScreenSize.getScreenWidth(context) * 0.0356,
                         maxline: 1,
                         fontWeight: FontWeight.w400,
@@ -119,14 +108,14 @@ class AttractionDetailsPage extends StatelessWidget {
                     ),
                     CustomText(
                       text: 'See reviews',
-                      color: Colors.white,
+                      color: AppColors.talhawhite,
                       size: GetScreenSize.getScreenWidth(context) * 0.0356,
                       maxline: 1,
                       fontWeight: FontWeight.w400,
                     )
                   ],
                 ),
-                CustomSizedBox(
+                SizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.0356,
                 ),
                 Row(
@@ -137,20 +126,20 @@ class AttractionDetailsPage extends StatelessWidget {
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
                       onTab: () {},
                       buttonText: 'Enter the Plan ',
-                      buttonColor: Color.fromRGBO(255, 255, 255, 0.5),
+                      buttonColor: const Color.fromRGBO(255, 255, 255, 0.5),
                       radius: 41,
                       fontSize: GetScreenSize.getScreenWidth(context) * 0.0356,
-                      fontColor: Colors.black,
+                      fontColor: AppColors.blackColorButton,
                     ),
                     CustomTextButton(
                       height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
                       onTab: () {},
                       buttonText: 'View Other',
-                      buttonColor: Colors.white,
+                      buttonColor: AppColors.talhawhite,
                       radius: 41,
                       fontSize: GetScreenSize.getScreenWidth(context) * 0.0356,
-                      fontColor: Colors.black,
+                      fontColor: AppColors.blackColorButton,
                     ),
                   ],
                 ),
