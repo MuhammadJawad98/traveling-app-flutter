@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
+import 'package:traveling_app_flutter/providers/bottom_sheet_provider.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
-import 'package:traveling_app_flutter/views/attraction_details_page/rating_bar.dart';
+import 'package:traveling_app_flutter/utils/app_strings.dart';
+import 'package:traveling_app_flutter/views/attraction_details_page/widgets/rating_bar.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
-
 import '../../utils/media_query.dart';
 import '../../widgets/custom_sized_box.dart';
 
-class AttractionDetailsPage extends StatelessWidget {
+class AttractionDetailsPage extends StatefulWidget {
   final LocationsModel data;
+  const AttractionDetailsPage({super.key, required this.data});
 
-  const AttractionDetailsPage({required this.data});
+  @override
+  State<AttractionDetailsPage> createState() => _AttractionDetailsPageState();
+}
+
+class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
+  @override
+  void initState() {
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      final bottomsheetProvider = Provider.of<BottomSheetStateProvider>(context, listen: false);
+      bottomsheetProvider.initialValue(context);
+    });
+    super.initState();
+    //
+  }
 
   @override
   Widget build(BuildContext context) {
-    double ratingValue = double.parse(data.rating);
-
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+    double ratingValue = double.parse(widget.data.rating);
     return Scaffold(
+      key: scaffoldKey,
       body: Stack(
         children: [
           Expanded(
@@ -26,7 +43,7 @@ class AttractionDetailsPage extends StatelessWidget {
               height: GetScreenSize.getScreenWidth(context) * 2.5,
               width: GetScreenSize.getScreenWidth(context),
               child: Image.network(
-                data.image,
+                widget.data.image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -50,7 +67,7 @@ class AttractionDetailsPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: GetScreenSize.getScreenWidth(context) * 0.05,
+            bottom: context.watch<BottomSheetStateProvider>().getValue,
             right: GetScreenSize.getScreenWidth(context) * 0.05,
             left: GetScreenSize.getScreenWidth(context) * 0.05,
             child: Column(
@@ -58,48 +75,42 @@ class AttractionDetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: data.namelocation,
+                  text: widget.data.namelocation,
                   color: AppColors.attractionScreenText,
                   size: GetScreenSize.getScreenWidth(context) * 0.08,
                   maxline: 20,
                   fontWeight: FontWeight.w500,
                 ),
-                SizedBox(
+                CustomSizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.01,
                 ),
                 CustomText(
-                  text: data.description,
+                  text: widget.data.description,
                   color: AppColors.attractionScreenText,
                   size: GetScreenSize.getScreenWidth(context) * 0.03,
                   maxline: 20,
                   fontWeight: FontWeight.w500,
                 ),
-                SizedBox(
+                CustomSizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    MYRatingBar(
-                        ratingValue: ratingValue,
-                        itemCount: 5,
-                        itemPadding:
-                            GetScreenSize.getScreenWidth(context) * 0.02,
-                        itemSize: GetScreenSize.getScreenWidth(context) * 0.04,
-                        minRating: 1),
-                    const SizedBox(width: 10),
+                    MYRatingBar(ratingValue: ratingValue),
+                    const CustomSizedBox(width: 10),
                     CustomText(
-                      text: data.rating,
+                      text: widget.data.rating,
                       color: AppColors.talhawhite,
                       size: GetScreenSize.getScreenWidth(context) * 0.0356,
                       maxline: 1,
                       fontWeight: FontWeight.w400,
                     ),
-                    const SizedBox(width: 10),
+                    const CustomSizedBox(width: 10),
                     Expanded(
                       child: CustomText(
-                        text: '(${data.numberReviews})',
+                        text: '(${widget.data.numberReviews})',
                         color: AppColors.talhawhite,
                         size: GetScreenSize.getScreenWidth(context) * 0.0356,
                         maxline: 1,
@@ -107,7 +118,7 @@ class AttractionDetailsPage extends StatelessWidget {
                       ),
                     ),
                     CustomText(
-                      text: 'See reviews',
+                      text: AppString.attractionDSreview,
                       color: AppColors.talhawhite,
                       size: GetScreenSize.getScreenWidth(context) * 0.0356,
                       maxline: 1,
@@ -115,7 +126,7 @@ class AttractionDetailsPage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                CustomSizedBox(
                   height: GetScreenSize.getScreenWidth(context) * 0.0356,
                 ),
                 Row(
@@ -124,9 +135,13 @@ class AttractionDetailsPage extends StatelessWidget {
                     CustomTextButton(
                       height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
-                      onTab: () {},
-                      buttonText: 'Enter the Plan ',
-                      buttonColor: const Color.fromRGBO(255, 255, 255, 0.5),
+                      onTab: () {
+                        context.read<BottomSheetStateProvider>().changeListener(context);
+                        // _showBottomSheet(context);
+                        Provider.of<BottomSheetStateProvider>(context, listen: false).showBottomSheet(context, widget.data);
+                      },
+                      buttonText: AppString.attractionDSbuttonplan,
+                      buttonColor: AppColors.attractiiondetailbuttongrey,
                       radius: 41,
                       fontSize: GetScreenSize.getScreenWidth(context) * 0.0356,
                       fontColor: AppColors.blackColorButton,
@@ -135,7 +150,7 @@ class AttractionDetailsPage extends StatelessWidget {
                       height: GetScreenSize.getScreenWidth(context) * 0.15,
                       width: GetScreenSize.getScreenWidth(context) * 0.38,
                       onTab: () {},
-                      buttonText: 'View Other',
+                      buttonText: AppString.attractionDSbuttonview,
                       buttonColor: AppColors.talhawhite,
                       radius: 41,
                       fontSize: GetScreenSize.getScreenWidth(context) * 0.0356,

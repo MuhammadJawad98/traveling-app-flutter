@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class AppString {
   // Smaple String
   static const String hello = "Hello";
@@ -14,7 +16,12 @@ class AppString {
   static String yoursociallinktitle = "Your social links";
   static String yoursociallinksubtitle = "Here you can post your travel blog and \n promote your travel videos";
   static String yoursociallinkbottomtext = "Add to see if your social links are correct";
-
+  static String attractionBSpricing = "Pricing";
+  static String attractionBSreview = "See review";
+  static String attractionBSbuttontext = "Plan trip";
+  static String attractionDSreview = "See review";
+  static String attractionDSbuttonplan = "Enter the Plan ";
+  static String attractionDSbuttonview = "View Other";
   //--------------------Muhammad Tahir -----------------------------------
   static String btnContinue = "Continue";
   static String btnChange = "Change";
