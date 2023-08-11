@@ -64,7 +64,7 @@ class _NewPlanState extends State<NewPlan> {
                 child: Text(
                   AppString.headingNewPlan,
                   style: TextStyle(
-                      fontFamily: AppString.poppins,
+                      // fontFamily: AppString.poppins,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
                       color: Colors.black,
@@ -91,7 +91,7 @@ class _NewPlanState extends State<NewPlan> {
                         child: Text(
                           AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: AppString.poppins,
+                              //  fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -103,7 +103,7 @@ class _NewPlanState extends State<NewPlan> {
                         child: Text(
                           AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: AppString.poppins,
+                              //  fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -118,7 +118,7 @@ class _NewPlanState extends State<NewPlan> {
               Text(
                 AppString.selectdatesNewPlan,
                 style: TextStyle(
-                    fontFamily: AppString.poppins,
+                    // fontFamily: AppString.poppins,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                     color: Colors.black,
@@ -153,7 +153,7 @@ class _NewPlanState extends State<NewPlan> {
                     child: Text(
                       AppString.sendNewPlan,
                       style: TextStyle(
-                          fontFamily: AppString.poppins,
+                          //   fontFamily: AppString.poppins,
                           fontWeight: FontWeight.normal,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
@@ -210,7 +210,7 @@ class _NewPlanState extends State<NewPlan> {
         Text(
           AppString.selectdatesNewPlan,
           style: TextStyle(
-              fontFamily: AppString.poppins,
+              //  fontFamily: AppString.poppins,
               fontWeight: FontWeight.bold,
               fontStyle: FontStyle.normal,
               color: Colors.black,
