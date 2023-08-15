@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
@@ -28,8 +29,10 @@ class _VerticalImageState extends State<VerticalImage> {
               child: ClipRRect(
                 // Wrap the Image.network with ClipRRect to make the edges circular
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  widget.user.image,
+
+                child: CachedNetworkImage(
+                  imageUrl: widget.user.image,
+                  // widget.user.image,
                   fit: BoxFit.fill,
                 ),
               ),

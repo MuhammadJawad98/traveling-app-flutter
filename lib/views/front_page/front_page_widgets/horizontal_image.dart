@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/models/locations_model.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
@@ -30,8 +31,8 @@ class _HorizontalImageState extends State<HorizontalImage> {
               child: ClipRRect(
                 // Wrap the Image.network with ClipRRect to make the edges circular
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  widget.user.image,
+                child: CachedNetworkImage(
+                  imageUrl: widget.user.image,
                   fit: BoxFit.fill,
                 ),
               ),

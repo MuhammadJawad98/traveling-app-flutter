@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/firebase_providers/upload_provider.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
 import 'package:traveling_app_flutter/views/attraction_details_page/attraction_details_page.dart';
 import 'package:traveling_app_flutter/views/front_page/front_page_widgets/horizontal_image.dart';
 import 'package:traveling_app_flutter/views/front_page/front_page_widgets/vertical_image.dart';
+import 'package:traveling_app_flutter/views/upload_screen/upload_screen.dart';
 
-import '../../providers/locations_provider.dart';
 import '../../utils/app_strings.dart';
 import '../../widgets/custom_text.dart';
 import 'front_page_widgets/searchbar_icon.dart';
@@ -23,22 +24,18 @@ class _FrontPageState extends State<FrontPage> {
   @override
   void initState() {
     super.initState();
-    // Use a short delay to ensure the initial build is complete
-    Future.delayed(Duration(milliseconds: 100), () {
-      final locationsProvider =
-          Provider.of<LocationsProvider>(context, listen: false);
-      locationsProvider.createArray();
+    Future.delayed(const Duration(milliseconds: 100), () {
+      // final locationsProvider =
+      //     Provider.of<LocationsProvider>(context, listen: false);
+      // locationsProvider.createArray();
+      Provider.of<UploadLocationsProvider>(context, listen: false)
+          .fetchLocationsData();
     });
   }
-  // void initState() {
-  //   super.initState();
-  //   final locationsProvider = Provider.of<LocationsProvider>(context, listen: false);
-  //   locationsProvider.createArray();
-  // }
 
   @override
   Widget build(BuildContext context) {
-    LocationsProvider provider = context.watch<LocationsProvider>();
+    // LocationsProvider provider = context.watch<LocationsProvider>();
 
     return GestureDetector(
       onTap: () {
@@ -48,6 +45,15 @@ class _FrontPageState extends State<FrontPage> {
         }
       },
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UploadScreen(),
+                  ));
+            }),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
               left: GetScreenSize.getScreenWidth(context) * 0.05,
@@ -113,10 +119,16 @@ class _FrontPageState extends State<FrontPage> {
                   },
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: LocationsProvider.locations.length,
+                    // itemCount: LocationsProvider.locations.length,
+                    itemCount: Provider.of<UploadLocationsProvider>(context,
+                            listen: false)
+                        .locationsList
+                        .length,
                     itemBuilder: (context, index) {
                       return VerticalImage(
-                        user: LocationsProvider.locations[index],
+                        user: Provider.of<UploadLocationsProvider>(context,
+                                listen: false)
+                            .locationsList[index],
                       );
                     },
                   ),
@@ -144,7 +156,10 @@ class _FrontPageState extends State<FrontPage> {
                   },
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: LocationsProvider.locations.length,
+                    itemCount: Provider.of<UploadLocationsProvider>(context,
+                            listen: false)
+                        .locationsList
+                        .length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -152,12 +167,17 @@ class _FrontPageState extends State<FrontPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => AttractionDetailsPage(
-                                  data: provider.getLocations[index]),
+                                  data: Provider.of<UploadLocationsProvider>(
+                                          context,
+                                          listen: false)
+                                      .locationsList[index]),
                             ),
                           );
                         },
                         child: HorizontalImage(
-                          user: LocationsProvider.locations[index],
+                          user: Provider.of<UploadLocationsProvider>(context,
+                                  listen: false)
+                              .locationsList[index],
                         ),
                       );
                     },

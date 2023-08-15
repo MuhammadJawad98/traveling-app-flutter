@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/firebase_providers/auth_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
 import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
@@ -185,6 +187,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
   }
 
   void onTabConfirm() {
+    bool samePswd = true;
     String email = emailTfController.text.trim();
     String password = passwordTfController.text.trim();
     String confirmPassword = confirmPasswordTfController.text.trim();
@@ -196,7 +199,12 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
     }
     if (confirmPassword.isEmpty) {
       AppCommonFunctions.showToast(AppString.emptyConfirmPasswordText, context);
-    } else {
+    }
+    if (password != confirmPassword) {
+      AppCommonFunctions.showToast("Password doesnt match", context);
+    } else if (samePswd) {
+      Provider.of<AuthProvider>(context, listen: false)
+          .signUpWithEmailAndPassword(email, password);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => SignInPageScreenWidget()));
     }

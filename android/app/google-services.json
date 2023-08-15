@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762809094615",
+    "project_id": "travel-firebase-fe519",
+    "storage_bucket": "travel-firebase-fe519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762809094615:android:85a6452a1281e59b197b92",
+        "android_client_info": {
+          "package_name": "com.traveling.traveling_app_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762809094615-69pag8n6mtu186vqcopp11m1omcvs8l8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl4yQyr8_ClKY5DiXqp_ndxr9IGKP72UY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762809094615-69pag8n6mtu186vqcopp11m1omcvs8l8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

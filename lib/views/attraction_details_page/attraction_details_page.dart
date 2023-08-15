@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -44,8 +45,8 @@ class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
             child: CustomSizedBox(
               height: GetScreenSize.getScreenWidth(context) * 2.5,
               width: MediaQuery.of(context).size.width,
-              child: Image.network(
-                widget.data.image,
+              child: CachedNetworkImage(
+                imageUrl: widget.data.image,
                 fit: BoxFit.cover,
               ),
             ),

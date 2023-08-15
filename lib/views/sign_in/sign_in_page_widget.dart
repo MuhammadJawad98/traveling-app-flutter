@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/firebase_providers/auth_provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
+import 'package:traveling_app_flutter/views/upload_screen/upload_screen.dart';
 
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -12,7 +14,6 @@ import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
-import '../personal_center/profile_page_widget.dart';
 
 class SignInPageScreenWidget extends StatefulWidget {
   const SignInPageScreenWidget({super.key});
@@ -23,9 +24,11 @@ class SignInPageScreenWidget extends StatefulWidget {
 
 class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController pswdController = TextEditingController();
   @override
   void initState() {
-    Provider.of<SignInProvider>(context, listen: false).cheeckVaidEmail(emailController);
+    Provider.of<SignInProvider>(context, listen: false)
+        .cheeckVaidEmail(emailController);
     super.initState();
   }
 
@@ -65,7 +68,12 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: CustomText(text: AppString.loginText, color: Colors.black, size: 30, maxline: 1, fontWeight: FontWeight.w600),
+                  child: CustomText(
+                      text: AppString.loginText,
+                      color: Colors.black,
+                      size: 30,
+                      maxline: 1,
+                      fontWeight: FontWeight.w600),
                 ),
                 CustomSizedBox(
                   height: width1 * 0.04,
@@ -75,7 +83,20 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                   hint: AppString.hintEmailText,
                   raduis: 36,
                   erroText: AppString.invalidEmail,
-                  isValid: Provider.of<SignInProvider>(context, listen: true).isValidEmail,
+                  isValid: Provider.of<SignInProvider>(context, listen: true)
+                      .isValidEmail,
+                  prefixIcon: Image.asset(AppAssets.message),
+                ),
+                CustomSizedBox(
+                  height: width1 * 0.05,
+                ),
+                CustomTextField(
+                  controller: pswdController,
+                  hint: 'Password',
+                  raduis: 36,
+                  erroText: AppString.invalidPasswordHint,
+                  isValid: Provider.of<SignInProvider>(context, listen: true)
+                      .isValidEmail,
                   prefixIcon: Image.asset(AppAssets.message),
                 ),
                 CustomSizedBox(
@@ -89,7 +110,12 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                         color: AppColors.dividerColor,
                       ),
                     ),
-                    CustomText(text: AppString.dividerText, color: Colors.black, size: GetScreenSize.getScreenWidth(context) * 0.04, maxline: 1, fontWeight: FontWeight.w400),
+                    CustomText(
+                        text: AppString.dividerText,
+                        color: Colors.black,
+                        size: GetScreenSize.getScreenWidth(context) * 0.04,
+                        maxline: 1,
+                        fontWeight: FontWeight.w400),
                     const Expanded(
                       child: Divider(
                         thickness: 2,
@@ -150,10 +176,14 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
 
   void onTabContinue() {
     String email = emailController.text.trim();
+    String password = pswdController.text.trim();
     if (email.isEmpty) {
       AppCommonFunctions.showToast("Email Can't be Empty", context);
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePageScreenWidget()));
+      Provider.of<AuthProvider>(context, listen: false)
+          .signIn(email, password, context);
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const UploadScreen()));
     }
   }
 }
