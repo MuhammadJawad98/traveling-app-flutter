@@ -95,7 +95,7 @@ class _TransportationArrangementScreenState
                 SizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.3,
                   width: double.maxFinite,
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       PriceTile(
