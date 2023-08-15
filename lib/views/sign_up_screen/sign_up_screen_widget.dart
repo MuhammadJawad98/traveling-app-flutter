@@ -161,7 +161,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                               ]),
                         )
                       ]),
-                      Expanded(child: CustomSizedBox()),
+                      const Expanded(child: CustomSizedBox()),
                       Align(
                           alignment: Alignment.bottomCenter,
                           child: CustomTextButton(
