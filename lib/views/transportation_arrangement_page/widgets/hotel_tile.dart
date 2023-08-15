@@ -9,16 +9,12 @@ class HotelTile extends StatelessWidget {
   final BuildContext context;
   final String name;
   final int starCount;
-  const HotelTile(
-      {super.key,
-      required this.context,
-      required this.name,
-      required this.starCount});
+  const HotelTile({super.key, required this.context, required this.name, required this.starCount});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: GetScreenSize.getScreenHeight(context) * 0.25,
+      height: GetScreenSize.getScreenWidth(context) * 0.25,
       width: double.maxFinite,
       decoration: ShapeDecoration(
         image: DecorationImage(
