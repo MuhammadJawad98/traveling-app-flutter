@@ -23,13 +23,13 @@ class AttractionDetailsPage extends StatefulWidget {
 class _AttractionDetailsPageState extends State<AttractionDetailsPage> {
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      final bottomsheetProvider =
-          Provider.of<BottomSheetStateProvider>(context, listen: false);
-      bottomsheetProvider.initialValue(context);
-    });
     super.initState();
-    //
+
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      final bottomSheetProvider =
+          Provider.of<BottomSheetStateProvider>(context, listen: false);
+      bottomSheetProvider.initialValue(context);
+    });
   }
 
   @override
