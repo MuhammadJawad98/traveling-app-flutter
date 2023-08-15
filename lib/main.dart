@@ -13,6 +13,7 @@ import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:device_preview/device_preview.dart'; // Import device_preview package
 import 'providers/provider_makeplan_page.dart';
 import 'views/onboarding_page/splash_screen.dart';
+import 'views/travel_arrangement/travel_arrangement_screen.dart';
 
 void main(List<String> args) {
   runApp(

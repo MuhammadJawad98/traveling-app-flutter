@@ -43,12 +43,12 @@ class Day2View extends StatelessWidget {
               ),
             ),
             CustomTextButton(
-                height: 50,
+                height: GetScreenSize.getScreenWidth(context) * 0.14,
                 width: double.maxFinite,
                 onTab: () {
                   showDialog(
                     context: context,
-                    builder: (context) => AddTaskDialog(day: 2),
+                    builder: (context) => AddTaskDialog(day: 1),
                   );
                 },
                 buttonText: 'Add Activity',
@@ -56,14 +56,14 @@ class Day2View extends StatelessWidget {
                 radius: 30,
                 fontSize: 16)
           ]),
-          CustomTextButton(
-              height: 50,
-              width: double.maxFinite,
-              onTab: () {},
-              buttonText: 'Next step',
-              buttonColor: Colors.blue,
-              radius: 30,
-              fontSize: 16)
+          // CustomTextButton(
+          //     height: 50,
+          //     width: double.maxFinite,
+          //     onTab: () {},
+          //     buttonText: 'Next step',
+          //     buttonColor: Colors.blue,
+          //     radius: 30,
+          //     fontSize: 16)
         ],
       ),
     );
