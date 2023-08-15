@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:traveling_app_flutter/views/friend_communication_page/friend_communication_page.dart';
+import 'package:traveling_app_flutter/views/transportation_arrangement_page/transportationScreen.dart';
+import 'package:traveling_app_flutter/views/travel_arrangement/travel_arrangement_screen.dart';
 
 import '../views/front_page/front_page.dart';
 
@@ -59,9 +61,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       case 0:
         return const FrontPage();
       case 1:
-        return const FrontPage();
+        return const TravelArrangementScreen();
       case 2:
-        return const FrontPage();
+        return const TransportationArrangementScreen();
       case 3:
         return const FriendCommunicatioPage();
       default:

@@ -5,11 +5,15 @@ class LocationsModel {
   final String description;
   final String numberReviews;
   final String rating;
+  final String time;
+  final String wetherEmojy;
   LocationsModel(
-      {required this.namelocation,
-      required this.price,
-      required this.image,
-      required this.description,
-      required this.numberReviews,
-      required this.rating});
+      {this.time = "",
+      this.wetherEmojy = "",
+      this.namelocation = "",
+      this.price = "",
+      this.image = "",
+      this.description = "",
+      this.numberReviews = "",
+      this.rating = ""});
 }

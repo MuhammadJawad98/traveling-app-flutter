@@ -17,7 +17,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: GetScreenSize.getScreenWidth(context) * 0.6,
-      height: GetScreenSize.getScreenHeight(context) * 0.075,
+      height: GetScreenSize.getScreenHeight(context) * 0.13,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: const BorderSide(
@@ -42,10 +42,10 @@ class TaskTile extends StatelessWidget {
             padding: const EdgeInsets.only(right: 12),
             child: CircleAvatar(
               backgroundColor: Colors.grey.shade400,
-              radius: 18,
+              radius: 16,
               child: Text(
                 emoji,
-                style: const TextStyle(fontSize: 22),
+                style: const TextStyle(fontSize: 19),
                 textAlign: TextAlign.center,
               ),
             ),

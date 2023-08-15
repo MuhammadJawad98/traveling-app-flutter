@@ -1,9 +1,12 @@
-// ignore_for_file: constant_identifier_names
+import '../models/locations_model.dart';
+
 class AppString {
   // Smaple String
   static const String hello = "Hello";
   /*  kindly write data in your own Sections
+  
       Don't Write the Data in other Person Section  */
+
   //--------------------Talha Saeed -----------------------------------
   static String fCPtitle = " Your Patner";
   static String fCPprofiletitle = "Alanlove";
@@ -15,12 +18,7 @@ class AppString {
       "Here you can post your travel blog and \n promote your travel videos";
   static String yoursociallinkbottomtext =
       "Add to see if your social links are correct";
-  static String attractionBSpricing = "Pricing";
-  static String attractionBSreview = "See review";
-  static String attractionBSbuttontext = "Plan trip";
-  static String attractionDSreview = "See review";
-  static String attractionDSbuttonplan = "Enter the Plan ";
-  static String attractionDSbuttonview = "View Other";
+
   //--------------------Muhammad Tahir -----------------------------------
   static String btnContinue = "Continue";
   static String btnChange = "Change";
@@ -28,32 +26,56 @@ class AppString {
   static String btnApple = "Continue with Apple";
   static String btnFacebook = "Continue with Facebook";
   static String dividerText = "Or Continue With ";
+
   static String emptyEmailText = "Email Can't be Empty ";
   static String emptyPasswordText = "Password Can't be Empty";
   static String emptyConfirmPasswordText = "Confirm Password Can't be Empty ";
+
   static String emailText = "E-mail address";
   static String invalidEmail = "Invalid E-mail address";
   static String loginText = "Sign in";
   static String hintEmailText = "Enter e-mail address";
   static String passwordText = "Password";
+
   static String enterPasswordText = "Enter Password";
   static String hintPasswordText = "Create a password";
   static String confirmPasswordText = "Confirm Password";
   static String hintConfirmPasswordText = "Repeat password";
   static String invalidPasswordHint =
-      "Password must include uppercase, lowercase, \n  digit, special character, and be at least 8 characters long";
+      "Password must include uppercase, lowercase,  digit, special character, and be at least 8 characters long";
+
   static String authenticateText = "Authenticate";
   static String authenticateHintText = "Authenticate";
   static String title = "Alan Love";
   static String signUpfreeText = "Sign up free";
   static String termsOfServicesPart1 = "I have read the ";
   static String termsOfServicesPart2 = "Terms of Service";
+
+  static String goodMoringText = "Good Morning";
+  static String helloText = "Hello";
+  static String scheduleText = "Schedule";
+  static String lightingEmojy = "\u{26A1}";
+  static String sunnyRainEmojy = "\u{1F326}";
+  static String CloudEmojy = "\u{2601}";
+
+  static String location1 = "Maldives";
+  static String location1Time = "12:30";
+  static String location1Subtitle = "Save the turtles";
+  static String location2 = "Golden beach";
+  static String location2Time = "14:30";
+  static String location2Subtitle = "Surfing on the sea";
+  static String location3 = "Coconut grove";
+  static String location3Time = "17:30";
+  static String location3Subtitle = "BBQ party by the sea";
+
+  static String sunnyEmojy = "\u{2600}";
+
   //--------------------Abubaker Saeed -----------------------------------
   static const String searchBarIcon = 'assets/icons/searchbar_icon.png';
   static const String findTripText = 'Find your next trip';
   static const String nordicscenery = 'Nordic scenery';
   static const String popularLocations = 'Popular locations';
-  //-------------------- Bhi Usman  -----------------------------------
+  //-------------------- Bhai Usman  -----------------------------------
   //transportation screen strings
   static const String nordinCottage = 'Nordic Cottage';
   static const String hotel = 'Hotel';
@@ -65,11 +87,14 @@ class AppString {
   static const String time = '21.03 6:00 AM';
   static const String chineseFlag = '\u{1F1E8}\u{1F1F3}';
   static const String UkFlag = "\u{1F1EC}\u{1F1E7}";
+
   static const String hotelPrice = '\$886';
+
   static const String flightsPrice = '\$500';
   static const String totalPrice = '\$1386';
   static const String determinePlan = 'Determine the Plan';
   static const String hotelNights = 'Hotel (5nights)';
+
   static const String total = "Total";
   //travel arrangement screen strings
   static const String addIti = 'Add itinerary';
@@ -80,6 +105,42 @@ class AppString {
   static const String date1 = 'July 14';
   static const String date2 = 'July 15';
   static const String date3 = 'July 16';
+
+//Weather Screen
+
+  static const String island = 'Island';
+  static const String beach = 'Beach';
+  static const String resort = 'Resort';
+  static const String viewSpecificItinerary = 'View specific itinerary';
+  static const String itineraryForm = 'Itinerary Form';
+  static List<LocationsModel> locationsList = [
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location3,
+        description: AppString.location3Subtitle,
+        wetherEmojy: AppString.CloudEmojy,
+        time: AppString.location3Time),
+    LocationsModel(
+        namelocation: AppString.location2,
+        description: AppString.location2Subtitle,
+        wetherEmojy: AppString.sunnyRainEmojy,
+        time: AppString.location2Time),
+    LocationsModel(
+        namelocation: AppString.location1,
+        description: AppString.location1Subtitle,
+        wetherEmojy: AppString.sunnyEmojy,
+        time: AppString.location2Time),
+  ];
+
   //-------------------- Zainab Nauman  -----------------------------------
   ///////////////////page2/////////////////////////
   static String heading2 = "Make your own private travel plan";
@@ -92,11 +153,12 @@ class AppString {
   static String heading4 = "High-end leisure projects to choose from";
   static String description4 =
       "The world's first-class modern leisure and entertainment method";
+//////////////////New Plan Page//////////////////////////////
   static String headingNewPlan = "New Plan";
   static String placeNewPlan = "Nordic Cottage";
   static String selectdatesNewPlan = "Select Dates";
   static String tfNewPlan = "Query Journey";
   static String sendNewPlan = "Send to your email";
   static String nextstepNewPlan = 'Next Step';
-  //static String poppins = "Poppins";
+  static String poppins = "Poppins";
 }
