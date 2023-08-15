@@ -1,10 +1,14 @@
+// ignore_for_file: prefer_const_declarations, prefer_final_fields, library_private_types_in_public_api, use_key_in_widget_constructors
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/providers/day_task_providers/map_page_provider.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
+import 'package:traveling_app_flutter/views/itinerary_page/itinerary_screen_widget.dart';
 import 'package:traveling_app_flutter/views/map_page/customcard_widget.dart';
 import 'package:traveling_app_flutter/widgets/custom_icon_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_sized_box.dart';
@@ -20,40 +24,24 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  //GoogleMapController? _controller;
-  //late LatLng _initialCameraPosition = const LatLng(37.7749, -122.4194);
-
   @override
   void initState() {
     super.initState();
-    // Use a short delay to ensure the initial build is complete
     Future.delayed(const Duration(milliseconds: 10), () {
       final locationsProvider =
           Provider.of<LocationsProvider>(context, listen: false);
       locationsProvider.createArray();
     });
-    _marker.addAll(_list);
+    final markersProvider =
+        Provider.of<MapPageProvider>(context, listen: false);
+    markersProvider.addMarkers();
   }
 
   Completer<GoogleMapController> _controller = Completer();
-  // ignore: prefer_const_declarations
+
   static final CameraPosition _kGoogleFlex =
       const CameraPosition(target: LatLng(37.42, -122.08), zoom: 14);
 
-  List<Marker> _marker = [];
-  final List<Marker> _list = [
-    Marker(
-      markerId: const MarkerId('1'),
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure),
-      position: const LatLng(37.42, -122.08),
-      infoWindow: const InfoWindow(title: 'My Current Location'),
-    ),
-    const Marker(
-      markerId: MarkerId('2'),
-      position: LatLng(37.42, -121.08),
-      infoWindow: InfoWindow(title: 'My Home Location'),
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     LocationsProvider provider = context.watch<LocationsProvider>();
@@ -69,20 +57,12 @@ class _MapScreenState extends State<MapScreen> {
               initialCameraPosition: _kGoogleFlex,
               mapType: MapType.normal,
               myLocationEnabled: true,
-              markers: Set<Marker>.of(_marker),
+              markers:
+                  Set<Marker>.of(context.watch<MapPageProvider>().markersList),
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },
             ),
-            // GoogleMap(
-            //   initialCameraPosition: CameraPosition(
-            //     target: _initialCameraPosition,
-            //     zoom: 14,
-            //   ),
-            //   onMapCreated: (controller) {
-            //     _controller = controller;
-            //   },
-            // ),
             Positioned(
               top: GetScreenSize.getScreenWidth(context) * 0.13,
               child: Row(
@@ -118,10 +98,15 @@ class _MapScreenState extends State<MapScreen> {
                   CustomSizedBox(
                     width: GetScreenSize.getScreenWidth(context) * 0.05,
                   ),
-                  SearchBarBlueIcon(
-                    height: GetScreenSize.getScreenWidth(context) * 0.12,
-                    width: GetScreenSize.getScreenWidth(context) * 0.12,
-                    radius: GetScreenSize.getScreenHeight(context) * 0.5,
+                  GestureDetector(
+                    onTap: () async {
+                      context.read<MapPageProvider>().addMarkers1(_controller);
+                    },
+                    child: SearchBarBlueIcon(
+                      height: GetScreenSize.getScreenWidth(context) * 0.12,
+                      width: GetScreenSize.getScreenWidth(context) * 0.12,
+                      radius: GetScreenSize.getScreenHeight(context) * 0.5,
+                    ),
                   ),
                 ],
               ),
@@ -153,7 +138,16 @@ class _MapScreenState extends State<MapScreen> {
                     physics: const ClampingScrollPhysics(),
                     itemCount: provider.getLocations.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return CustomCard(user: provider.getLocations[index]);
+                      return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        ItineraryScreenWidget()));
+                          },
+                          child:
+                              CustomCard(user: provider.getLocations[index]));
                     },
                   ),
                 ),
