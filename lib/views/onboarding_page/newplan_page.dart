@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:traveling_app_flutter/models/eventsmodal.dart';
 import 'package:traveling_app_flutter/utils/app_assets.dart';
 import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/media_query.dart';
@@ -64,7 +63,7 @@ class _NewPlanState extends State<NewPlan> {
                 child: Text(
                   AppString.headingNewPlan,
                   style: TextStyle(
-                      fontFamily: AppString.poppins,
+                      // fontFamily: AppString.poppins,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
                       color: Colors.black,
@@ -80,10 +79,7 @@ class _NewPlanState extends State<NewPlan> {
                   child: Stack(children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(AppAssets.imagepage5,
-                          width: width,
-                          height: width * 0.3,
-                          fit: BoxFit.fitHeight),
+                      child: Image.asset(AppAssets.imagepage5, width: width, height: width * 0.3, fit: BoxFit.fitHeight),
                     ),
                     Positioned(
                         top: width * 0.12,
@@ -91,7 +87,7 @@ class _NewPlanState extends State<NewPlan> {
                         child: Text(
                           AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: AppString.poppins,
+                              //  fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -103,7 +99,7 @@ class _NewPlanState extends State<NewPlan> {
                         child: Text(
                           AppString.placeNewPlan,
                           style: TextStyle(
-                              fontFamily: AppString.poppins,
+                              //  fontFamily: AppString.poppins,
                               fontWeight: FontWeight.normal,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -118,7 +114,7 @@ class _NewPlanState extends State<NewPlan> {
               Text(
                 AppString.selectdatesNewPlan,
                 style: TextStyle(
-                    fontFamily: AppString.poppins,
+                    // fontFamily: AppString.poppins,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.normal,
                     color: Colors.black,
@@ -153,7 +149,7 @@ class _NewPlanState extends State<NewPlan> {
                     child: Text(
                       AppString.sendNewPlan,
                       style: TextStyle(
-                          fontFamily: AppString.poppins,
+                          //   fontFamily: AppString.poppins,
                           fontWeight: FontWeight.normal,
                           fontStyle: FontStyle.normal,
                           color: Colors.black,
@@ -191,9 +187,12 @@ class _NewPlanState extends State<NewPlan> {
           Positioned(
             top: width * 0.1,
             left: width * 0.01,
-            child: Icon(
-              Icons.arrow_back_sharp,
-              size: width * 0.08,
+            child: InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Icon(
+                Icons.arrow_back_sharp,
+                size: width * 0.08,
+              ),
             ),
           )
         ]),
@@ -210,7 +209,7 @@ class _NewPlanState extends State<NewPlan> {
         Text(
           AppString.selectdatesNewPlan,
           style: TextStyle(
-              fontFamily: AppString.poppins,
+              //  fontFamily: AppString.poppins,
               fontWeight: FontWeight.bold,
               fontStyle: FontStyle.normal,
               color: Colors.black,
@@ -232,14 +231,9 @@ class _NewPlanState extends State<NewPlan> {
           lastDay: DateTime.utc(2030, 10, 30),
           //onDaySelected: ondayselected,
           //eventLoader: _getEventsForDay,
-          daysOfWeekStyle: DaysOfWeekStyle(
-              weekdayStyle: TextStyle(color: Colors.grey.shade500),
-              weekendStyle: TextStyle(color: Colors.grey.shade500)),
+          daysOfWeekStyle: DaysOfWeekStyle(weekdayStyle: TextStyle(color: Colors.grey.shade500), weekendStyle: TextStyle(color: Colors.grey.shade500)),
           calendarStyle: CalendarStyle(
-              selectedDecoration: BoxDecoration(
-                  color: Colors.blue.shade600, shape: BoxShape.circle),
-              todayDecoration: const BoxDecoration(
-                  color: AppColors.blueButton, shape: BoxShape.circle)),
+              selectedDecoration: BoxDecoration(color: Colors.blue.shade600, shape: BoxShape.circle), todayDecoration: const BoxDecoration(color: AppColors.blueButton, shape: BoxShape.circle)),
         ),
         SizedBox(
           height: width * 0.1,

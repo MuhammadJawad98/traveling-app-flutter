@@ -75,7 +75,13 @@ class AppString {
   static const String findTripText = 'Find your next trip';
   static const String nordicscenery = 'Nordic scenery';
   static const String popularLocations = 'Popular locations';
-  //-------------------- Bhi Usman  -----------------------------------
+  static String attractionBSpricing = "Pricing";
+  static String attractionBSreview = "See review";
+  static String attractionBSbuttontext = "Plan trip";
+  static String attractionDSreview = "See review";
+  static String attractionDSbuttonplan = "Enter the Plan ";
+  static String attractionDSbuttonview = "View Other";
+  //-------------------- Bhai Usman  -----------------------------------
   //transportation screen strings
   static const String nordinCottage = 'Nordic Cottage';
   static const String hotel = 'Hotel';

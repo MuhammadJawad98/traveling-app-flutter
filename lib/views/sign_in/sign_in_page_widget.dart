@@ -15,7 +15,7 @@ import '../../widgets/custom_text_field.dart';
 import '../personal_center/profile_page_widget.dart';
 
 class SignInPageScreenWidget extends StatefulWidget {
-  SignInPageScreenWidget({super.key});
+  const SignInPageScreenWidget({super.key});
 
   @override
   State<SignInPageScreenWidget> createState() => _SignInPageScreenWidgetState();
@@ -25,8 +25,7 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
   final TextEditingController emailController = TextEditingController();
   @override
   void initState() {
-    Provider.of<SignInProvider>(context, listen: false)
-        .cheeckVaidEmail(emailController);
+    Provider.of<SignInProvider>(context, listen: false).cheeckVaidEmail(emailController);
     super.initState();
   }
 
@@ -66,12 +65,7 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: CustomText(
-                      text: AppString.loginText,
-                      color: Colors.black,
-                      size: 30,
-                      maxline: 1,
-                      fontWeight: FontWeight.w600),
+                  child: CustomText(text: AppString.loginText, color: Colors.black, size: 30, maxline: 1, fontWeight: FontWeight.w600),
                 ),
                 CustomSizedBox(
                   height: width1 * 0.04,
@@ -81,8 +75,7 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                   hint: AppString.hintEmailText,
                   raduis: 36,
                   erroText: AppString.invalidEmail,
-                  isValid: Provider.of<SignInProvider>(context, listen: true)
-                      .isValidEmail,
+                  isValid: Provider.of<SignInProvider>(context, listen: true).isValidEmail,
                   prefixIcon: Image.asset(AppAssets.message),
                 ),
                 CustomSizedBox(
@@ -96,12 +89,7 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                         color: AppColors.dividerColor,
                       ),
                     ),
-                    CustomText(
-                        text: AppString.dividerText,
-                        color: Colors.black,
-                        size: GetScreenSize.getScreenWidth(context) * 0.04,
-                        maxline: 1,
-                        fontWeight: FontWeight.w400),
+                    CustomText(text: AppString.dividerText, color: Colors.black, size: GetScreenSize.getScreenWidth(context) * 0.04, maxline: 1, fontWeight: FontWeight.w400),
                     const Expanded(
                       child: Divider(
                         thickness: 2,
@@ -165,8 +153,7 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
     if (email.isEmpty) {
       AppCommonFunctions.showToast("Email Can't be Empty", context);
     } else {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => ProfilePageScreenWidget()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePageScreenWidget()));
     }
   }
 }

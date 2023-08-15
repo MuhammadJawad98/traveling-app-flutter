@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,11 +36,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts:
+  flutter_rating_bar: 
   provider: ^6.0.5
-  flutter_rating_bar: ^4.0.1
+  device_preview: ^1.1.0
+  google_maps_flutter: ^2.3.0
+  dio:
+  flutter_polyline_points:
   table_calendar: ^3.0.9
   timeline_tile: ^2.0.0
-  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +70,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/
+   - assets/icons/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -92,9 +96,5 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  fonts:
-     - family:  Poppins
-       fonts:
-         - asset: assets/googlefonts/Poppins-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

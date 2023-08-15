@@ -33,10 +33,7 @@ class AddTaskDialog extends StatelessWidget {
                 TextFormField(
                   controller: _timeController,
                   maxLength: 5,
-                  decoration: InputDecoration(
-                      labelText: 'Time',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20))),
+                  decoration: InputDecoration(labelText: 'Time', border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
                   keyboardType: TextInputType.datetime,
                   validator: (value) {
                     if (value!.isEmpty) return 'Please enter the time';
@@ -46,10 +43,7 @@ class AddTaskDialog extends StatelessWidget {
                 TextFormField(
                   maxLength: 10,
                   controller: _taskController,
-                  decoration: InputDecoration(
-                      labelText: 'Task',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20))),
+                  decoration: InputDecoration(labelText: 'Task', border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
                   validator: (value) {
                     if (value!.isEmpty) return 'Please enter the task';
                     return null;
@@ -58,10 +52,7 @@ class AddTaskDialog extends StatelessWidget {
                 TextFormField(
                   maxLength: 1,
                   controller: _emojiController,
-                  decoration: InputDecoration(
-                      labelText: 'Emoji',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20))),
+                  decoration: InputDecoration(labelText: 'Emoji', border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value!.isEmpty) return 'Please enter an emoji';
@@ -82,8 +73,7 @@ class AddTaskDialog extends StatelessWidget {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   if (day == 1) {
-                    final taskProvider =
-                        Provider.of<Day1TaskProvider>(context, listen: false);
+                    final taskProvider = Provider.of<Day1TaskProvider>(context, listen: false);
                     final newTask = Task(
                       _timeController.text,
                       _taskController.text,
@@ -92,8 +82,7 @@ class AddTaskDialog extends StatelessWidget {
                     taskProvider.addDay1Task(newTask);
                     Navigator.of(context).pop();
                   } else if (day == 2) {
-                    final taskProvider =
-                        Provider.of<Day2TaskProvider>(context, listen: false);
+                    final taskProvider = Provider.of<Day2TaskProvider>(context, listen: false);
                     final newTask = Task(
                       _timeController.text,
                       _taskController.text,
@@ -102,8 +91,7 @@ class AddTaskDialog extends StatelessWidget {
                     taskProvider.addTask(newTask);
                     Navigator.of(context).pop();
                   } else if (day == 3) {
-                    final taskProvider =
-                        Provider.of<Day3TaskProvider>(context, listen: false);
+                    final taskProvider = Provider.of<Day3TaskProvider>(context, listen: false);
                     final newTask = Task(
                       _timeController.text,
                       _taskController.text,

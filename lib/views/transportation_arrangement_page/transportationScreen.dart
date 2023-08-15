@@ -15,12 +15,10 @@ class TransportationArrangementScreen extends StatefulWidget {
   const TransportationArrangementScreen({super.key});
 
   @override
-  State<TransportationArrangementScreen> createState() =>
-      _TransportationArrangementScreenState();
+  State<TransportationArrangementScreen> createState() => _TransportationArrangementScreenState();
 }
 
-class _TransportationArrangementScreenState
-    extends State<TransportationArrangementScreen> {
+class _TransportationArrangementScreenState extends State<TransportationArrangementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,58 +35,30 @@ class _TransportationArrangementScreenState
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.01,
                 ),
-                const CustomText(
-                    text: AppString.hotel,
-                    color: Colors.black,
-                    size: 16,
-                    maxline: 1,
-                    fontWeight: FontWeight.w600),
+                const CustomText(text: AppString.hotel, color: Colors.black, size: 16, maxline: 1, fontWeight: FontWeight.w600),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.025,
                 ),
-                HotelTile(
-                    context: context,
-                    name: AppString.nordinCottage,
-                    starCount: 5),
+                HotelTile(context: context, name: AppString.nordinCottage, starCount: 5),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.03,
                 ),
-                const CustomText(
-                    text: AppString.flights,
-                    color: Colors.black,
-                    size: 16,
-                    maxline: 1,
-                    fontWeight: FontWeight.w600),
+                const CustomText(text: AppString.flights, color: Colors.black, size: 16, maxline: 1, fontWeight: FontWeight.w600),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    FlightTile(
-                        context: context,
-                        flag: AppString.chineseFlag,
-                        title: AppString.chn,
-                        time: AppString.time,
-                        flightype: AppString.firstClass),
+                    FlightTile(context: context, flag: AppString.chineseFlag, title: AppString.chn, time: AppString.time, flightype: AppString.firstClass),
                     Image.asset(Constants.transportationScreenArrow),
-                    FlightTile(
-                        context: context,
-                        flag: AppString.UkFlag,
-                        title: AppString.uk,
-                        time: AppString.time,
-                        flightype: AppString.firstClass)
+                    FlightTile(context: context, flag: AppString.UkFlag, title: AppString.uk, time: AppString.time, flightype: AppString.firstClass)
                   ],
                 ),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.05,
                 ),
-                const CustomText(
-                    text: AppString.flights,
-                    color: Colors.black,
-                    size: 16,
-                    maxline: 1,
-                    fontWeight: FontWeight.w600),
+                const CustomText(text: AppString.flights, color: Colors.black, size: 16, maxline: 1, fontWeight: FontWeight.w600),
                 CustomSizedBox(
                   height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
@@ -98,14 +68,9 @@ class _TransportationArrangementScreenState
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      PriceTile(
-                          desc: AppString.hotelNights,
-                          price: AppString.hotelPrice),
-                      PriceTile(
-                          desc: AppString.flights,
-                          price: AppString.flightsPrice),
-                      PriceTile(
-                          desc: AppString.total, price: AppString.totalPrice),
+                      PriceTile(desc: AppString.hotelNights, price: AppString.hotelPrice),
+                      PriceTile(desc: AppString.flights, price: AppString.flightsPrice),
+                      PriceTile(desc: AppString.total, price: AppString.totalPrice),
                     ],
                   ),
                 ),
@@ -113,7 +78,7 @@ class _TransportationArrangementScreenState
                   height: GetScreenSize.getScreenHeight(context) * 0.04,
                 ),
                 CustomTextButton(
-                    height: GetScreenSize.getScreenHeight(context) * 0.15,
+                    height: GetScreenSize.getScreenWidth(context) * 0.15,
                     width: double.maxFinite,
                     onTab: () {},
                     buttonText: AppString.determinePlan,

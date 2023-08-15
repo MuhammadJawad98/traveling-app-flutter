@@ -14,6 +14,8 @@ class AppAssets {
   static var socialSharingtitle2 = "assets/images/twitter.png";
   static var socialSharingtitle3 = "assets/images/instagram.png";
   static var socialSharingtitl4 = "assets/images/pinterest.png";
+  static var planimg = "assets/images/Frameplan.png";
+  static var buildingimg = "assets/images/Framebuilding.png";
 
   //--------------------Muhammad Tahir -----------------------------------
   static String applelogo = "assets/images/apple.png";
