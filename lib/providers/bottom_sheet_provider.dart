@@ -23,7 +23,7 @@ class BottomSheetStateProvider extends ChangeNotifier {
       isDismissible: false,
       isScrollControlled: false,
       enableDrag: false,
-      showDragHandle: false,
+      //showDragHandle: false,
       context: context,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),

@@ -10,7 +10,8 @@ class TravelArrangementScreen extends StatefulWidget {
   const TravelArrangementScreen({super.key});
 
   @override
-  State<TravelArrangementScreen> createState() => _TravelArrangementScreenState();
+  State<TravelArrangementScreen> createState() =>
+      _TravelArrangementScreenState();
 }
 
 class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
@@ -31,7 +32,7 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
             AppString.addIti,
             style: TextStyle(color: Colors.black),
           ),
-          bottom: const TabBar(
+          bottom: TabBar(
             indicatorColor: Colors.blue,
             indicatorWeight: 3,
             // indicatorPadding: EdgeInsets.only(top: 10),
@@ -41,20 +42,50 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(text: AppString.day1, color: Colors.black, size: 18, maxline: 1, fontWeight: FontWeight.w500),
-                  CustomText(text: AppString.date1, color: Colors.black45, size: 14, maxline: 1, fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.day1,
+                      color: Colors.black,
+                      size: 18,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.date1,
+                      color: Colors.black45,
+                      size: 14,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
               Column(
                 children: [
-                  CustomText(text: AppString.day2, color: Colors.black, size: 18, maxline: 1, fontWeight: FontWeight.w500),
-                  CustomText(text: AppString.date2, color: Colors.black45, size: 14, maxline: 1, fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.day2,
+                      color: Colors.black,
+                      size: 18,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.date2,
+                      color: Colors.black45,
+                      size: 14,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
               Column(
                 children: [
-                  CustomText(text: AppString.day3, color: Colors.black, size: 18, maxline: 1, fontWeight: FontWeight.w500),
-                  CustomText(text: AppString.date3, color: Colors.black45, size: 14, maxline: 1, fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.day3,
+                      color: Colors.black,
+                      size: 18,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
+                  CustomText(
+                      text: AppString.date3,
+                      color: Colors.black45,
+                      size: 14,
+                      maxline: 1,
+                      fontWeight: FontWeight.w500),
                 ],
               ),
             ],
@@ -77,7 +108,15 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
                             return Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [TimeTile(context: context, time: AppString.timeShort), TaskTile(context: context, task: 'Wakeup', emoji: AppString.UkFlag)],
+                              children: [
+                                TimeTile(
+                                    context: context,
+                                    time: AppString.timeShort),
+                                TaskTile(
+                                    context: context,
+                                    task: 'Wakeup',
+                                    emoji: AppString.UkFlag)
+                              ],
                             );
                           },
                         ),
@@ -86,9 +125,23 @@ class _TravelArrangementScreenState extends State<TravelArrangementScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomTextButton(height: 50, width: double.maxFinite, onTab: () {}, buttonText: 'Add Activity', buttonColor: Colors.blue.shade100, radius: 30, fontSize: 16)
+                    CustomTextButton(
+                        height: 50,
+                        width: double.maxFinite,
+                        onTab: () {},
+                        buttonText: 'Add Activity',
+                        buttonColor: Colors.blue.shade100,
+                        radius: 30,
+                        fontSize: 16)
                   ]),
-                  CustomTextButton(height: 50, width: double.maxFinite, onTab: () {}, buttonText: 'Next step', buttonColor: Colors.blue, radius: 30, fontSize: 16)
+                  CustomTextButton(
+                      height: 50,
+                      width: double.maxFinite,
+                      onTab: () {},
+                      buttonText: 'Next step',
+                      buttonColor: Colors.blue,
+                      radius: 30,
+                      fontSize: 16)
                 ],
               ),
             ),
