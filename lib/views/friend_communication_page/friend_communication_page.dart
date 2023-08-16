@@ -5,6 +5,7 @@ import 'package:traveling_app_flutter/utils/app_colors.dart';
 import 'package:traveling_app_flutter/utils/app_strings.dart';
 import 'package:traveling_app_flutter/views/friend_communication_page/widgets/fC_tile_desgin.dart';
 import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
+import 'package:traveling_app_flutter/views/sign_up_screen/sign_up_screen_widget.dart';
 import 'package:traveling_app_flutter/views/yourSocialLink/your_social_link.dart';
 import 'package:traveling_app_flutter/widgets/custom_button.dart';
 import 'package:traveling_app_flutter/widgets/custom_text.dart';
@@ -74,7 +75,7 @@ class _FriendCommunicatioPageState extends State<FriendCommunicatioPage> {
             onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SignInPageScreenWidget(),
+                  builder: (context) => const SignUpScreenWidget(),
                 )),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Icon(Icons.logout,

@@ -1,13 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
+import 'package:traveling_app_flutter/views/front_page/front_page.dart';
 import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/sign_up_screen/widgets/custom_rich_text.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_strings.dart';
 import '../../utils/media_query.dart';
+import '../../widgets/bottom_navigationbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_sized_box.dart';
@@ -24,8 +28,8 @@ class SignUpScreenWidget extends StatefulWidget {
 class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
   final TextEditingController emailTfController = TextEditingController();
   final TextEditingController passwordTfController = TextEditingController();
-
   final TextEditingController confirmPasswordTfController = TextEditingController();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -145,19 +149,38 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
   }
 
   void onTabConfirm() {
-    String email = emailTfController.text.trim();
-    String password = passwordTfController.text.trim();
-    String confirmPassword = confirmPasswordTfController.text.trim();
-    if (email.isEmpty) {
-      AppCommonFunctions.showToast(AppString.emptyEmailText, context);
-    }
-    if (password.isEmpty) {
-      AppCommonFunctions.showToast(AppString.emptyPasswordText, context);
-    }
-    if (confirmPassword.isEmpty) {
-      AppCommonFunctions.showToast(AppString.emptyConfirmPasswordText, context);
+    var email = emailTfController.text.trim();
+    var password = passwordTfController.text.trim();
+    var signupemail = Provider.of<SignUpProvider>(context, listen: false).isValidEmail;
+    var signuppassword = Provider.of<SignUpProvider>(context, listen: false).isValidPassword;
+    var signuppasscnfrm = confirmPasswordTfController.text.trim();
+    if (signupemail == false) {
+      AppCommonFunctions.showToast("Enter correct email", context);
+    } else if (signuppassword == false) {
+      AppCommonFunctions.showToast("Enter correct pass", context);
+    } else if (signuppasscnfrm.isEmpty || passwordTfController.text != signuppasscnfrm) {
+      AppCommonFunctions.showToast("Pass doesnot match", context);
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPageScreenWidget()));
+      FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.toString(), password: password.toString()).then(
+        (value) {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (context) => MyBottomNavigationBar(
+                        userid: FirebaseAuth.instance.currentUser!.uid,
+                      )),
+              (Route<dynamic> route) => false);
+          _firestore.collection("SignUp").doc(FirebaseAuth.instance.currentUser!.uid).set({
+            'cnfrm': signuppasscnfrm,
+            'email': email,
+            'password': password,
+          });
+        },
+      ).onError(
+        (error, stackTrace) {
+          // Provider.of<DataProvider>(context, listen: false).showSnackbar(context, "Account Registor");
+        },
+      );
     }
+    // Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPageScreenWidget()));
   }
 }

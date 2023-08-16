@@ -6,7 +6,7 @@ import 'package:traveling_app_flutter/views/travel_arrangement/travel_arrangemen
 import '../views/front_page/front_page.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+  const MyBottomNavigationBar({super.key, String userid = ''});
 
   @override
   State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
@@ -59,7 +59,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const FrontPage();
+        return FrontPage();
       case 1:
         return const TravelArrangementScreen();
       case 2:

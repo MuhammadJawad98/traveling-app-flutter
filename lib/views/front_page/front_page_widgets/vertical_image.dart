@@ -37,11 +37,7 @@ class _VerticalImageState extends State<VerticalImage> {
           ),
           Padding(
             // Add padding to the right side
-            padding: EdgeInsets.fromLTRB(
-                GetScreenSize.getScreenWidth(context) * 0.05,
-                GetScreenSize.getScreenWidth(context) * 0.25,
-                0,
-                0),
+            padding: EdgeInsets.fromLTRB(GetScreenSize.getScreenWidth(context) * 0.05, GetScreenSize.getScreenWidth(context) * 0.25, 0, 0),
             child: CustomText(
               text: widget.user.namelocation,
               color: AppColors.textOnImagesColor,
@@ -52,11 +48,7 @@ class _VerticalImageState extends State<VerticalImage> {
           ),
           Padding(
             // Add padding to the right side
-            padding: EdgeInsets.fromLTRB(
-                GetScreenSize.getScreenWidth(context) * 0.05,
-                GetScreenSize.getScreenWidth(context) * 0.33,
-                0,
-                0),
+            padding: EdgeInsets.fromLTRB(GetScreenSize.getScreenWidth(context) * 0.05, GetScreenSize.getScreenWidth(context) * 0.33, 0, 0),
             child: CustomText(
               text: widget.user.price,
               color: AppColors.textOnImagesColor,

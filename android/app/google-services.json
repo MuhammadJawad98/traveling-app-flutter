@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "756002918244",
+    "project_id": "travaling-1a1ab",
+    "storage_bucket": "travaling-1a1ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756002918244:android:d33eb126a0ff79bd523471",
+        "android_client_info": {
+          "package_name": "com.traveling.traveling_app_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756002918244-82dfq4pulq6vf4ohas4cusuct1imm45u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClASe7rC6UEuiwzbe2de8qnL12fDYTtdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756002918244-82dfq4pulq6vf4ohas4cusuct1imm45u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "756002918244-39prkbbbo77r7l5ecsjajlifjv68ad3a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.traveling.travelingAppFlutter.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,8 +22,7 @@ class ItineraryScreenWidget extends StatefulWidget {
 }
 
 class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
-  final Person person = Person(
-      name: "Alanlove", profession: "Developer", image: AppAssets.prfileAvatar);
+  final Person person = Person(name: "Alanlove", profession: "Developer", image: AppAssets.prfileAvatar);
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +43,7 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
           ),
           CustomSizedBox(height: GetScreenSize.getScreenWidth(context) * 0.04),
           Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.05),
-              child: CustomText(
-                  text: "Maldives Island",
-                  color: Colors.black,
-                  size: screenWidth * 0.04,
-                  maxline: 1,
-                  fontWeight: FontWeight.w500)),
+              padding: EdgeInsets.only(left: screenWidth * 0.05), child: CustomText(text: "Maldives Island", color: Colors.black, size: screenWidth * 0.04, maxline: 1, fontWeight: FontWeight.w500)),
           CustomSizedBox(height: GetScreenSize.getScreenWidth(context) * 0.02),
           LocationDetailsViewWidget(),
           CustomSizedBox(height: GetScreenSize.getScreenWidth(context) * 0.05),
@@ -59,8 +52,7 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
             //height: double.infinity,
             child: Padding(
               padding: EdgeInsets.all(screenWidth * 0.04),
-              child: Consumer<ItineraryProvider>(
-                  builder: (context, provier, child) {
+              child: Consumer<ItineraryProvider>(builder: (context, provier, child) {
                 return ListView.builder(
                     shrinkWrap: true,
                     itemCount: 5,
@@ -76,11 +68,7 @@ class _ItineraryScreenWidgetState extends State<ItineraryScreenWidget> {
                       if (index == provier.locations.length - 1) {
                         isLast = true;
                       }
-                      return CustomTimelineTile(
-                          isFirst: isFirst,
-                          isLast: isLast,
-                          isPast: isPast,
-                          location: provier.locations[index]);
+                      return CustomTimelineTile(isFirst: isFirst, isLast: isLast, isPast: isPast, location: provier.locations[index]);
                     });
               }),
             ),
