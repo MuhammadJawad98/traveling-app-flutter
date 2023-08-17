@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
-import 'package:traveling_app_flutter/views/front_page/front_page.dart';
-import 'package:traveling_app_flutter/views/sign_in/sign_in_page_widget.dart';
 import 'package:traveling_app_flutter/views/sign_up_screen/widgets/custom_rich_text.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -177,7 +175,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
         },
       ).onError(
         (error, stackTrace) {
-          // Provider.of<DataProvider>(context, listen: false).showSnackbar(context, "Account Registor");
+          AppCommonFunctions.showToast(error.toString(), context);
         },
       );
     }

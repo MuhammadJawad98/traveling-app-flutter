@@ -27,82 +27,71 @@ class _WeatherQueryPageState extends State<WeatherQueryPage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: GetScreenSize.getScreenWidth(context) * 0.065,
-              vertical: GetScreenSize.getScreenWidth(context) * 0.02),
-          child: CustomTextButton(
-              height: 50,
-              width: double.maxFinite,
-              onTab: () {},
-              buttonText: AppString.viewSpecificItinerary,
-              buttonColor: Colors.blue,
-              radius: 30,
-              fontSize: 16),
-        ),
-
-        backgroundColor: AppColors.containerColor,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      const MyWeatherAppBar(title: AppString.itineraryForm),
-                      GroupButton(
-                        labels: const [
-                          AppString.island,
-                          AppString.beach,
-                          AppString.resort
-                        ],
-                        onPressed: (index) {},
-                      ),
-                      CustomSizedBox(
-                        height: GetScreenSize.getScreenWidth(context) * 0.02,
-                      ),
-                      const TabBar(
-                        indicatorColor: Colors.blue,
-                        indicatorWeight: 3,
-                        tabs: [
-                          DayTab(
-                              title1: AppString.day1, title2: AppString.date1),
-                          DayTab(
-                              title1: AppString.day2, title2: AppString.date2),
-                          DayTab(
-                              title1: AppString.day3, title2: AppString.date3),
-                        ],
-                      ),
-                    ],
-                  )),
-              SizedBox(
-                height: GetScreenSize.getScreenWidth(context) * 1.3,
-                child: TabBarView(children: [
-                  timelineView(context),
-                  timelineView(context),
-                  timelineView(context),
-                ]),
-              )
-            ],
+      child: SafeArea(
+        child: Scaffold(
+          bottomNavigationBar: Padding(
+            padding: EdgeInsets.symmetric(horizontal: GetScreenSize.getScreenWidth(context) * 0.065, vertical: GetScreenSize.getScreenWidth(context) * 0.02),
+            child: CustomTextButton(height: 50, width: double.maxFinite, onTab: () {}, buttonText: AppString.viewSpecificItinerary, buttonColor: Colors.blue, radius: 30, fontSize: 16),
           ),
+
+          backgroundColor: AppColors.containerColor,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          const MyWeatherAppBar(title: AppString.itineraryForm),
+                          GroupButton(
+                            labels: const [AppString.island, AppString.beach, AppString.resort],
+                            onPressed: (index) {},
+                          ),
+                          CustomSizedBox(
+                            height: GetScreenSize.getScreenWidth(context) * 0.02,
+                          ),
+                          const TabBar(
+                            indicatorColor: Colors.blue,
+                            indicatorWeight: 3,
+                            tabs: [
+                              DayTab(title1: AppString.day1, title2: AppString.date1),
+                              DayTab(title1: AppString.day2, title2: AppString.date2),
+                              DayTab(title1: AppString.day3, title2: AppString.date3),
+                            ],
+                          ),
+                        ],
+                      )),
+                  SizedBox(
+                    height: GetScreenSize.getScreenWidth(context) * 1.3,
+                    child: TabBarView(children: [
+                      timelineView(context),
+                      timelineView(context),
+                      timelineView(context),
+                    ]),
+                  )
+                ],
+              ),
+            ),
+          ),
+          // floatingActionButton: FloatingActionButton(
+          //   onPressed: () {},
+          //   child: Padding(
+          //     padding: EdgeInsets.symmetric(
+          //         horizontal: GetScreenSize.getScreenWidth(context) * 0.065,
+          //         vertical: GetScreenSize.getScreenWidth(context) * 0.02),
+          //     child: CustomTextButton(
+          //         height: 50,
+          //         width: double.maxFinite,
+          //         onTab: () {},
+          //         buttonText: AppString.viewSpecificItinerary,
+          //         buttonColor: Colors.blue,
+          //         radius: 30,
+          //         fontSize: 16),
+          //   ),
+          // ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {},
-        //   child: Padding(
-        //     padding: EdgeInsets.symmetric(
-        //         horizontal: GetScreenSize.getScreenWidth(context) * 0.065,
-        //         vertical: GetScreenSize.getScreenWidth(context) * 0.02),
-        //     child: CustomTextButton(
-        //         height: 50,
-        //         width: double.maxFinite,
-        //         onTab: () {},
-        //         buttonText: AppString.viewSpecificItinerary,
-        //         buttonColor: Colors.blue,
-        //         radius: 30,
-        //         fontSize: 16),
-        //   ),
-        // ),
       ),
     );
   }
@@ -131,11 +120,7 @@ class _WeatherQueryPageState extends State<WeatherQueryPage> {
                 if (index == provier.locations.length - 1) {
                   isLast = true;
                 }
-                return CustomTimelineTile(
-                    isFirst: isFirst,
-                    isLast: isLast,
-                    isPast: isPast,
-                    location: provier.locations[index]);
+                return CustomTimelineTile(isFirst: isFirst, isLast: isLast, isPast: isPast, location: provier.locations[index]);
               });
         }),
       ),

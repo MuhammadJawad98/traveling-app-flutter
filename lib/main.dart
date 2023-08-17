@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:traveling_app_flutter/dynamic_text_field.dart';
 import 'package:traveling_app_flutter/firebase_options.dart';
 import 'package:traveling_app_flutter/providers/Itinerary_provider.dart';
 import 'package:traveling_app_flutter/providers/bottom_sheet_provider.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
         // builder: DevicePreview.appBuilder, // Enable device preview builder
         debugShowCheckedModeBanner: false,
         theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-        home: SafeArea(child: SplashScreen()),
+        home: SafeArea(child: DynamicListExample()),
       ),
     );
   }

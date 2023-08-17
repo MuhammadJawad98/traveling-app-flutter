@@ -1,18 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:traveling_app_flutter/providers/sign_in_provider.dart';
+import 'package:traveling_app_flutter/providers/sign_up_provider.dart';
 import 'package:traveling_app_flutter/utils/helper_function.dart';
 
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_strings.dart';
 import '../../utils/media_query.dart';
+import '../../widgets/bottom_navigationbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_sized_box.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_field.dart';
-import '../personal_center/profile_page_widget.dart';
 
 class SignInPageScreenWidget extends StatefulWidget {
   const SignInPageScreenWidget({super.key});
@@ -23,6 +25,7 @@ class SignInPageScreenWidget extends StatefulWidget {
 
 class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   void initState() {
     Provider.of<SignInProvider>(context, listen: false).cheeckVaidEmail(emailController);
@@ -75,8 +78,18 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
                   hint: AppString.hintEmailText,
                   raduis: 36,
                   erroText: AppString.invalidEmail,
-                  isValid: Provider.of<SignInProvider>(context, listen: true).isValidEmail,
+                  isValid: Provider.of<SignUpProvider>(context, listen: true).isValidEmail,
                   prefixIcon: Image.asset(AppAssets.message),
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  controller: passwordController,
+                  hint: AppString.hintPasswordText,
+                  raduis: 36,
+                  obsecure: true,
+                  prefixIcon: Image.asset(AppAssets.lock),
+                  erroText: AppString.invalidPasswordHint,
+                  isValid: Provider.of<SignUpProvider>(context, listen: true).isValidPassword,
                 ),
                 CustomSizedBox(
                   height: width1 * 0.05,
@@ -150,10 +163,19 @@ class _SignInPageScreenWidgetState extends State<SignInPageScreenWidget> {
 
   void onTabContinue() {
     String email = emailController.text.trim();
-    if (email.isEmpty) {
-      AppCommonFunctions.showToast("Email Can't be Empty", context);
+    String pass = passwordController.text.trim();
+    var signinemail = Provider.of<SignUpProvider>(context, listen: false).isValidEmail;
+    var signinpassword = Provider.of<SignUpProvider>(context, listen: false).isValidPassword;
+    if (email.isEmpty || signinemail == false) {
+      AppCommonFunctions.showToast("Please use correctEmail", context);
+    } else if (pass.isEmpty || signinpassword == false) {
+      AppCommonFunctions.showToast("Please use correctPass", context);
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePageScreenWidget()));
+      FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email.toString(), password: pass.toString())
+          .then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) => const MyBottomNavigationBar())).onError(
+                (error, stackTrace) => AppCommonFunctions.showToast(error.toString(), context),
+              ));
     }
   }
 }

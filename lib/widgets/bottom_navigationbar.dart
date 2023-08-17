@@ -3,7 +3,9 @@ import 'package:traveling_app_flutter/views/friend_communication_page/friend_com
 import 'package:traveling_app_flutter/views/transportation_arrangement_page/transportationScreen.dart';
 import 'package:traveling_app_flutter/views/travel_arrangement/travel_arrangement_screen.dart';
 
+import '../dynamic_text_field.dart';
 import '../views/front_page/front_page.dart';
+import '../views/weather_query_page/wearther_query_page.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key, String userid = ''});
@@ -61,7 +63,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       case 0:
         return FrontPage();
       case 1:
-        return const TravelArrangementScreen();
+        return DynamicListExample();
       case 2:
         return const TransportationArrangementScreen();
       case 3:
